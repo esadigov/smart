@@ -5,6 +5,8 @@ import AntIcon from 'react-native-vector-icons/AntDesign';
 
 import styles from './styles';
 
+AntIcon.loadFont();
+
 interface ISearchInput {
   value: string;
   onChange: (value: string) => void;

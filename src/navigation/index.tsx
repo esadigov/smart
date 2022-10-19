@@ -6,11 +6,18 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import FeatherIcon from 'react-native-vector-icons/Feather';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
+MaterialCommunityIcons;
 import {AutomationScreen} from '../screens/automation';
 import {DevicesScreen} from '../screens/devices';
 import {HomeScreen} from '../screens/home';
 import {RoomsScreen} from '../screens/rooms';
+
+FeatherIcon.loadFont();
+MaterialIcons.loadFont();
+MaterialCommunityIcons.loadFont();
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -90,7 +97,7 @@ export const BottomNavigation = () => {
             tabBarLabel: 'Home',
             headerShown: false,
             tabBarIcon: ({color, size}) => (
-              <FeatherIcon name="arrow-right" color={color} size={size} />
+              <FeatherIcon name="home" color={color} size={size} />
             ),
           }}
         />
@@ -101,7 +108,7 @@ export const BottomNavigation = () => {
             tabBarLabel: 'Devices',
             headerShown: false,
             tabBarIcon: ({color, size}) => (
-              <FeatherIcon name="arrow-right" color={color} size={size} />
+              <MaterialIcons name="devices" color={color} size={size} />
             ),
           }}
         />
@@ -112,7 +119,7 @@ export const BottomNavigation = () => {
             tabBarLabel: 'Rooms',
             headerShown: false,
             tabBarIcon: ({color, size}) => (
-              <FeatherIcon name="arrow-right" color={color} size={size} />
+              <MaterialCommunityIcons name="door" color={color} size={size} />
             ),
           }}
         />
@@ -123,7 +130,7 @@ export const BottomNavigation = () => {
             tabBarLabel: 'Automation',
             headerShown: false,
             tabBarIcon: ({color, size}) => (
-              <FeatherIcon name="arrow-right" color={color} size={size} />
+              <FeatherIcon name="play" color={color} size={size} />
             ),
           }}
         />

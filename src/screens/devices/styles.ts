@@ -6,6 +6,7 @@ export const FONT_SIZE_SM = 11;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: '#fff',
   },
   header: {
@@ -27,8 +28,14 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   spacing: {
-    paddingHorizontal: 10,
     marginTop: 20,
+  },
+  listContainer: {
+    paddingHorizontal: 10,
+    marginTop: 10,
+  },
+  listItems: {
+    justifyContent: 'space-around',
   },
 });
 
