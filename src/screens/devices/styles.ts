@@ -35,6 +35,9 @@ const styles = StyleSheet.create({
   listItems: {
     justifyContent: 'space-around',
   },
+  switchButtonsSpacing: {
+    marginBottom: 10,
+  },
 });
 
 export default styles;

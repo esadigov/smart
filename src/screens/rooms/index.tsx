@@ -4,8 +4,8 @@ import {SafeAreaView, Text, View, TouchableOpacity} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import {SearchInput} from '../../components/SearchBox';
-import {RoomsViewMode} from '../../components/ViewMode';
 
+import {RoomsViewMode} from './components/RoomsViewMode';
 import styles from './styles';
 
 AntDesign.loadFont();

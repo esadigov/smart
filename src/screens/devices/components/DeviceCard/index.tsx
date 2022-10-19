@@ -1,16 +1,27 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import React, {useCallback} from 'react';
+import {Text, TouchableOpacity} from 'react-native';
+
+import {setSelectedDevice} from '../../../../store/deviceSlice';
+import {useAppDispatch} from '../../../../store/hooks';
+import {DEVICES} from '../../mock';
 
 import styles from './styles';
 
 interface IDeviceCard {
-  title: string;
+  item: any;
 }
 
-export const DeviceCard: React.FC<IDeviceCard> = ({title}) => {
+export const DeviceCard: React.FC<IDeviceCard> = ({item}) => {
+  const dispatch = useAppDispatch();
+
+  const handleOpenDevice = useCallback(
+    () => dispatch(setSelectedDevice(DEVICES)),
+    [dispatch],
+  );
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{title}</Text>
-    </View>
+    <TouchableOpacity onPress={handleOpenDevice} style={styles.container}>
+      <Text style={styles.text}>{item.title}</Text>
+    </TouchableOpacity>
   );
 };
