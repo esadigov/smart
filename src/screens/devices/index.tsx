@@ -39,9 +39,9 @@ export const DevicesScreen: React.FC = () => {
   );
 
   const renderHeader = () => (
-    <>
+    <View style={styles.headerContainer}>
       <View>
-        <Text style={styles.header}>Devices</Text>
+        <Text style={styles.headline}>Devices</Text>
         <TouchableOpacity style={styles.plusButton}>
           <AntDesign name="plus" color={'#9AA4C9'} size={20} />
         </TouchableOpacity>
@@ -56,7 +56,7 @@ export const DevicesScreen: React.FC = () => {
           options={SWITCH_OPTIONS}
         />
       </View>
-    </>
+    </View>
   );
 
   return (

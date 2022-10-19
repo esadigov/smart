@@ -1,11 +1,11 @@
 import React from 'react';
 import {TextInput, View} from 'react-native';
 
-import AntIcon from 'react-native-vector-icons/AntDesign';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import styles from './styles';
 
-AntIcon.loadFont();
+AntDesign.loadFont();
 
 interface ISearchInput {
   value: string;
@@ -32,7 +32,7 @@ export const SearchInput: React.FC<ISearchInput> = ({
             onChangeText={onChange}
           />
         </View>
-        <AntIcon
+        <AntDesign
           name="search1"
           size={24}
           color={'#9AA4C9'}
