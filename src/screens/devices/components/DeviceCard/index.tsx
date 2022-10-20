@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity, ImageBackground} from 'react-native';
 
 import {setSelectedDevice} from '../../../../store/deviceSlice';
 import {useAppDispatch} from '../../../../store/hooks';
@@ -21,7 +21,9 @@ export const DeviceCard: React.FC<IDeviceCard> = ({item}) => {
 
   return (
     <TouchableOpacity onPress={handleOpenDevice} style={styles.container}>
-      <Text style={styles.text}>{item.title}</Text>
+      <ImageBackground source={item.img} resizeMode="cover">
+        <Text style={styles.text}>{item.title}</Text>
+      </ImageBackground>
     </TouchableOpacity>
   );
 };
