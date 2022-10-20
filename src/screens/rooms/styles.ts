@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 25,
     padding: 10,
+    color: '#000',
   },
   plusButton: {
     position: 'absolute',
@@ -22,13 +23,13 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   spacing: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 4,
     marginTop: 20,
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
   searchBar: {
-    width: 308,
+    width: 314,
   },
 });
 

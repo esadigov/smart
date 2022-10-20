@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 25,
     padding: 10,
+    color: '#000',
   },
   plusButton: {
     position: 'absolute',
