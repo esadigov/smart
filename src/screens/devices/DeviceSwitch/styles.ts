@@ -1,8 +1,14 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  switchButtonsSpacing: {
+  container: {
     marginBottom: 10,
+    position: 'relative',
+  },
+  animated: {
+    position: 'absolute',
+    backgroundColor: '#3A6598',
+    borderRadius: 6,
   },
 });
 

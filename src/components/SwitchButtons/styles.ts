@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
@@ -19,7 +19,7 @@ export default StyleSheet.create({
   active: {
     backgroundColor: '#3A6598',
     shadowColor: '#000',
-    shadowOffset: {height: 4, width: 0},
+    shadowOffset: { height: 4, width: 0 },
     shadowOpacity: 0.06,
     shadowRadius: 24,
   },
