@@ -1,9 +1,9 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { Animated, View } from 'react-native';
 
-import SwitchButton from '../../../components/SwitchButton';
-import { switchDevice } from '../../../store/deviceSlice';
-import { useAppDispatch } from '../../../store/hooks';
+import SwitchButton from '../../../../components/SwitchButton';
+import { switchDevice } from '../../../../store/deviceSlice';
+import { useAppDispatch } from '../../../../store/hooks';
 
 import styles from './styles';
 

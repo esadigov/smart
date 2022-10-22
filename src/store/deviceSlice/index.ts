@@ -1,11 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { DEVICE_SECTIONS } from '../../screens/devices/mock';
+
+// NOTE: get rid of any
 type StateType = {
   selectedDeviceSection: any[];
+  deviceSections: any[];
+  filteredSections: any[];
+  searchQuery: string;
 };
 
 const initialState = {
   selectedDeviceSection: [],
+  deviceSections: DEVICE_SECTIONS,
+  filteredSections: DEVICE_SECTIONS,
+  searchQuery: '',
 } as StateType;
 
 export const snackBarSlice = createSlice({
@@ -22,9 +31,24 @@ export const snackBarSlice = createSlice({
           : device,
       );
     },
+    searchDeviceSections(state, action) {
+      state.filteredSections = state.deviceSections.filter(
+        section =>
+          section.id.includes(action.payload) ||
+          section.title.includes(action.payload),
+      );
+    },
+    setSearchQuery(state, action) {
+      state.searchQuery = action.payload;
+    },
   },
 });
 
-export const { setSelectedDevice, switchDevice } = snackBarSlice.actions;
+export const {
+  setSelectedDevice,
+  switchDevice,
+  searchDeviceSections,
+  setSearchQuery,
+} = snackBarSlice.actions;
 
 export default snackBarSlice.reducer;

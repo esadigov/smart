@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   FlatList,
   SafeAreaView,
@@ -11,11 +11,11 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import { SearchInput } from '../../components/SearchBox';
 import SwitchButton, { SwitchOption } from '../../components/SwitchButtons';
-import { useAppSelector } from '../../store/hooks';
+import { searchDeviceSections, setSearchQuery } from '../../store/deviceSlice';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 import { DeviceCard } from './components/DeviceCard';
-import { DeviceSwitch } from './DeviceSwitch';
-import { DEVICE_SECTIONS } from './mock';
+import { DeviceSwitch } from './components/DeviceSwitch';
 import styles from './styles';
 
 AntDesign.loadFont();
@@ -32,9 +32,10 @@ const SWITCH_OPTIONS: SwitchOption[] = [
 ];
 
 export const DevicesScreen: React.FC = () => {
-  const { selectedDeviceSection } = useAppSelector(state => state.deviceSlice);
+  const { selectedDeviceSection, filteredSections, searchQuery } =
+    useAppSelector(state => state.deviceSlice);
+  const dispatch = useAppDispatch();
 
-  const [search, setSearch] = useState<string>('');
   const [option, setOption] = useState(SWITCH_OPTIONS[0].value);
 
   const renderItem = useCallback(
@@ -47,6 +48,15 @@ export const DevicesScreen: React.FC = () => {
     [],
   );
 
+  const handleSearch = useCallback(
+    (value: string) => dispatch(setSearchQuery(value)),
+    [dispatch],
+  );
+
+  useEffect(() => {
+    dispatch(searchDeviceSections(searchQuery));
+  }, [dispatch, searchQuery]);
+
   const renderHeader = () => (
     <View style={styles.headerContainer}>
       <View>
@@ -56,7 +66,11 @@ export const DevicesScreen: React.FC = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.spacing}>
-        <SearchInput onChange={setSearch} value={search} placeholder="Search" />
+        <SearchInput
+          onChange={handleSearch}
+          value={searchQuery}
+          placeholder="Search"
+        />
       </View>
       <View style={styles.spacing}>
         <SwitchButton
@@ -88,11 +102,11 @@ export const DevicesScreen: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <FlatList
         key="device-sections"
-        data={DEVICE_SECTIONS}
+        data={filteredSections}
         numColumns={2}
         scrollEnabled={true}
         renderItem={renderItem}
-        ListHeaderComponent={renderHeader}
+        ListHeaderComponent={renderHeader()}
         contentContainerStyle={styles.listContainer}
         columnWrapperStyle={styles.listItems}
         showsVerticalScrollIndicator={false}
