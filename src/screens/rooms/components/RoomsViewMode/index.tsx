@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import Octicons from 'react-native-vector-icons/Octicons';
 
@@ -18,9 +18,9 @@ export const RoomsViewMode: React.FC<ViewSwitch> = ({
 }) => (
   <TouchableOpacity onPress={onPress} style={styles.container}>
     {twoColumnsView ? (
-      <Octicons name="apps" color={'#FFF'} size={28} />
-    ) : (
       <Octicons name="rows" color={'#FFF'} size={24} />
+    ) : (
+      <Octicons name="apps" color={'#FFF'} size={28} />
     )}
   </TouchableOpacity>
 );

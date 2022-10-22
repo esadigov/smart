@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 type StateType = {
   selectedDeviceSection: any[];
@@ -18,13 +18,13 @@ export const snackBarSlice = createSlice({
     switchDevice(state, action) {
       state.selectedDeviceSection = state.selectedDeviceSection.map(device =>
         device.id === action.payload
-          ? {...device, enabled: !device.enabled}
+          ? { ...device, enabled: !device.enabled }
           : device,
       );
     },
   },
 });
 
-export const {setSelectedDevice, switchDevice} = snackBarSlice.actions;
+export const { setSelectedDevice, switchDevice } = snackBarSlice.actions;
 
 export default snackBarSlice.reducer;

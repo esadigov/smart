@@ -21,7 +21,7 @@ module.exports = {
         'no-plusplus': 'error',
         'prefer-const': 'error',
         'no-var': 'error',
-        'sort-vars': ['error', {ignoreCase: true}],
+        'sort-vars': ['error', { ignoreCase: true }],
         'prefer-destructuring': [
           'error',
           {

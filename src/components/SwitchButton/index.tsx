@@ -1,5 +1,5 @@
-import React, {memo} from 'react';
-import {View, Text, Switch} from 'react-native';
+import React, { memo } from 'react';
+import { View, Text, Switch } from 'react-native';
 
 import styles from './styles';
 
@@ -12,6 +12,7 @@ interface ISwitchButton {
   style?: any;
 }
 
+// NOTE: add logic to change text color animated
 const SwitchButton: React.FC<ISwitchButton> = ({
   title,
   subtitle,
@@ -22,14 +23,21 @@ const SwitchButton: React.FC<ISwitchButton> = ({
 }) => (
   <View style={[styles.container, style]}>
     <View style={styles.titleContainer}>
-      <Text style={styles.title}>{title}</Text>
-      {subtitle ? <Text style={styles.subtitle}>{subtitle}</Text> : null}
+      <Text style={[styles.title, isEnabled ? styles.enabledText : {}]}>
+        {title}
+      </Text>
+      {subtitle ? (
+        <Text style={[styles.subtitle, isEnabled ? styles.enabledText : {}]}>
+          {subtitle}
+        </Text>
+      ) : null}
     </View>
     <Switch
       value={isEnabled}
       onValueChange={setIsEnabled}
       disabled={disabled}
-      trackColor={{true: '#3A6598', false: '#F3F1F8'}}
+      trackColor={{ true: '#ffffff', false: '#ffffff' }}
+      thumbColor={'#3A6598'}
     />
   </View>
 );

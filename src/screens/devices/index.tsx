@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   FlatList,
   SafeAreaView,
@@ -9,13 +9,13 @@ import {
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-import {SearchInput} from '../../components/SearchBox';
-import SwitchButton, {SwitchOption} from '../../components/SwitchButtons';
-import {useAppSelector} from '../../store/hooks';
+import { SearchInput } from '../../components/SearchBox';
+import SwitchButton, { SwitchOption } from '../../components/SwitchButtons';
+import { useAppSelector } from '../../store/hooks';
 
-import {DeviceCard} from './components/DeviceCard';
-import {DeviceSwitch} from './DeviceSwitch';
-import {DEVICES, DEVICE_SECTIONS} from './mock';
+import { DeviceCard } from './components/DeviceCard';
+import { DeviceSwitch } from './DeviceSwitch';
+import { DEVICE_SECTIONS } from './mock';
 import styles from './styles';
 
 AntDesign.loadFont();
@@ -32,18 +32,18 @@ const SWITCH_OPTIONS: SwitchOption[] = [
 ];
 
 export const DevicesScreen: React.FC = () => {
-  const {selectedDeviceSection} = useAppSelector(state => state.deviceSlice);
+  const { selectedDeviceSection } = useAppSelector(state => state.deviceSlice);
 
   const [search, setSearch] = useState<string>('');
   const [option, setOption] = useState(SWITCH_OPTIONS[0].value);
 
   const renderItem = useCallback(
-    ({item}) => <DeviceCard key={item.id} item={item} />,
+    ({ item }) => <DeviceCard key={item.id} item={item} />,
     [],
   );
 
   const renderSwitchButtons = useCallback(
-    ({item}) => <DeviceSwitch item={item} />,
+    ({ item }) => <DeviceSwitch item={item} />,
     [],
   );
 
@@ -72,6 +72,7 @@ export const DevicesScreen: React.FC = () => {
     return (
       <SafeAreaView style={styles.container}>
         <FlatList
+          key="device"
           data={selectedDeviceSection}
           scrollEnabled={true}
           renderItem={renderSwitchButtons}
@@ -86,6 +87,7 @@ export const DevicesScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
+        key="device-sections"
         data={DEVICE_SECTIONS}
         numColumns={2}
         scrollEnabled={true}

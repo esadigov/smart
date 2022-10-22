@@ -2,18 +2,22 @@ import 'react-native-gesture-handler';
 
 import * as React from 'react';
 
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 MaterialCommunityIcons;
-import {AutomationScreen} from '../screens/automation';
-import {DevicesScreen} from '../screens/devices';
-import {HomeScreen} from '../screens/home';
-import {RoomsScreen} from '../screens/rooms';
+import AutomationPageIcon from '../components/Icons/AutomationPageIcon';
+import DevicesPageIcon from '../components/Icons/DevicesPageIcon';
+import HomePageIcon from '../components/Icons/HomePageIcon';
+import RoomsPageIcon from '../components/Icons/RoomsPageIcon';
+import { AutomationScreen } from '../screens/automation';
+import { DevicesScreen } from '../screens/devices';
+import { HomeScreen } from '../screens/home';
+import { RoomsScreen } from '../screens/rooms';
 
 FeatherIcon.loadFont();
 MaterialIcons.loadFont();
@@ -32,7 +36,7 @@ const HomeStack = () => {
       <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={{title: 'Home'}}
+        options={{ title: 'Home' }}
       />
     </Stack.Navigator>
   );
@@ -48,7 +52,7 @@ const RoomsStack = () => {
       <Stack.Screen
         name="Rooms"
         component={RoomsScreen}
-        options={{title: 'Rooms'}}
+        options={{ title: 'Rooms' }}
       />
     </Stack.Navigator>
   );
@@ -64,7 +68,7 @@ const DevicesStack = () => {
       <Stack.Screen
         name="Devices"
         component={DevicesScreen}
-        options={{title: 'Devices'}}
+        options={{ title: 'Devices' }}
       />
     </Stack.Navigator>
   );
@@ -80,7 +84,7 @@ const AutomationStack = () => {
       <Stack.Screen
         name="Automation"
         component={AutomationScreen}
-        options={{title: 'Automation'}}
+        options={{ title: 'Automation' }}
       />
     </Stack.Navigator>
   );
@@ -96,9 +100,7 @@ export const BottomNavigation = () => {
           options={{
             tabBarLabel: 'Home',
             headerShown: false,
-            tabBarIcon: ({color, size}) => (
-              <FeatherIcon name="home" color={color} size={size} />
-            ),
+            tabBarIcon: ({ color }) => <HomePageIcon color={color} />,
           }}
         />
         <Tab.Screen
@@ -107,9 +109,7 @@ export const BottomNavigation = () => {
           options={{
             tabBarLabel: 'Devices',
             headerShown: false,
-            tabBarIcon: ({color, size}) => (
-              <MaterialIcons name="devices" color={color} size={size} />
-            ),
+            tabBarIcon: ({ color }) => <DevicesPageIcon color={color} />,
           }}
         />
         <Tab.Screen
@@ -118,9 +118,7 @@ export const BottomNavigation = () => {
           options={{
             tabBarLabel: 'Rooms',
             headerShown: false,
-            tabBarIcon: ({color, size}) => (
-              <MaterialCommunityIcons name="door" color={color} size={size} />
-            ),
+            tabBarIcon: ({ color }) => <RoomsPageIcon color={color} />,
           }}
         />
         <Tab.Screen
@@ -129,9 +127,7 @@ export const BottomNavigation = () => {
           options={{
             tabBarLabel: 'Automation',
             headerShown: false,
-            tabBarIcon: ({color, size}) => (
-              <FeatherIcon name="play" color={color} size={size} />
-            ),
+            tabBarIcon: ({ color }) => <AutomationPageIcon color={color} />,
           }}
         />
       </Tab.Navigator>
