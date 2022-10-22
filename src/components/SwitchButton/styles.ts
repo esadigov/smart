@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,6 +22,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     lineHeight: 20,
+  },
+  enabledText: {
+    color: '#fff',
   },
   subtitle: {
     color: '#343434',
