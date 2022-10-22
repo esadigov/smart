@@ -62,7 +62,7 @@ export const DevicesScreen: React.FC = () => {
       <View>
         <Text style={styles.headline}>Devices</Text>
         <TouchableOpacity style={styles.plusButton}>
-          <AntDesign name="plus" color={'#9AA4C9'} size={20} />
+          <AntDesign name="plus" color={'#3A6598'} size={20} />
         </TouchableOpacity>
       </View>
       <View style={styles.spacing}>
