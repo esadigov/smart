@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
 
-import ProfileEditIcon from '../../../../components/Icons/ProfileEditIcon';
+import { ProfileEditIcon } from '../../../../components/Icons/ProfilePageIcons'
 
 import styles from './styles';
 

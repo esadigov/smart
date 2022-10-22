@@ -1,10 +1,7 @@
 import React from 'react';
 import { View, FlatList, Text, TouchableOpacity } from 'react-native';
 
-import ProfileHomeIcon from '../../../../components/Icons/ProfileHomeIcon';
-import ProfileLogsIcon from '../../../../components/Icons/ProfileLogsIcon';
-import ProfileUsersIcon from '../../../../components/Icons/ProfileUsersIcon';
-
+import { ProfileHomeIcon, ProfileLogsIcon, ProfileUsersIcon } from '../../../../components/Icons/ProfilePageIcons'
 import styles from './styles';
 
 const OPTIONS = [
