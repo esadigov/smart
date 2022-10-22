@@ -63,7 +63,7 @@ export const ProfileOptions = () => {
         data={OPTIONS}
         renderItem={renderOptions}
         numColumns={2}
-        scrollEnabled={true}
+        scrollEnabled={false}
         contentContainerStyle={styles.listContainer}
         columnWrapperStyle={styles.listItems}
         showsVerticalScrollIndicator={false}

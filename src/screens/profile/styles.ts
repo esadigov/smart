@@ -29,6 +29,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 8,
   },
+  line: {
+    backgroundColor: '#F0F0F0',
+    width: 350,
+    left: 20,
+    height: 2,
+    marginTop: -20,
+  },
 });
 
 export default styles;
