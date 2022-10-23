@@ -90,7 +90,7 @@ export const DevicesScreen: React.FC = () => {
           data={selectedDeviceSection}
           scrollEnabled={true}
           renderItem={renderSwitchButtons}
-          ListHeaderComponent={renderHeader}
+          ListHeaderComponent={renderHeader()}
           contentContainerStyle={styles.listContainer}
           showsVerticalScrollIndicator={false}
         />
