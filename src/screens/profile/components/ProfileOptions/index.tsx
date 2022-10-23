@@ -1,7 +1,12 @@
 import React from 'react';
 import { View, FlatList, Text, TouchableOpacity } from 'react-native';
 
-import { ProfileHomeIcon, ProfileLogsIcon, ProfileUsersIcon } from '../../../../components/Icons/ProfilePageIcons'
+import {
+  ProfileHomeIcon,
+  ProfileLogsIcon,
+  ProfileUsersIcon,
+} from '../../../../components/Icons/ProfilePageIcons';
+
 import styles from './styles';
 
 const OPTIONS = [
@@ -27,25 +32,24 @@ const OPTIONS = [
 
 const Item = ({ title, color, icon }) => (
   <View>
-    <TouchableOpacity style={{
-      borderRadius: 6,
-      width: 164,
-      margin: 10,
-      paddingVertical: 76,
-      paddingHorizontal: 20,
-      backgroundColor: color,
-    }}>
+    <TouchableOpacity
+      style={[
+        styles.profileOptionContainer,
+        {
+          backgroundColor: color,
+        },
+      ]}>
       <View>
         <Text style={styles.title}>{title}</Text>
       </View>
       <View style={styles.icons}>
-        { icon === 'home'
-          ? <ProfileHomeIcon style={{left: 70, bottom: 13}}/>
-          : icon === 'logs'
-          ? <ProfileLogsIcon style={{left: 65, bottom: 22}}/>
-          : icon === 'users'
-          ? <ProfileUsersIcon style={{left: 79, bottom: 7}}/>
-          : null }
+        {icon === 'home' ? (
+          <ProfileHomeIcon style={{ left: 70, bottom: 13 }} />
+        ) : icon === 'logs' ? (
+          <ProfileLogsIcon style={{ left: 65, bottom: 22 }} />
+        ) : icon === 'users' ? (
+          <ProfileUsersIcon style={{ left: 79, bottom: 7 }} />
+        ) : null}
       </View>
     </TouchableOpacity>
   </View>
@@ -70,4 +74,4 @@ export const ProfileOptions = () => {
       />
     </View>
   );
-}
+};

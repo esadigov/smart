@@ -19,6 +19,13 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#FFF',
   },
+  profileOptionContainer: {
+    borderRadius: 6,
+    width: 164,
+    margin: 10,
+    paddingVertical: 76,
+    paddingHorizontal: 20,
+  },
   icons: {
     height: 0,
   },

@@ -49,6 +49,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 2,
   },
+  statusText: {
+    color: '#255B99',
+  },
 });
 
 export default styles;
