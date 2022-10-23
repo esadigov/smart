@@ -18,13 +18,17 @@ export const ProfileHeader: any = () => {
   return USERS.map(user => {
     return (
       <View key={user.id} style={styles.container}>
-        <Image style={styles.avatar} source={{ uri: user.avatar }} />
-        <TouchableOpacity style={styles.editButton}>
-          <ProfileEditIcon color={'#255B99'} />
-        </TouchableOpacity>
-        <Text style={styles.userName}>{user.name}</Text>
-        <View style={styles.profileStatus}>
-          <Text style={styles.statusText}>{user.status}</Text>
+        <View style={styles.relative}>
+          <Image style={styles.avatar} source={{ uri: user.avatar }} />
+          <TouchableOpacity style={styles.editButton}>
+            <ProfileEditIcon color={'#255B99'} />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.spacing}>
+          <Text style={styles.userName}>{user.name}</Text>
+          <View style={styles.profileStatus}>
+            <Text style={styles.statusText}>{user.status}</Text>
+          </View>
         </View>
       </View>
     );

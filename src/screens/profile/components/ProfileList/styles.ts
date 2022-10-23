@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFF',
     marginVertical: 18,
+    flex: 1,
   },
   list: {
     flexDirection: 'row',
@@ -15,6 +16,9 @@ const styles = StyleSheet.create({
     borderColor: '#EDEDED',
     borderRadius: 6,
     backgroundColor: '#FFF',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   icon: {
     backgroundColor: '#EAF3FF',
@@ -24,9 +28,12 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
   },
+  row: {
+    flexDirection: 'row',
+  },
   text: {
     justifyContent: 'center',
-    left: 20,
+    marginLeft: 15,
   },
   title: {
     fontFamily: 'Inter',
@@ -37,9 +44,7 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   forward: {
-    position: 'absolute',
-    top: 16,
-    right: 10,
+    marginRight: 5,
   },
 });
 

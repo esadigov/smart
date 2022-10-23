@@ -37,8 +37,8 @@ const PROFILE_SETTINGS = [
 ];
 
 const ProfileOption = ({ title, icon }) => (
-  <View>
-    <TouchableOpacity style={styles.list}>
+  <TouchableOpacity style={styles.list}>
+    <View style={styles.row}>
       <View style={styles.icon}>
         {icon === 'shield' ? (
           <ProfileShieldIcon />
@@ -51,13 +51,13 @@ const ProfileOption = ({ title, icon }) => (
       <View style={styles.text}>
         <Text style={styles.title}>{title}</Text>
       </View>
-      <View style={styles.forward}>
-        {icon !== 'logout' ? (
-          <AntDesign name="right" color={'#3A6598'} size={20} />
-        ) : null}
-      </View>
-    </TouchableOpacity>
-  </View>
+    </View>
+    <View style={styles.forward}>
+      {icon !== 'logout' ? (
+        <AntDesign name="right" color={'#3A6598'} size={20} />
+      ) : null}
+    </View>
+  </TouchableOpacity>
 );
 
 export const ProfileList = () => {
