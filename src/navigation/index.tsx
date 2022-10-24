@@ -17,6 +17,7 @@ import RoomsPageIcon from '../components/Icons/RoomsPageIcon';
 import { AutomationScreen } from '../screens/automation';
 import { DevicesScreen } from '../screens/devices';
 import { HomeScreen } from '../screens/home';
+import { ProfileScreen } from '../screens/profile';
 import { RoomsScreen } from '../screens/rooms';
 
 FeatherIcon.loadFont();
@@ -38,6 +39,7 @@ const HomeStack = () => {
         component={HomeScreen}
         options={{ title: 'Home' }}
       />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
     </Stack.Navigator>
   );
 };
