@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: '#FFF',
   },
   header: {
@@ -10,6 +11,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 25,
     padding: 10,
+  },
+  searchStyles: {
+    marginRight: 10,
   },
   plusButton: {
     position: 'absolute',
@@ -21,14 +25,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 8,
   },
-  spacing: {
-    paddingHorizontal: 10,
-    marginTop: 20,
+  searchContainer: {
+    marginVertical: 20,
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
-  searchBar: {
-    width: 308,
+  listContainer: {
+    paddingHorizontal: 10,
+  },
+  listItems: {
+    justifyContent: 'space-around',
   },
 });
 

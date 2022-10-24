@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { DEVICE_SECTIONS } from '../../screens/devices/mock';
+import { DEVICE_SECTIONS } from '../../mock';
 
 // NOTE: get rid of any
 type StateType = {
@@ -17,7 +17,7 @@ const initialState = {
   searchQuery: '',
 } as StateType;
 
-export const snackBarSlice = createSlice({
+export const devicesSlice = createSlice({
   name: 'devices',
   initialState,
   reducers: {
@@ -49,6 +49,6 @@ export const {
   switchDevice,
   searchDeviceSections,
   setSearchQuery,
-} = snackBarSlice.actions;
+} = devicesSlice.actions;
 
-export default snackBarSlice.reducer;
+export default devicesSlice.reducer;

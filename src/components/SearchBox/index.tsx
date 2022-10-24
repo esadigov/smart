@@ -23,22 +23,20 @@ export const SearchInput: React.FC<ISearchInput> = ({
   return (
     <View style={[styles.container, style]}>
       <View style={styles.inputContainer}>
-        <View>
-          <TextInput
-            style={styles.input}
-            placeholder={placeholder}
-            placeholderTextColor={'#9AA4C9'}
-            value={value}
-            onChangeText={onChange}
-          />
-        </View>
-        <AntDesign
-          name="search1"
-          size={24}
-          color={'#9AA4C9'}
-          style={styles.inputIcon}
+        <TextInput
+          style={styles.input}
+          placeholder={placeholder}
+          placeholderTextColor={'#9AA4C9'}
+          value={value}
+          onChangeText={onChange}
         />
       </View>
+      <AntDesign
+        name="search1"
+        size={24}
+        color={'#9AA4C9'}
+        style={styles.inputIcon}
+      />
     </View>
   );
 };

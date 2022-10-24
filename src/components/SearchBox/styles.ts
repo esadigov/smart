@@ -2,8 +2,10 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
+    position: 'relative',
   },
   inputContainer: {
     backgroundColor: '#F5F6FB',

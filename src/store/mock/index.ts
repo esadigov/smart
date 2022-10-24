@@ -61,3 +61,20 @@ export const DEVICES = [
     enabled: false,
   },
 ];
+
+export const ROOMS = [
+  {
+    id: 'livingRoom',
+    name: 'Living Room',
+    numDevices: 10,
+    enabled: false,
+    color: '#3A7670',
+  },
+  {
+    id: 'kitchen',
+    name: 'Kitchen',
+    numDevices: 1,
+    enabled: false,
+    color: '#D1B19A',
+  },
+];
