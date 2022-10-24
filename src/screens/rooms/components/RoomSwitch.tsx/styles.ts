@@ -27,18 +27,11 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   circle: {
-    width: 135,
-    height: 135,
     position: 'absolute',
     right: -55,
     bottom: -55,
     borderRadius: 1000,
-  },
-  circleGrow: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    borderRadius: 6,
+    zIndex: -1,
   },
 });
 

@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { View, Text, Switch } from 'react-native';
+import { View, Text, Switch, Animated } from 'react-native';
 
 import styles from './styles';
 
@@ -9,6 +9,7 @@ interface ISwitchButton {
   isEnabled: boolean;
   setIsEnabled: any;
   disabled?: boolean;
+  textInterpolate: any;
   style?: any;
 }
 
@@ -18,18 +19,19 @@ const SwitchButton: React.FC<ISwitchButton> = ({
   subtitle,
   isEnabled,
   setIsEnabled,
+  textInterpolate,
   disabled,
   style,
 }) => (
   <View style={[styles.container, style]}>
     <View style={styles.titleContainer}>
-      <Text style={[styles.title, isEnabled ? styles.enabledText : {}]}>
+      <Animated.Text style={[styles.title, { color: textInterpolate }]}>
         {title}
-      </Text>
+      </Animated.Text>
       {subtitle ? (
-        <Text style={[styles.subtitle, isEnabled ? styles.enabledText : {}]}>
+        <Animated.Text style={[styles.subtitle, { color: textInterpolate }]}>
           {subtitle}
-        </Text>
+        </Animated.Text>
       ) : null}
     </View>
     <Switch

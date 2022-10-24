@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   SafeAreaView,
   Text,
@@ -10,6 +10,12 @@ import {
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import { SearchInput } from '../../components/SearchBox';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import {
+  searchRooms,
+  setSearchQuery,
+  switchRoom,
+} from '../../store/slices/roomSlice';
 
 import { RoomsViewMode } from './components/RoomsViewMode';
 import { RoomSwitch } from './components/RoomSwitch.tsx';
@@ -18,13 +24,33 @@ import styles from './styles';
 AntDesign.loadFont();
 
 export const RoomsScreen: React.FC = () => {
-  const [search, setSearch] = useState<string>('');
   const [twoColumnView, setTwoColumnView] = useState(false);
+
+  const { filteredRooms, searchQuery } = useAppSelector(
+    state => state.roomSlice,
+  );
+  const dispatch = useAppDispatch();
+
+  const handleSwitch = useCallback(
+    (id: string | number) => {
+      dispatch(switchRoom(id));
+    },
+    [dispatch],
+  );
 
   const handleToggleViewMode = useCallback(
     () => setTwoColumnView(!twoColumnView),
     [twoColumnView],
   );
+
+  const handleSearch = useCallback(
+    (value: string) => dispatch(setSearchQuery(value)),
+    [dispatch],
+  );
+
+  useEffect(() => {
+    dispatch(searchRooms(searchQuery));
+  }, [dispatch, searchQuery]);
 
   const renderHeader = () => (
     <>
@@ -36,9 +62,9 @@ export const RoomsScreen: React.FC = () => {
       </View>
       <View style={styles.searchContainer}>
         <SearchInput
-          onChange={setSearch}
+          onChange={handleSearch}
           style={styles.searchStyles}
-          value={search}
+          value={searchQuery}
           placeholder="Search"
         />
         <RoomsViewMode
@@ -49,13 +75,26 @@ export const RoomsScreen: React.FC = () => {
     </>
   );
 
-  const renderItem = ({ item }) => <RoomSwitch isEnabled={item.enabled} />;
+  const renderItem = ({ item }) => (
+    <RoomSwitch
+      key={item.id}
+      title={item.name}
+      subtitle={
+        item.numDevices > 1
+          ? `${item.numDevices} devices`
+          : `${item.numDevices} device`
+      }
+      color={item.color}
+      isEnabled={item.enabled}
+      setIsEnabled={() => handleSwitch(item.id)}
+    />
+  );
 
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         key="device-sections"
-        data={[{ enabled: true }, { enabled: false }]}
+        data={filteredRooms}
         numColumns={2}
         scrollEnabled={true}
         renderItem={renderItem}

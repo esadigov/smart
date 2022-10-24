@@ -2,8 +2,8 @@ import React, { useCallback, useRef, useState } from 'react';
 import { Animated, View } from 'react-native';
 
 import SwitchButton from '../../../../components/SwitchButton';
-import { switchDevice } from '../../../../store/deviceSlice';
 import { useAppDispatch } from '../../../../store/hooks';
+import { switchDevice } from '../../../../store/slices/deviceSlice';
 
 import styles from './styles';
 
@@ -30,7 +30,11 @@ export const DeviceSwitch: React.FC<IDeviceSwitch> = ({ item }) => {
 
   const widthInterpolate = filledBox.interpolate({
     inputRange: [0, 1],
-    outputRange: ['0%', '100%'],
+    outputRange: ['0%', '120%'],
+  });
+  const textInterpolate = filledBox.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['#343434', '#fff'],
   });
 
   const animatedStyle = {
@@ -54,6 +58,7 @@ export const DeviceSwitch: React.FC<IDeviceSwitch> = ({ item }) => {
         subtitle={item.room}
         isEnabled={item.enabled}
         setIsEnabled={handleSwitch}
+        textInterpolate={textInterpolate}
       />
     </View>
   );

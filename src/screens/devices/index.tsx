@@ -11,8 +11,11 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import { SearchInput } from '../../components/SearchBox';
 import SwitchButton, { SwitchOption } from '../../components/SwitchButtons';
-import { searchDeviceSections, setSearchQuery } from '../../store/deviceSlice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import {
+  searchDeviceSections,
+  setSearchQuery,
+} from '../../store/slices/deviceSlice';
 
 import { DeviceCard } from './components/DeviceCard';
 import { DeviceSwitch } from './components/DeviceSwitch';
