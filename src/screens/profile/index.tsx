@@ -45,7 +45,7 @@ export const ProfileScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        key="profile-list"
+        key="profileList"
         data={null}
         renderItem={null}
         showsVerticalScrollIndicator={false}

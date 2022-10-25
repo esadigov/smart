@@ -19,6 +19,7 @@ import { DevicesScreen } from '../screens/devices';
 import { HomeScreen } from '../screens/home';
 import { ProfileScreen } from '../screens/profile';
 import { RoomsScreen } from '../screens/rooms';
+import { HomeManagements } from '../screens/profile/modules/home_managements';
 
 FeatherIcon.loadFont();
 MaterialIcons.loadFont();
@@ -40,6 +41,7 @@ const HomeStack = () => {
         options={{ title: 'Home' }}
       />
       <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen name="HomeManagements" component={HomeManagements} />
     </Stack.Navigator>
   );
 };

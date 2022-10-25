@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, FlatList, Text, TouchableOpacity } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
+
 import {
   ProfileHomeIcon,
   ProfileLogsIcon,
@@ -30,9 +32,15 @@ const OPTIONS = [
   },
 ];
 
+const navigate = useNavigation();
+const goToHomeManagements = () => navigate.navigate('HomeManagements')
+
 const Item = ({ title, color, icon }) => (
   <View>
     <TouchableOpacity
+      onPress={title === 'Home managements' ?
+        goToHomeManagements
+        : undefined}
       style={[
         styles.profileOptionContainer,
         {
