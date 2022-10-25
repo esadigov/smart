@@ -28,10 +28,7 @@ const HOME_LIST = [
   },
 ];
 
-const navigate = useNavigation();
-const goBack = useCallback(() => navigate.goBack(), [navigate]);
-
-const HomeList = ({ title, icon }) => (
+const HomeList = ({ title }) => (
   <TouchableOpacity style={styles.list}>
     <View style={styles.row}>
       <View style={styles.icon}>
@@ -48,8 +45,12 @@ const HomeList = ({ title, icon }) => (
 );
 
 export const HomeManagements = () => {
+  const navigate = useNavigation();
+  const goBack = useCallback(() => navigate.goBack(), [navigate]);
+
+
   const renderItem = ({ item }) => (
-    <HomeList icon={item.icon} title={item.title} />
+    <HomeList title={item.title} />
   );
 
   return (

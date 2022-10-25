@@ -32,14 +32,11 @@ const OPTIONS = [
   },
 ];
 
-const navigate = useNavigation();
-const goToHomeManagements = () => navigate.navigate('HomeManagements')
-
-const Item = ({ title, color, icon }) => (
+const Item = ({ title, color, icon, goHome }) => (
   <View>
     <TouchableOpacity
       onPress={title === 'Home managements' ?
-        goToHomeManagements
+        goHome
         : undefined}
       style={[
         styles.profileOptionContainer,
@@ -64,8 +61,11 @@ const Item = ({ title, color, icon }) => (
 );
 
 export const ProfileOptions = () => {
+  const navigate = useNavigation();
+  const goToHomeManagements = () => navigate.navigate('HomeManagements')
+
   const renderOptions = ({ item }) => (
-    <Item icon={item.icon} color={item.color} title={item.title} />
+    <Item goHome={goToHomeManagements} icon={item.icon} color={item.color} title={item.title} />
   );
 
   return (
