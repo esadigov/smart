@@ -46,6 +46,35 @@ const styles = StyleSheet.create({
   forward: {
     marginRight: 5,
   },
+  header: {
+    textAlign: 'center',
+    fontWeight: '600',
+    fontSize: 20,
+    lineHeight: 25,
+    padding: 10,
+    color: '#000',
+  },
+  backButton: {
+    position: 'absolute',
+    left: 10,
+    top: 8,
+    backgroundColor: '#F5FAFF',
+    borderRadius: 9,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 8,
+  },
+  plusButton: {
+    position: 'absolute',
+    right: 0,
+    top: 2,
+
+    backgroundColor: '#F5FAFF',
+    borderRadius: 9,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 8,
+  },
 });
 
 export default styles;

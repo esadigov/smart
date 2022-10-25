@@ -1,61 +1,48 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
-
-import {
-  ProfileMessageIcon,
-  ProfileShieldIcon,
-  ProfileLogOutIcon,
-} from '../../../../components/Icons/ProfilePageIcons';
+import { HomeIconMini } from '../../../../components/Icons/ProfilePageIcons';
 
 import styles from './styles';
 
 AntDesign.loadFont();
 
-const PROFILE_SETTINGS = [
+const HOME_LIST = [
   {
-    id: 'Locations',
-    title: 'Locations',
-    icon: 'shield',
+    id: 'home1',
+    title: 'Home 1',
   },
   {
-    id: 'ThirdParty',
-    title: 'Third party authorization',
-    icon: 'shield',
+    id: 'home2',
+    title: 'Home 2',
   },
   {
-    id: 'HelpFeedback',
-    title: 'Help & Feedback',
-    icon: 'message',
+    id: 'home3',
+    title: 'Office 1',
   },
   {
-    id: 'LogOut',
-    title: 'Log out',
-    icon: 'logout',
+    id: 'home4',
+    title: 'Office 2',
   },
 ];
+
+const navigate = useNavigation();
+const goBack = useCallback(() => navigate.goBack(), [navigate]);
 
 const HomeList = ({ title, icon }) => (
   <TouchableOpacity style={styles.list}>
     <View style={styles.row}>
       <View style={styles.icon}>
-        {icon === 'shield' ? (
-          <ProfileShieldIcon />
-        ) : icon === 'message' ? (
-          <ProfileMessageIcon />
-        ) : icon === 'logout' ? (
-          <ProfileLogOutIcon />
-        ) : null}
+        <HomeIconMini />
       </View>
       <View style={styles.text}>
         <Text style={styles.title}>{title}</Text>
       </View>
     </View>
     <View style={styles.forward}>
-      {icon !== 'logout' ? (
-        <AntDesign name="right" color={'#3A6598'} size={20} />
-      ) : null}
+      <AntDesign name="right" color={'#3A6598'} size={20} />
     </View>
   </TouchableOpacity>
 );
@@ -67,11 +54,23 @@ export const HomeManagements = () => {
 
   return (
     <View style={styles.container}>
+      <Text key="homeManagementsTitle" style={styles.header}>
+        Home managements
+      </Text>
+      <TouchableOpacity
+        key="backButton"
+        onPress={goBack}
+        style={styles.backButton}>
+        <AntDesign key="backIcon" name="left" color={'#3A6598'} size={20} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.plusButton}>
+          <AntDesign name="plus" color={'#9AA4C9'} size={20} />
+      </TouchableOpacity>
       <FlatList
         keyExtractor={item => item.id}
-        data={PROFILE_SETTINGS}
+        data={HOME_LIST}
         renderItem={renderItem}
-        scrollEnabled={false}
+        scrollEnabled={true}
         showsVerticalScrollIndicator={false}
       />
     </View>
