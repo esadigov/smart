@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     marginTop: 10,
+    marginBottom: -14,
   },
   avatar: {
     height: 74,
@@ -38,9 +39,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'flex-start',
-    padding: 3,
+    paddingVertical: 5,
+    paddingHorizontal: 14,
   },
   statusText: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    fontSize: 12,
     color: '#255B99',
   },
   relative: {

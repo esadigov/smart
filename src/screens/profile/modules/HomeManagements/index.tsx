@@ -13,22 +13,26 @@ const HOME_LIST = [
   {
     id: 'home1',
     title: 'Home 1',
+    address: 'Cəfər Cabbarlı 105',
   },
   {
     id: 'home2',
     title: 'Home 2',
+    address: '20 Yanvar 18A',
   },
   {
     id: 'home3',
     title: 'Office 1',
+    address: 'Cəfər Cabbarlı 103',
   },
   {
     id: 'home4',
     title: 'Office 2',
+    address: '20 Yanvar 17B',
   },
 ];
 
-const HomeList = ({ title }) => (
+const Item = ({ title, address }) => (
   <TouchableOpacity style={styles.list}>
     <View style={styles.row}>
       <View style={styles.icon}>
@@ -36,6 +40,7 @@ const HomeList = ({ title }) => (
       </View>
       <View style={styles.text}>
         <Text style={styles.title}>{title}</Text>
+        <Text style={styles.subtitle}>{address}</Text>
       </View>
     </View>
     <View style={styles.forward}>
@@ -48,9 +53,8 @@ export const HomeManagements = () => {
   const navigate = useNavigation();
   const goBack = useCallback(() => navigate.goBack(), [navigate]);
 
-
   const renderItem = ({ item }) => (
-    <HomeList title={item.title} />
+    <Item title={item.title} address={item.address} />
   );
 
   return (
@@ -65,7 +69,7 @@ export const HomeManagements = () => {
         <AntDesign key="backIcon" name="left" color={'#3A6598'} size={20} />
       </TouchableOpacity>
       <TouchableOpacity style={styles.plusButton}>
-          <AntDesign name="plus" color={'#9AA4C9'} size={20} />
+          <AntDesign name="plus" color={'#3A6598'} size={20} />
       </TouchableOpacity>
       <FlatList
         keyExtractor={item => item.id}

@@ -36,7 +36,7 @@ const PROFILE_SETTINGS = [
   },
 ];
 
-const ProfileOption = ({ title, icon }) => (
+const Item = ({ title, icon }) => (
   <TouchableOpacity style={styles.list}>
     <View style={styles.row}>
       <View style={styles.icon}>
@@ -62,7 +62,7 @@ const ProfileOption = ({ title, icon }) => (
 
 export const ProfileList = () => {
   const renderItem = ({ item }) => (
-    <ProfileOption icon={item.icon} title={item.title} />
+    <Item icon={item.icon} title={item.title} />
   );
 
   return (

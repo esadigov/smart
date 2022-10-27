@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 25,
     padding: 10,
+    paddingTop: 20,
     color: '#000',
   },
   spacing: {
@@ -28,6 +29,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 8,
+    margin: 8,
   },
   line: {
     backgroundColor: '#F0F0F0',

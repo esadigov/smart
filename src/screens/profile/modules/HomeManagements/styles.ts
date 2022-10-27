@@ -3,12 +3,11 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFF',
-    marginVertical: 18,
     flex: 1,
   },
   list: {
     flexDirection: 'row',
-    padding: 6,
+    padding: 10,
     marginHorizontal: 22,
     marginVertical: 4,
     borderWidth: 1,
@@ -38,10 +37,18 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'Inter',
     fontStyle: 'normal',
-    fontWeight: '500',
+    fontWeight: '700',
+    fontSize: 16,
+    lineHeight: 19,
+    color: '#343434',
+  },
+  subtitle: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '400',
     fontSize: 14,
-    lineHeight: 22,
-    color: '#000',
+    lineHeight: 17,
+    color: "#343434",
   },
   forward: {
     marginRight: 5,
@@ -51,7 +58,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 20,
     lineHeight: 25,
-    padding: 10,
+    padding: 20,
     color: '#000',
   },
   backButton: {
@@ -63,17 +70,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 8,
+    margin: 8,
   },
   plusButton: {
     position: 'absolute',
-    right: 0,
+    right: 10,
     top: 2,
-
     backgroundColor: '#F5FAFF',
     borderRadius: 9,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 8,
+    marginVertical: 12,
+    marginHorizontal: 18,
   },
 });
 

@@ -19,7 +19,7 @@ import { DevicesScreen } from '../screens/devices';
 import { HomeScreen } from '../screens/home';
 import { ProfileScreen } from '../screens/profile';
 import { RoomsScreen } from '../screens/rooms';
-import { HomeManagements } from '../screens/profile/modules/home_managements';
+import { HomeManagements } from '../screens/profile/modules/HomeManagements';
 
 FeatherIcon.loadFont();
 MaterialIcons.loadFont();
