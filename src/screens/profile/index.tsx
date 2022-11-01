@@ -19,7 +19,6 @@ AntDesign.loadFont();
 
 export const ProfileScreen: React.FC = () => {
   const navigate = useNavigation();
-
   const goBack = useCallback(() => navigate.goBack(), [navigate]);
 
   const renderHeader = useCallback(

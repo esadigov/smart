@@ -63,6 +63,13 @@ export const DevicesScreen: React.FC = () => {
   const renderHeader = () => (
     <View style={styles.headerContainer}>
       <View>
+        {/* Back Button Functionality Like on Figma */}
+        <TouchableOpacity
+          key="backButton"
+          style={styles.backButton}>
+          <AntDesign key="backIcon" name="left" color={'#3A6598'} size={20} />
+        </TouchableOpacity>
+        {/* Back Button End */}
         <Text style={styles.headline}>Devices</Text>
         <TouchableOpacity style={styles.plusButton}>
           <AntDesign name="plus" color={'#3A6598'} size={20} />
