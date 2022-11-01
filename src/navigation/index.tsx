@@ -20,6 +20,7 @@ import { HomeScreen } from '../screens/home';
 import { ProfileScreen } from '../screens/profile';
 import { RoomsScreen } from '../screens/rooms';
 import { HomeManagements } from '../screens/profile/modules/HomeManagements';
+import { SignIn } from '../screens/signIn';
 import { DeletionModal } from '../screens/profile/components/DeletionModal'; // Temporary
 // Loading Fonts
 FeatherIcon.loadFont();
@@ -48,6 +49,10 @@ const HomeStack = () => {
       <Stack.Screen
         name="HomeManagements"
         component={HomeManagements}
+      />
+      <Stack.Screen
+        name="SignIn"
+        component={SignIn}
       />
       {/* Temporary Start */}
       <Stack.Screen
