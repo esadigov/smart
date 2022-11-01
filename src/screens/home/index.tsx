@@ -16,7 +16,7 @@ export const HomeScreen: React.FC = () => {
         <Text>Profile</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={goToSignIn}>
-        <Text>Sign-in</Text>
+        <Text>Sign in</Text>
       </TouchableOpacity>
       {/* Temporary Start */}
       <TouchableOpacity onPress={goToDeletionModal}>
