@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react';
-import { Animated, Switch, Text, View } from 'react-native';
+import { Animated, Switch, View } from 'react-native';
 
 import styles from './styles';
 

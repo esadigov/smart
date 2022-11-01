@@ -1,36 +1,51 @@
 import React from 'react';
-import { Text, View, Image, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 
-import { ProfileEditIcon } from '../../../../components/Icons/ProfilePageIcons';
+import DeleteNotifyIcon from '../../../../components/Icons/DeleteNotifyIcon';
 
 import styles from './styles';
 
-const USERS = [
-  {
-    id: 'user1',
-    name: 'Nihad Abdulalizada',
-    avatar: 'https://reactnative.dev/img/tiny_logo.png',
-    status: 'owner',
-  },
-];
-
 export const DeletionModal: any = () => {
-  return USERS.map(user => {
-    return (
-      <View key={user.id} style={styles.container}>
-        <View style={styles.relative}>
-          <Image style={styles.avatar} source={{ uri: user.avatar }} />
-          <TouchableOpacity style={styles.editButton}>
-            <ProfileEditIcon color={'#255B99'} />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.spacing}>
-          <Text style={styles.userName}>{user.name}</Text>
-          <View style={styles.profileStatus}>
-            <Text style={styles.statusText}>{user.status}</Text>
-          </View>
-        </View>
+  return (
+    <View key="deletionWindow" style={styles.container}>
+      <View style={styles.icon}>
+        <DeleteNotifyIcon />
       </View>
-    );
-  });
+      <View style={styles.mainTextContainer}>
+        <Text style={styles.mainText}>Delete user</Text>
+      </View>
+      <View style={styles.subTextContainer}>
+        <Text style={styles.subText}>
+          If you continue, the user will be deleted.
+          {'\n'}
+          Are you sure you want to continue?
+        </Text>
+      </View>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={[
+            styles.button,
+            {borderColor: '#959595'}
+        ]}>
+          <Text
+            style={[
+              styles.buttonText,
+              {color: '#959595'}
+          ]}>Cancel</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[
+            styles.button,
+            { backgroundColor: '#B52A2A',
+              borderColor: '#B52A2A' }
+        ]}>
+          <Text
+            style={[
+              styles.buttonText,
+              {color: '#FFF'}
+          ]}>Delete user</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
 };
