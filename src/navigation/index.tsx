@@ -1,30 +1,31 @@
-import 'react-native-gesture-handler';
-
+// Primary Imports
 import * as React from 'react';
-
+import 'react-native-gesture-handler';
+// Navigation Imports
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+// Icon Imports
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-
-MaterialCommunityIcons;
 import AutomationPageIcon from '../components/Icons/AutomationPageIcon';
 import DevicesPageIcon from '../components/Icons/DevicesPageIcon';
 import HomePageIcon from '../components/Icons/HomePageIcon';
 import RoomsPageIcon from '../components/Icons/RoomsPageIcon';
+// Component Imports
 import { AutomationScreen } from '../screens/automation';
 import { DevicesScreen } from '../screens/devices';
 import { HomeScreen } from '../screens/home';
 import { ProfileScreen } from '../screens/profile';
 import { RoomsScreen } from '../screens/rooms';
 import { HomeManagements } from '../screens/profile/modules/HomeManagements';
-
+import { DeletionModal } from '../screens/profile/components/DeletionModal'; // Temporary
+// Loading Fonts
 FeatherIcon.loadFont();
 MaterialIcons.loadFont();
 MaterialCommunityIcons.loadFont();
-
+// Declaring Stacks
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -40,8 +41,20 @@ const HomeStack = () => {
         component={HomeScreen}
         options={{ title: 'Home' }}
       />
-      <Stack.Screen name="Profile" component={ProfileScreen} />
-      <Stack.Screen name="HomeManagements" component={HomeManagements} />
+      <Stack.Screen
+        name="Profile"
+        component={ProfileScreen}
+      />
+      <Stack.Screen
+        name="HomeManagements"
+        component={HomeManagements}
+      />
+      {/* Temporary Start */}
+      <Stack.Screen
+        name="DeletionModal"
+        component={DeletionModal}
+      />
+      {/* Temporary End */}
     </Stack.Navigator>
   );
 };

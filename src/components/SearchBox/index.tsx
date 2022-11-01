@@ -2,7 +2,6 @@ import React from 'react';
 import { TextInput, View } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
-
 import styles from './styles';
 
 AntDesign.loadFont();

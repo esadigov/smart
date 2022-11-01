@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 export const HomeScreen: React.FC = () => {
   const navigate = useNavigation();
   const goToProfile = () => navigate.navigate('Profile');
+  const goToDeletionModal = () => navigate.navigate('DeletionModal'); // Temporary
 
   return (
     <SafeAreaView>
@@ -13,6 +14,11 @@ export const HomeScreen: React.FC = () => {
       <TouchableOpacity onPress={goToProfile}>
         <Text>Profile</Text>
       </TouchableOpacity>
+      {/* Temporary Start */}
+      <TouchableOpacity onPress={goToDeletionModal}>
+        <Text>Deletion Modal</Text>
+      </TouchableOpacity>
+      {/* Temporary End */}
     </SafeAreaView>
   );
 };
