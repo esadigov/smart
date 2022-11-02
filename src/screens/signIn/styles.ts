@@ -14,12 +14,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     color: '#000',
   },
-  spacing: {
-    paddingHorizontal: 4,
-    marginTop: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-  },
   backButton: {
     position: 'absolute',
     left: 10,
@@ -31,12 +25,81 @@ const styles = StyleSheet.create({
     padding: 8,
     margin: 8,
   },
-  line: {
-    backgroundColor: '#F0F0F0',
-    width: 350,
-    left: 20,
-    height: 2,
-    marginTop: -20,
+  personalContainer: {
+    paddingTop: 24,
+    paddingHorizontal: 24,
+  },
+  personal: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    fontSize: 24,
+    lineHeight: 32,
+    color: '#353535',
+  },
+  subTextContainer: {
+    paddingTop: 10,
+    paddingHorizontal: 24,
+  },
+  subText: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    fontSize: 12,
+    lineHeight: 19,
+    color: '#8E8E8E',
+  },
+  inputContainer: {
+    paddingTop: 44,
+    paddingHorizontal: 24,
+  },
+  inputText: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    fontSize: 16,
+    color: '#353535',
+  },
+  input: {
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    fontSize: 16,
+    top: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    backgroundColor: '#EEE',
+    borderColor: '#DDD',
+    borderWidth: 1,
+    borderRadius: 6,
+    color: '#353535'
+  },
+  wrongInput: {
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    fontSize: 16,
+    top: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    backgroundColor: '#FFEAEA',
+    borderColor: '#DE2C2C',
+    borderWidth: 1,
+    borderRadius: 6,
+    color: '#353535'
+  },
+  error: {
+    color: '#DE2C2C',
+    top: 16,
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: '500',
+  },
+  nextButtonOff: {
+    
+  },
+  nextButtonOn: {
+
   },
 });
 
