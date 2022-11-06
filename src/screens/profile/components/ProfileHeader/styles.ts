@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     marginTop: 10,
-    marginBottom: -14,
   },
   avatar: {
     height: 74,
