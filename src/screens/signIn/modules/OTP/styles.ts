@@ -95,6 +95,45 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     fontWeight: '500',
   },
+  cellRoot: {
+    width: 70,
+    height: 79,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 6,
+    borderColor: '#8E8E8E',
+  },
+  focusCell: {
+    borderColor: '#3A6598',
+  },
+  cellText: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    fontSize: 28,
+    color: '#353535',
+  },
+  resendContainer:{
+    flexDirection: 'row',
+    justifyContent: 'center',
+    top: 26,
+  },
+  resend: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    fontSize: 14,
+    color: '#3A6598',
+    textDecorationLine: 'underline',
+  },
+  resendText: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    fontSize: 14,
+    color: '#353535',
+  },
 });
 
 export default styles;
