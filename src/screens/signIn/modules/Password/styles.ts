@@ -53,6 +53,10 @@ const styles = StyleSheet.create({
     paddingTop: 44,
     paddingHorizontal: 24,
   },
+  inputLowerContainer: {
+    paddingTop: 22,
+    paddingHorizontal: 24,
+  },
   inputText: {
     fontFamily: 'Inter',
     fontStyle: 'normal',

@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     fontStyle: 'normal',
     fontWeight: '700',
-    fontSize: 24,
-    lineHeight: 32,
+    fontSize: 34,
+    lineHeight: 33,
     color: '#353535',
   },
   subTextContainer: {
@@ -98,3 +98,4 @@ const styles = StyleSheet.create({
 });
 
 export default styles;
+

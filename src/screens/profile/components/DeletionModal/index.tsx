@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, TouchableOpacity, Modal } from 'react-native';
+import { Text, View, SafeAreaView, TouchableOpacity, Modal } from 'react-native';
 
 import DeleteNotifyIcon from '../../../../components/Icons/DeleteNotifyIcon';
 
@@ -8,7 +8,7 @@ import styles from './styles';
 export const DeletionModal: any = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    <>
+    <SafeAreaView>
     <TouchableOpacity
       onPress={() => setModalVisible(true)}
     >
@@ -64,6 +64,6 @@ export const DeletionModal: any = () => {
         </View>
       </View>
     </Modal>
-    </>
+    </SafeAreaView>
   );
 };

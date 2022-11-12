@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import {
   ProfileHomeIcon,
   ProfileLogsIcon,
-  ProfileUsersIcon,
+  // ProfileUsersIcon, Temporarily Removed
 } from '../../../../components/Icons/ProfilePageIcons';
 
 import styles from './styles';
@@ -24,12 +24,12 @@ const OPTIONS = [
     color: '#27A69E',
     icon: 'logs',
   },
-  {
+  /* { Temporarily Removed
     id: 'ManageUsers',
     title: 'Manage users',
     color: '#169E4D',
     icon: 'users',
-  },
+  }, */
 ];
 
 const Item = ({ title, color, icon, goHome }) => (
@@ -52,9 +52,9 @@ const Item = ({ title, color, icon, goHome }) => (
           <ProfileHomeIcon style={{ left: 70, bottom: 13 }} />
         ) : icon === 'logs' ? (
           <ProfileLogsIcon style={{ left: 65, bottom: 22 }} />
-        ) : icon === 'users' ? (
-          <ProfileUsersIcon style={{ left: 79, bottom: 7 }} />
-        ) : null}
+        ) /* : icon === 'users' ? (
+          <ProfileUsersIcon style={{ left: 79, bottom: 7 }} /> Temporarily Removed
+        ) */ : null}
       </View>
     </TouchableOpacity>
   </View>

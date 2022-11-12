@@ -21,6 +21,8 @@ import { ProfileScreen } from '../screens/profile';
 import { RoomsScreen } from '../screens/rooms';
 import { HomeManagements } from '../screens/profile/modules/HomeManagements';
 import { SignIn } from '../screens/signIn';
+import { Password } from '../screens/signIn/modules/Password';
+import { OTP } from '../screens/signIn/modules/OTP';
 import { DeletionModal } from '../screens/profile/components/DeletionModal'; // Temporary
 // Loading Fonts
 FeatherIcon.loadFont();
@@ -53,6 +55,14 @@ const HomeStack = () => {
       <Stack.Screen
         name="SignIn"
         component={SignIn}
+      />
+      <Stack.Screen
+        name="Password"
+        component={Password}
+      />
+      <Stack.Screen
+        name="OTP"
+        component={OTP}
       />
       {/* Temporary Start */}
       <Stack.Screen
