@@ -3,7 +3,7 @@ import { Animated, Switch, View } from 'react-native';
 
 import styles from './styles';
 
-interface IRoomSwitch {
+interface IRoomSwitchRow {
   isEnabled: boolean;
   setIsEnabled: () => void;
   color: string;
@@ -11,7 +11,7 @@ interface IRoomSwitch {
   subtitle: string;
 }
 
-export const RoomSwitch: React.FC<IRoomSwitch> = ({
+export const RoomSwitchRow: React.FC<IRoomSwitchRow> = ({
   isEnabled,
   setIsEnabled,
   color = '#3A7670',
@@ -32,7 +32,7 @@ export const RoomSwitch: React.FC<IRoomSwitch> = ({
 
   const sizeInterpolate = filledBox.interpolate({
     inputRange: [0, 1],
-    outputRange: [135, 250],
+    outputRange: [160, 250],
   });
 
   const textInterpolate = filledBox.interpolate({
@@ -52,18 +52,28 @@ export const RoomSwitch: React.FC<IRoomSwitch> = ({
 
   return (
     <View style={styles.container}>
-      <Animated.Text style={[styles.titleText, { color: textInterpolate }]}>
-        {title}
-      </Animated.Text>
-      <Animated.Text style={[styles.subtitle, { color: subTextInterpolate }]}>
-        {subtitle}
-      </Animated.Text>
-      <Switch
-        value={isEnabled}
-        onValueChange={handleSwitch}
-        trackColor={{ true: '#fff', false: '#fff' }}
-        thumbColor={isEnabled ? color : '#CDCDCD'}
-      />
+      <View style={{ flex: 1 }} />
+      <View
+        style={{
+          marginRight: 45,
+          backgroundColor: 'red',
+          flex: 1,
+        }}>
+        <Animated.Text style={[styles.titleText, { color: textInterpolate }]}>
+          {title}
+        </Animated.Text>
+        <Animated.Text style={[styles.subtitle, { color: subTextInterpolate }]}>
+          {subtitle}
+        </Animated.Text>
+      </View>
+      <View style={{ flex: 1 }}>
+        <Switch
+          value={isEnabled}
+          onValueChange={handleSwitch}
+          trackColor={{ true: '#fff', false: '#fff' }}
+          thumbColor={isEnabled ? color : '#CDCDCD'}
+        />
+      </View>
       <Animated.View
         style={[
           styles.circle,

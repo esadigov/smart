@@ -5,134 +5,120 @@ import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import FeatherIcon from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-MaterialCommunityIcons;
 import AutomationPageIcon from '../components/Icons/AutomationPageIcon';
 import DevicesPageIcon from '../components/Icons/DevicesPageIcon';
 import HomePageIcon from '../components/Icons/HomePageIcon';
 import RoomsPageIcon from '../components/Icons/RoomsPageIcon';
+import { AttachDevice } from '../screens/attach-device';
 import { AutomationScreen } from '../screens/automation';
+import { CreateAutomation } from '../screens/create-automation';
+import { CreateRoom } from '../screens/create-room';
 import { DevicesScreen } from '../screens/devices';
 import { HomeScreen } from '../screens/home';
 import { ProfileScreen } from '../screens/profile';
 import { RoomsScreen } from '../screens/rooms';
 
-FeatherIcon.loadFont();
 MaterialIcons.loadFont();
 MaterialCommunityIcons.loadFont();
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const HomeStack = () => {
+const TabNavigator = () => (
+  <Tab.Navigator initialRouteName="Feed">
+    <Tab.Screen
+      name="HomeStack"
+      component={HomeScreen}
+      options={{
+        tabBarLabel: 'Home',
+        headerShown: false,
+        tabBarIcon: ({ color }) => <HomePageIcon color={color} />,
+      }}
+    />
+    <Tab.Screen
+      name="DevicesStack"
+      component={DevicesScreen}
+      options={{
+        tabBarLabel: 'Devices',
+        headerShown: false,
+        tabBarIcon: ({ color }) => <DevicesPageIcon color={color} />,
+      }}
+    />
+    <Tab.Screen
+      name="RoomsStack"
+      component={RoomsScreen}
+      options={{
+        tabBarLabel: 'Rooms',
+        headerShown: false,
+        tabBarIcon: ({ color }) => <RoomsPageIcon color={color} />,
+      }}
+    />
+    <Tab.Screen
+      name="AutomationStack"
+      component={AutomationScreen}
+      options={{
+        tabBarLabel: 'Automation',
+        headerShown: false,
+        tabBarIcon: ({ color }) => <AutomationPageIcon color={color} />,
+      }}
+    />
+  </Tab.Navigator>
+);
+
+const StackNavigation = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Home"
       screenOptions={{
         headerShown: false,
       }}>
       <Stack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{ title: 'Home' }}
+        name="TabNavigator"
+        component={TabNavigator}
+        options={{ headerShown: false }}
       />
-      <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Group>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: 'Home' }}
+        />
+        <Stack.Screen
+          name="Rooms"
+          component={RoomsScreen}
+          options={{ title: 'Rooms' }}
+        />
+        <Stack.Screen
+          name="Devices"
+          component={DevicesScreen}
+          options={{ title: 'Devices' }}
+        />
+        <Stack.Screen
+          name="Automation"
+          component={AutomationScreen}
+          options={{ title: 'Automation' }}
+        />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+      </Stack.Group>
+      <Stack.Group
+        screenOptions={{
+          presentation: 'modal',
+          headerShown: false,
+        }}>
+        <Stack.Screen name="Create-room" component={CreateRoom} />
+        <Stack.Screen name="Attach-device" component={AttachDevice} />
+        <Stack.Screen name="Create-automation" component={CreateAutomation} />
+      </Stack.Group>
     </Stack.Navigator>
   );
 };
 
-const RoomsStack = () => {
-  return (
-    <Stack.Navigator
-      initialRouteName="Rooms"
-      screenOptions={{
-        headerShown: false,
-      }}>
-      <Stack.Screen
-        name="Rooms"
-        component={RoomsScreen}
-        options={{ title: 'Rooms' }}
-      />
-    </Stack.Navigator>
-  );
-};
-
-const DevicesStack = () => {
-  return (
-    <Stack.Navigator
-      initialRouteName="Devices"
-      screenOptions={{
-        headerShown: false,
-      }}>
-      <Stack.Screen
-        name="Devices"
-        component={DevicesScreen}
-        options={{ title: 'Devices' }}
-      />
-    </Stack.Navigator>
-  );
-};
-
-const AutomationStack = () => {
-  return (
-    <Stack.Navigator
-      initialRouteName="Automation"
-      screenOptions={{
-        headerShown: false,
-      }}>
-      <Stack.Screen
-        name="Automation"
-        component={AutomationScreen}
-        options={{ title: 'Automation' }}
-      />
-    </Stack.Navigator>
-  );
-};
-
-export const BottomNavigation = () => {
+export const Navigation = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="Feed">
-        <Tab.Screen
-          name="HomeStack"
-          component={HomeStack}
-          options={{
-            tabBarLabel: 'Home',
-            headerShown: false,
-            tabBarIcon: ({ color }) => <HomePageIcon color={color} />,
-          }}
-        />
-        <Tab.Screen
-          name="DevicesStack"
-          component={DevicesStack}
-          options={{
-            tabBarLabel: 'Devices',
-            headerShown: false,
-            tabBarIcon: ({ color }) => <DevicesPageIcon color={color} />,
-          }}
-        />
-        <Tab.Screen
-          name="RoomsStack"
-          component={RoomsStack}
-          options={{
-            tabBarLabel: 'Rooms',
-            headerShown: false,
-            tabBarIcon: ({ color }) => <RoomsPageIcon color={color} />,
-          }}
-        />
-        <Tab.Screen
-          name="AutomationStack"
-          component={AutomationStack}
-          options={{
-            tabBarLabel: 'Automation',
-            headerShown: false,
-            tabBarIcon: ({ color }) => <AutomationPageIcon color={color} />,
-          }}
-        />
-      </Tab.Navigator>
+      <StackNavigation />
     </NavigationContainer>
   );
 };

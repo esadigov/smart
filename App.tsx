@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-import { BottomNavigation } from './src/navigation';
+import { Navigation } from './src/navigation';
 import { store } from './src/store';
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <Provider store={store}>
-        <BottomNavigation />
+        <Navigation />
       </Provider>
     </>
   );

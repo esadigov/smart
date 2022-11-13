@@ -23,7 +23,7 @@ import styles from './styles';
 
 AntDesign.loadFont();
 
-const SWITCH_OPTIONS: SwitchOption[] = [
+export const SWITCH_OPTIONS: SwitchOption[] = [
   {
     label: 'All',
     value: 'all',

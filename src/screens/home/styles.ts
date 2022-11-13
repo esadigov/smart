@@ -5,6 +5,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFF',
   },
+  content: {
+    paddingHorizontal: 10,
+  },
   header: {
     textAlign: 'center',
     fontWeight: '600',
@@ -12,29 +15,18 @@ const styles = StyleSheet.create({
     lineHeight: 25,
     padding: 10,
   },
-  searchStyles: {
-    marginRight: 10,
-  },
   plusButton: {
-    position: 'absolute',
-    right: 0,
-    top: 2,
     backgroundColor: '#F5FAFF',
     borderRadius: 9,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 8,
   },
-  searchContainer: {
-    marginVertical: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-  },
-  listContainer: {
-    paddingHorizontal: 10,
-  },
-  listItems: {
-    justifyContent: 'space-around',
+  avatar: {
+    height: 48,
+    width: 48,
+    borderRadius: 48,
+    marginRight: 15,
   },
 });
 
