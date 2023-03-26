@@ -27,6 +27,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 8,
   },
+  selected: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 20,
+  },
   spacing: {
     marginTop: 20,
   },

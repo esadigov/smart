@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { View, Text, Switch, Animated } from 'react-native';
+import { View, Switch, Animated } from 'react-native';
 
 import styles from './styles';
 

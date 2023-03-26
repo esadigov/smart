@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { memo, useMemo } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
+
+import styles from './styles';
 
 interface IButton {
   text: string;
@@ -8,32 +10,27 @@ interface IButton {
   style?: any;
 }
 
-export const Button: React.FC<IButton> = ({
-  text,
-  onPress,
-  disabled,
-  style,
-}) => (
-  <TouchableOpacity
-    onPress={onPress}
-    disabled={disabled}
-    style={[
-      {
-        backgroundColor: disabled ? '#CBCBCB' : '#3A6598',
-        paddingVertical: 14.5,
-        borderRadius: 6,
-      },
-      style,
-    ]}>
-    <Text
-      style={{
-        color: disabled ? '#7A7A7A' : '#fff',
-        fontWeight: '500',
-        fontSize: 16,
-        lineHeight: 20,
-        textAlign: 'center',
-      }}>
-      {text}
-    </Text>
-  </TouchableOpacity>
+export const Button: React.FC<IButton> = memo(
+  ({ text, onPress, disabled, style }) => {
+    const { backgroundStyle, colorStyle } = useMemo(
+      () => ({
+        backgroundStyle: {
+          backgroundColor: disabled ? '#CBCBCB' : '#3A6598',
+        },
+        colorStyle: {
+          color: disabled ? '#7A7A7A' : '#fff',
+        },
+      }),
+      [disabled],
+    );
+
+    return (
+      <TouchableOpacity
+        onPress={onPress}
+        disabled={disabled}
+        style={[styles.container, backgroundStyle, style]}>
+        <Text style={[styles.text, colorStyle]}>{text}</Text>
+      </TouchableOpacity>
+    );
+  },
 );

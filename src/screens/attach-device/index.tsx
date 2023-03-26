@@ -23,7 +23,7 @@ import { DeviceCard } from '../devices/components/DeviceCard';
 import { DeviceCheckBox } from './components/DeviceCheckBox';
 import styles from './styles';
 
-const ChosenComponent = ({
+const SelectedComponent = ({
   name,
   onPress,
 }: {
@@ -110,9 +110,9 @@ export const AttachDevice: React.FC = () => {
           placeholder="Search"
         />
       </View>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 20 }}>
+      <View style={styles.selected}>
         {chosen.map(item => (
-          <ChosenComponent
+          <SelectedComponent
             key={item.id}
             name={item.room}
             onPress={() => disable(item.id)}
