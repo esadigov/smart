@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import deviceSlice from './slices/deviceSlice';
 import roomSlice from './slices/roomSlice';
+import automationSlice from './slices/automationSlice';
 
 export const store = configureStore({
   reducer: {
     deviceSlice,
     roomSlice,
+    automationSlice,
   },
 });
 

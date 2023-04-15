@@ -3,40 +3,43 @@ import {
   SafeAreaView,
   TouchableOpacity,
   Text,
+  FlatList,
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import { SearchInput } from '../../components/SearchBox';
 import { AutomationFirstSheet } from './modules/AutomationFirstSheet';
-import { ConditionSheetHeader } from './components/ConditionSheetHeader';
+import { AutomationFirstSheetHeader } from './components/AutomationFirstSheetHeader';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import RobotImage from '../../components/Images/RobotImage';
 import styles from './styles';
 AntDesign.loadFont();
-// TEMPORARY Redux
+// Redux
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
-  searchDeviceSections,
+  searchAutomations,
   setSearchQuery,
-} from '../../store/slices/deviceSlice';
+} from '../../store/slices/automationSlice';
 
 export const AutomationScreen: React.FC = () => {
   // Navigation
   const navigate = useNavigation();
   const goBack = useCallback(() => navigate.goBack(), [navigate]);
   const refRBSheet = useRef(null);
-  // TEMPORARY Redux
+  // Redux
+  const { filteredAutomations, searchQuery } =
+    useAppSelector(state => state.automationSlice);
   const dispatch = useAppDispatch();
-  const { searchQuery } =
-    useAppSelector(state => state.deviceSlice);
-  useEffect(() => {
-    dispatch(searchDeviceSections(searchQuery));
-  }, [dispatch, searchQuery]);
+  
   const handleSearch = useCallback(
     (value: string) => dispatch(setSearchQuery(value)),
     [dispatch],
   );
+
+  useEffect(() => {
+    dispatch(searchAutomations(searchQuery));
+  }, [dispatch, searchQuery]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -59,9 +62,22 @@ export const AutomationScreen: React.FC = () => {
           placeholder="Search"
         />
       </SafeAreaView>
-      <SafeAreaView style={styles.robotImage}>
-        <RobotImage />
-      </SafeAreaView>
+      {!filteredAutomations
+        ? <SafeAreaView style={styles.container}>
+            <FlatList
+              key="device-sections"
+              data={filteredAutomations}
+              numColumns={2}
+              scrollEnabled={true}
+              renderItem={null}
+              showsVerticalScrollIndicator={false}
+            />
+          </SafeAreaView>
+        : <SafeAreaView style={styles.robotImage}>
+            <RobotImage />
+          </SafeAreaView>
+      }
+
       <TouchableOpacity
         key="createAutomation"
         onPress={() => refRBSheet.current?.open()}
@@ -70,6 +86,7 @@ export const AutomationScreen: React.FC = () => {
           Create Automation
         </Text>
       </TouchableOpacity>
+
       <RBSheet
         ref={refRBSheet}
         height={678}
@@ -88,8 +105,18 @@ export const AutomationScreen: React.FC = () => {
             width: 100,
           },
         }}>
-        <ConditionSheetHeader onPress={() => refRBSheet.current?.close()} />
-        <AutomationFirstSheet />
+        <FlatList
+          key="automationSheets"
+          data={null}
+          renderItem={null}
+          showsVerticalScrollIndicator={false}
+          ListHeaderComponent={
+            <AutomationFirstSheetHeader
+              onPress={() => refRBSheet.current?.close()}
+            />
+          }
+          ListFooterComponent={<AutomationFirstSheet />}
+        />
       </RBSheet>
     </SafeAreaView>
   );

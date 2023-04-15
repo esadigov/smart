@@ -10,11 +10,10 @@ import styles from './styles';
 
 AntDesign.loadFont();
 
-export const ConditionSheetHeader = (props: any) => {
-
+export const AutomationFirstSheetHeader = (props: any) => {
   return (
     <SafeAreaView>
-      <Text key="conditionSheetTitle" style={styles.header}>
+      <Text key="automationFirstSheetTitle" style={styles.header}>
         Create Automation
       </Text>
       <TouchableOpacity

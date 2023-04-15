@@ -78,3 +78,14 @@ export const ROOMS = [
     color: '#D1B19A',
   },
 ];
+
+export const AUTOMATIONS = [
+  {
+    id: '',
+    name: '',
+  },
+  {
+    id: '',
+    name: '',
+  },
+];
