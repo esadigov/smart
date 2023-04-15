@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   headerContainer: {
     marginBottom: 32,
   },
-  headline: {
+  header: {
     textAlign: 'center',
     fontWeight: '600',
     fontSize: 20,
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
+    left: 10,
     top: 8,
     backgroundColor: '#F5FAFF',
     borderRadius: 9,
@@ -37,20 +38,36 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 8,
     marginVertical: 12,
-    marginHorizontal: 8,
+    marginHorizontal: 18,
   },
   spacing: {
-    marginTop: 20,
+    marginVertical: 44,
+    marginHorizontal: 10,
   },
-  listContainer: {
-    paddingHorizontal: 10,
+  robotImage: {
+    marginVertical: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  listItems: {
-    justifyContent: 'space-around',
+  createAutomation: {
+    backgroundColor: '#3A6598',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 14,
+    paddingHorizontal: 24,
+    margin: 24,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: '#3A6598',
   },
-  switchButtonsSpacing: {
-    marginBottom: 10,
+  createAutomationText: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    fontSize: 16,
+    lineHeight: 19,
+    color: '#FFF',
   },
-});
+})
 
 export default styles;
