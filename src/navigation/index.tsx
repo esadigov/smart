@@ -16,7 +16,6 @@ import RoomsPageIcon from '../components/Icons/RoomsPageIcon';
 // Component Imports
 import { AttachDevice } from '../screens/attach-device';
 import { AutomationScreen } from '../screens/automation';
-import { CreateAutomation } from '../screens/create-automation';
 import { CreateRoom } from '../screens/create-room';
 import { DevicesScreen } from '../screens/devices';
 import { HomeScreen } from '../screens/home';
@@ -142,7 +141,6 @@ const StackNavigation = () => {
         }}>
         <Stack.Screen name="Create-room" component={CreateRoom} />
         <Stack.Screen name="Attach-device" component={AttachDevice} />
-        <Stack.Screen name="Create-automation" component={CreateAutomation} />
       </Stack.Group>
     </Stack.Navigator>
   );
