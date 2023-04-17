@@ -1,7 +1,7 @@
 // Primary Imports
 import React from 'react';
 import { StatusBar, useColorScheme } from 'react-native';
-import { BottomNavigation } from './src/navigation';
+import { Navigation } from './src/navigation';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 // Redux Imports
 import { Provider } from 'react-redux';
@@ -20,7 +20,7 @@ const App = () => {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <Provider store={store}>
-        <BottomNavigation />
+        <Navigation />
       </Provider>
     </>
   );

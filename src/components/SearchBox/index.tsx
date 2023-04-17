@@ -10,6 +10,7 @@ interface ISearchInput {
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
+  hideIcon?: boolean;
   style?: any;
 }
 
@@ -17,6 +18,7 @@ export const SearchInput: React.FC<ISearchInput> = ({
   value,
   onChange,
   placeholder,
+  hideIcon,
   style,
 }) => {
   return (
@@ -30,12 +32,14 @@ export const SearchInput: React.FC<ISearchInput> = ({
           onChangeText={onChange}
         />
       </View>
-      <AntDesign
-        name="search1"
-        size={24}
-        color={'#9AA4C9'}
-        style={styles.inputIcon}
-      />
+      {!hideIcon && (
+        <AntDesign
+          name="search1"
+          size={24}
+          color={'#9AA4C9'}
+          style={styles.inputIcon}
+        />
+      )}
     </View>
   );
 };

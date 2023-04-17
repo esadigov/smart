@@ -60,6 +60,24 @@ export const DEVICES = [
     room: 'Bedroom',
     enabled: false,
   },
+  {
+    id: 'lrs2',
+    device: 'Speaker',
+    room: 'Living Room',
+    enabled: false,
+  },
+  {
+    id: 'lrl2',
+    device: 'Light',
+    room: 'Living Room',
+    enabled: false,
+  },
+  {
+    id: 'bst2',
+    device: 'Smart TV',
+    room: 'Bedroom',
+    enabled: false,
+  },
 ];
 
 export const ROOMS = [
