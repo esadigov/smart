@@ -6,6 +6,7 @@ import {
   FlatList,
 } from 'react-native';
 
+import RBSheet from 'react-native-raw-bottom-sheet';
 import { SearchInput } from '../../components/SearchBox';
 import { AutomationFirstSheet } from './modules/AutomationFirstSheet';
 import AntDesign from 'react-native-vector-icons/AntDesign';
