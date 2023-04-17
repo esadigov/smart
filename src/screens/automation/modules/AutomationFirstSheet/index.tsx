@@ -6,12 +6,16 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
+import { AutomationFirstSheetHeader } from '../../components/AutomationFirstSheetHeader';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import styles from './styles';
 
 AntDesign.loadFont();
 
 export const AutomationFirstSheet = () => {
+  const navigate = useNavigation();
+  // const goToAutomationConditionSheet = () => navigate.navigate('AutomationSheet');
   const [ conditionOpen, setConditionOpen ] = useState(true);
   const [ actionOpen, setActionOpen ] = useState(true);
   const handleConditionDrop = () => {
@@ -24,6 +28,7 @@ export const AutomationFirstSheet = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <AutomationFirstSheetHeader />
       <View style={styles.box}>
         <View style={styles.upper}>
           <Text style={styles.primaryText}>
@@ -40,7 +45,9 @@ export const AutomationFirstSheet = () => {
         </View>
         {conditionOpen ?
           <View style={styles.lower}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity
+              // onPress={goToAutomationConditionSheet}
+              style={styles.button}>
               <Text style={styles.text}>Add condition</Text>
             </TouchableOpacity>
           </View> : null}

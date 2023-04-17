@@ -1,16 +1,13 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import {
   SafeAreaView,
-  TouchableOpacity,
   Text,
+  TouchableOpacity,
   FlatList,
 } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
-import RBSheet from 'react-native-raw-bottom-sheet';
 import { SearchInput } from '../../components/SearchBox';
 import { AutomationFirstSheet } from './modules/AutomationFirstSheet';
-import { AutomationFirstSheetHeader } from './components/AutomationFirstSheetHeader';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import RobotImage from '../../components/Images/RobotImage';
 import styles from './styles';
@@ -23,36 +20,29 @@ import {
 } from '../../store/slices/automationSlice';
 
 export const AutomationScreen: React.FC = () => {
-  // Navigation
-  const navigate = useNavigation();
-  const goBack = useCallback(() => navigate.goBack(), [navigate]);
-  const refRBSheet = useRef(null);
   // Redux
   const { filteredAutomations, searchQuery } =
-    useAppSelector(state => state.automationSlice);
+  useAppSelector(state => state.automationSlice);
   const dispatch = useAppDispatch();
-  
   const handleSearch = useCallback(
     (value: string) => dispatch(setSearchQuery(value)),
     [dispatch],
   );
-
   useEffect(() => {
     dispatch(searchAutomations(searchQuery));
   }, [dispatch, searchQuery]);
+  // Sheets
+  const refRBSheet = useRef(null);
 
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity
-        key="backButton"
-        onPress={goBack}
-        style={styles.backButton}>
-        <AntDesign key="backIcon" name="left" color={'#3A6598'} size={20} />
-      </TouchableOpacity>
       <Text key="automationTitle" style={styles.header}>
         Automation
       </Text>
-      <TouchableOpacity style={styles.plusButton}>
+      <TouchableOpacity
+        key="createAutomation"
+        onPress={() => refRBSheet.current?.open()}
+        style={styles.plusButton}>
         <AntDesign name="plus" color={'#3A6598'} size={20} />
       </TouchableOpacity>
       <SafeAreaView style={styles.spacing}>
@@ -65,7 +55,7 @@ export const AutomationScreen: React.FC = () => {
       {!filteredAutomations
         ? <SafeAreaView style={styles.container}>
             <FlatList
-              key="device-sections"
+              key="automations"
               data={filteredAutomations}
               numColumns={2}
               scrollEnabled={true}
@@ -79,7 +69,7 @@ export const AutomationScreen: React.FC = () => {
       }
 
       <TouchableOpacity
-        key="createAutomation"
+        key="createAutomationBlank"
         onPress={() => refRBSheet.current?.open()}
         style={styles.createAutomation}>
         <Text style={styles.createAutomationText}>
@@ -105,18 +95,13 @@ export const AutomationScreen: React.FC = () => {
             width: 100,
           },
         }}>
-        <FlatList
-          key="automationSheets"
-          data={null}
-          renderItem={null}
-          showsVerticalScrollIndicator={false}
-          ListHeaderComponent={
-            <AutomationFirstSheetHeader
-              onPress={() => refRBSheet.current?.close()}
-            />
-          }
-          ListFooterComponent={<AutomationFirstSheet />}
-        />
+        <TouchableOpacity
+          key="backButton"
+          onPress={() => refRBSheet.current?.close()}
+          style={styles.backButton}>
+          <AntDesign key="backIcon" name="left" color={'#3A6598'} size={20} />
+        </TouchableOpacity>
+        <AutomationFirstSheet />
       </RBSheet>
     </SafeAreaView>
   );

@@ -26,6 +26,7 @@ import { SignIn } from '../screens/signIn';
 import { Password } from '../screens/signIn/modules/Password';
 import { OTP } from '../screens/signIn/modules/OTP';
 import { DeletionModal } from '../screens/profile/components/DeletionModal'; // Temporary
+import { AutomationConditionSheet } from '../screens/automation/modules/AutomationConditionSheet';
 // Loading Fonts
 FeatherIcon.loadFont();
 MaterialIcons.loadFont();
@@ -134,6 +135,16 @@ const StackNavigation = () => {
         />
         {/* Temporary End */}
       </Stack.Group>
+      {/* <Stack.Group>
+        <Stack.Screen
+          name="AutomationSheet"
+          component={AutomationConditionSheet}
+          options={{
+            headerShown: false,
+            presentation: 'transparentModal',
+          }}
+        />
+      </Stack.Group> */}
       <Stack.Group
         screenOptions={{
           presentation: 'modal',

@@ -19,14 +19,15 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    left: 10,
-    top: 8,
+    left: 12,
+    top: 30,
     backgroundColor: '#F5FAFF',
     borderRadius: 9,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 8,
+    padding: 12,
     margin: 8,
+    zIndex: 1,
   },
   plusButton: {
     position: 'absolute',
@@ -47,7 +48,8 @@ const styles = StyleSheet.create({
   robotImage: {
     marginVertical: 20,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    zIndex: -1,
   },
   createAutomation: {
     backgroundColor: '#3A6598',

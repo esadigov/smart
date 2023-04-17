@@ -11,7 +11,7 @@ import styles from './styles';
 
 AntDesign.loadFont();
 
-export const AutomationFirstSheet = () => {
+export const AutomationConditionSheet = () => {
   const [ conditionOpen, setConditionOpen ] = useState(true);
   const [ actionOpen, setActionOpen ] = useState(true);
   const handleConditionDrop = () => {
@@ -27,7 +27,7 @@ export const AutomationFirstSheet = () => {
       <View style={styles.box}>
         <View style={styles.upper}>
           <Text style={styles.primaryText}>
-            Condition
+            TEST
           </Text>
           <TouchableOpacity
             onPress={handleConditionDrop}

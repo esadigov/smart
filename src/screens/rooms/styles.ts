@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 8,
     marginVertical: 12,
-    marginHorizontal: 18,
+    marginHorizontal: 8,
   },
   searchContainer: {
     marginVertical: 10,
