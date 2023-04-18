@@ -9,12 +9,12 @@ import RBSheet from 'react-native-raw-bottom-sheet';
 import { SearchInput } from '../../components/SearchBox';
 import { AutomationBlank } from './components/AutomationBlank';
 import { AutomationRegular } from './components/AutomationRegular';
-// COMPONENTS TO NAVIGATE
+// COMPONENTS TO NAVIGATE START
 import { AutomationFirstSheet } from './modules/AutomationFirstSheet';
 import { AutomationConditionSheet } from './modules/AutomationConditionSheet';
 import { AutomationActionSheet } from './modules/AutomationActionSheet';
 import { AutomationNameSheet } from './modules/AutomationNameSheet';
-
+// COMPONENTS TO NAVIGATE END
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import styles from './styles';
 AntDesign.loadFont();
@@ -97,10 +97,10 @@ export const AutomationScreen: React.FC = () => {
         </TouchableOpacity>
         {/* COMPONENTS TO NAVIGATE START */}
 
-        {/* <AutomationFirstSheet /> */}
+        <AutomationFirstSheet />
         {/* <AutomationConditionSheet /> */}
         {/* <AutomationActionSheet /> */}
-        <AutomationNameSheet />
+        {/* <AutomationNameSheet /> */}
 
         {/* COMPONENTS TO NAVIGATE END */}
       </RBSheet>

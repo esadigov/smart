@@ -29,13 +29,11 @@ export const AutomationNameSheet = () => {
           autoCorrect={false}
           spellCheck={false}
         />
-      <View>
         <TouchableOpacity
           key="saveButton"
           style={styles.saveButton}
           ><Text style={styles.saveText}>Save</Text>
         </TouchableOpacity>
-      </View>
       </View>
     </View>
   )
