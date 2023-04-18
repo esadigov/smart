@@ -22,6 +22,7 @@ import {
   searchAutomations,
   setSearchQuery,
 } from '../../store/slices/automationSlice';
+import { AutomationActionSheet } from './modules/AutomationActionSheet';
 
 let blank = true;
 // COMMENT TO SWITCH SCREENS
@@ -95,7 +96,8 @@ export const AutomationScreen: React.FC = () => {
         </TouchableOpacity>
         {/* Components to Navigate */}
         {/* <AutomationFirstSheet /> */}
-        <AutomationConditionSheet />
+        {/* <AutomationConditionSheet /> */}
+        <AutomationActionSheet />
       </RBSheet>
     </SafeAreaView>
   );
