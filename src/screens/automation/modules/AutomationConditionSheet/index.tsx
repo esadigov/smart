@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import { BackButton } from '../../components/BackButton';
 import DevicesPageIcon from '../../../../components/Icons/DevicesPageIcon';
 import styles from './styles';
 
@@ -36,13 +37,16 @@ const Item = ({ title }) => (
   </TouchableOpacity>
 )
 
-export const AutomationConditionSheet = () => {
+export const AutomationConditionSheet = (props: any) => {
   const renderItem = ({ item }) => (
     <Item title={item.title} />
   );
 
   return (
     <View style={styles.container}>
+      <BackButton
+        onPress={props.closeSheet}
+      />
       <Text key="automationConditionSheetTitle" style={styles.header}>
         Condition
       </Text>

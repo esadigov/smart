@@ -7,13 +7,17 @@ import {
 } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import { BackButton } from '../../components/BackButton';
 import styles from './styles';
 
 AntDesign.loadFont();
 
-export const AutomationNameSheet = () => {
+export const AutomationNameSheet = (props: any) => {
   return (
     <View style={styles.container}>
+      <BackButton
+        onPress={props.closeSheet}
+      />
       <Text key="automationConditionSheetTitle" style={styles.header}>
         Name
       </Text>

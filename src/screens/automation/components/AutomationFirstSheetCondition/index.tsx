@@ -76,6 +76,7 @@ export const AutomationFirstSheetCondition = () => {
         {conditionOpen
           ? <View style={styles.lower}>
               <FlatList
+                listKey='addConditionSheet'
                 contentContainerStyle={styles.conditionsContainer}
                 keyExtractor={item => item.id}
                 data={CREATE_CONDITIONS}

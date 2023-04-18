@@ -3,6 +3,7 @@ import {
   SafeAreaView,
   Text,
   TouchableOpacity,
+  FlatList,
 } from 'react-native';
 
 import RBSheet from 'react-native-raw-bottom-sheet';
@@ -27,7 +28,7 @@ import {
 
 let blank = true;
 // COMMENT TO SWITCH SCREENS
-blank = false;
+// blank = false;
 
 export const AutomationScreen: React.FC = () => {
   // Redux
@@ -72,9 +73,10 @@ export const AutomationScreen: React.FC = () => {
 
       <RBSheet
         ref={refRBSheet}
-        height={678}
+        height={750} // 750 Default, 440 for AutomationName
         closeOnDragDown={true}
         openDuration={200}
+        closeDuration={200}
         customStyles={{
           wrapper: {
             backgroundColor: "#20202020",
@@ -88,21 +90,23 @@ export const AutomationScreen: React.FC = () => {
             width: 100,
           },
         }}>
-
-        <TouchableOpacity
-          key="backButton"
-          onPress={() => refRBSheet.current?.close()}
-          style={styles.backButton}>
-          <AntDesign key="backIcon" name="left" color={'#3A6598'} size={20} />
-        </TouchableOpacity>
-        {/* COMPONENTS TO NAVIGATE START */}
-
-        <AutomationFirstSheet />
-        {/* <AutomationConditionSheet /> */}
-        {/* <AutomationActionSheet /> */}
-        {/* <AutomationNameSheet /> */}
-
-        {/* COMPONENTS TO NAVIGATE END */}
+          
+          <FlatList
+            key="bottomSheet"
+            data={null}
+            scrollEnabled={true}
+            renderItem={null}
+            showsVerticalScrollIndicator={false}
+            ListHeaderComponent={null}
+            ListFooterComponent={
+            // COMPONENTS TO NAVIGATE START
+            <AutomationFirstSheet closeSheet={() => refRBSheet.current?.close()} />
+            // <AutomationConditionSheet closeSheet={() => refRBSheet.current?.close()} />
+            // <AutomationActionSheet closeSheet={() => refRBSheet.current?.close()} />
+            // <AutomationNameSheet closeSheet={() => refRBSheet.current?.close()} />
+            // COMPONENTS TO NAVIGATE END
+            }
+          />
       </RBSheet>
     </SafeAreaView>
   );

@@ -8,6 +8,7 @@ import {
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import AlarmIcon from '../../../../components/Icons/AlarmIcon';
+import { BackButton } from '../../components/BackButton';
 import DevicesPageIcon from '../../../../components/Icons/DevicesPageIcon';
 import styles from './styles';
 
@@ -50,13 +51,16 @@ const Item = ({ title, icon }) => (
   </TouchableOpacity>
 )
 
-export const AutomationActionSheet = () => {
+export const AutomationActionSheet = (props: any) => {
   const renderItem = ({ item }) => (
     <Item icon={item.icon} title={item.title} />
   );
 
   return (
     <View style={styles.container}>
+      <BackButton
+        onPress={props.closeSheet}
+      />
       <Text key="automationActionsSheetTitle" style={styles.header}>
         Action
       </Text>

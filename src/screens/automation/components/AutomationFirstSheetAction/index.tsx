@@ -5,67 +5,83 @@ import {
   TouchableOpacity,
   FlatList,
   View,
-  Switch,
 } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import CloudIcon from '../../../../components/Icons/CloudIcon';
+import AlarmIcon from '../../../../components/Icons/AlarmIcon';
 import styles from './styles';
 
 AntDesign.loadFont();
 
-const AUTOMATIONS = [
+// Mock Object
+const CREATE_ACTIONS = [
   {
-    id: 'SummerTime',
-    title: 'Summer time',
-    condition: "If the weather's sunny...",
-    icon: 'Cloud',
+    id: 'sendAlarm',
+    title: 'Send alarm notification',
+    icon: 'alarm',
   },
 ];
 
-export const AutomationRegular = () => {
-  const [isEnabled, setIsEnabled ] = useState(false);
+export const AutomationFirstSheetAction = () => {
+  const [ actionOpen, setActionOpen ] = useState(true);
+  const handleActionDrop = () => {
+    setActionOpen(!actionOpen);
+  }
 
-  const Item = ({ title, condition }) => (
-    <TouchableOpacity style={styles.box}>
-      <View style={styles.row}>
-        <View style={styles.icon}>
-          <CloudIcon color='#3A6598' />
-        </View>
-        <View style={styles.main}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.condition}>{condition}</Text>
-        </View>
-        <View style={styles.switchContainer}>
-          <Switch
-            style={styles.switch}
-            value={isEnabled}
-            onValueChange={handleSwitch}
-            trackColor={{ true: '#fff', false: '#fff' }}
-            thumbColor={isEnabled ? '#3A6598' : '#CDCDCD'}
-          />
-        </View>
-      </View>
+  const Item = ({ title }) => (
+    <TouchableOpacity style={styles.actions}>
+      <AlarmIcon color='#952323' />
+      <Text style={styles.actionsText}>
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 
-  const handleSwitch = () => {
-    setIsEnabled(!isEnabled);
-  }
-
   const renderItem = ({ item }) => (
-    <Item title={item.title} condition={item.condition} />
+    <Item title={item.title} />
   );
 
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        keyExtractor={item => item.id}
-        data={AUTOMATIONS}
-        scrollEnabled={true}
-        renderItem={renderItem}
-        showsVerticalScrollIndicator={false}
-      />
+    <SafeAreaView>
+      <View style={styles.box}>
+        <View style={styles.upper}>
+          <Text style={styles.primaryText}>
+            Action
+          </Text>
+          <TouchableOpacity
+            onPress={handleActionDrop}
+            style={styles.dropdownKey}>
+            <AntDesign 
+              name={actionOpen ? "down" : "right"}
+              color={'#A5A5A5'} size={24} />
+          </TouchableOpacity>
+          <Text style={styles.subText}>
+            Add the action you want to perform
+          </Text>
+        </View>
+        {actionOpen
+          ? <View style={styles.lower}>
+              <FlatList
+                listKey='addActionSheet'
+                contentContainerStyle={styles.actionsContainer}
+                keyExtractor={item => item.id}
+                data={CREATE_ACTIONS}
+                scrollEnabled={true}
+                renderItem={renderItem}
+                showsVerticalScrollIndicator={false}
+              />
+              <View style={styles.buttonContainer}>
+                <TouchableOpacity
+                  // onPress={goToAutomationActionSheet}
+                  style={styles.button}>
+                  <Text style={styles.text}>
+                    Add action
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          : null}
+      </View>
     </SafeAreaView>
   );
 }

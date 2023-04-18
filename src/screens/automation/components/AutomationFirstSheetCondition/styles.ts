@@ -38,11 +38,15 @@ const styles = StyleSheet.create({
   lower: {
     flexDirection: 'column',
     paddingBottom: 22,
+    paddingTop: 4,
+    alignItems: 'flex-start',
+    marginHorizontal: 24,
   },
   buttonContainer: {
     alignItems: 'center',
   },
   button: {
+    marginTop: 16,
     width: 320,
     height: 48,
     borderWidth: 1,
@@ -96,6 +100,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 6,
+    alignSelf: 'flex-start',
   },
   specificationsText: {
     fontFamily: 'Inter',
