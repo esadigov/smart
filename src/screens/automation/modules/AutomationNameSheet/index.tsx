@@ -1,58 +1,42 @@
 import React from 'react';
 import {
-  FlatList,
   Text,
   View,
+  TextInput,
   TouchableOpacity,
 } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import DevicesPageIcon from '../../../../components/Icons/DevicesPageIcon';
 import styles from './styles';
 
 AntDesign.loadFont();
 
-const CONDITIONS = [
-  {
-    id: 'Devices',
-    title: 'Devices',
-  },
-  {
-    id: 'SetTime',
-    title: 'Set time',
-  },
-]
-
-const Item = ({ title }) => (
-  <TouchableOpacity style={styles.box}>
-    <View style={styles.row}>
-      <View style={styles.icon}>
-        <DevicesPageIcon color='#008EE6' />
-      </View>
-      <View>
-        <Text style={styles.title}>{title}</Text>
-      </View>
-    </View>
-  </TouchableOpacity>
-)
-
-export const AutomationConditionSheet = () => {
-  const renderItem = ({ item }) => (
-    <Item title={item.title} />
-  );
-
+export const AutomationNameSheet = () => {
   return (
     <View style={styles.container}>
       <Text key="automationConditionSheetTitle" style={styles.header}>
-        Condition
+        Name
       </Text>
-      <FlatList
-        keyExtractor={item => item.id}
-        data={CONDITIONS}
-        renderItem={renderItem}
-        scrollEnabled={false}
-        showsVerticalScrollIndicator={false}
-      />
+      <View>
+        <Text style={styles.inputText}>
+          Automation name
+        </Text>
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          autoCapitalize='none'
+          autoComplete='off'
+          autoCorrect={false}
+          spellCheck={false}
+        />
+      <View>
+        <TouchableOpacity
+          key="saveButton"
+          style={styles.saveButton}
+          ><Text style={styles.saveText}>Save</Text>
+        </TouchableOpacity>
+      </View>
+      </View>
     </View>
   )
 }

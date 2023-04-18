@@ -9,9 +9,11 @@ import RBSheet from 'react-native-raw-bottom-sheet';
 import { SearchInput } from '../../components/SearchBox';
 import { AutomationBlank } from './components/AutomationBlank';
 import { AutomationRegular } from './components/AutomationRegular';
-// Components to Navigate
+// COMPONENTS TO NAVIGATE
 import { AutomationFirstSheet } from './modules/AutomationFirstSheet';
 import { AutomationConditionSheet } from './modules/AutomationConditionSheet';
+import { AutomationActionSheet } from './modules/AutomationActionSheet';
+import { AutomationNameSheet } from './modules/AutomationNameSheet';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import styles from './styles';
@@ -22,7 +24,6 @@ import {
   searchAutomations,
   setSearchQuery,
 } from '../../store/slices/automationSlice';
-import { AutomationActionSheet } from './modules/AutomationActionSheet';
 
 let blank = true;
 // COMMENT TO SWITCH SCREENS
@@ -94,10 +95,14 @@ export const AutomationScreen: React.FC = () => {
           style={styles.backButton}>
           <AntDesign key="backIcon" name="left" color={'#3A6598'} size={20} />
         </TouchableOpacity>
-        {/* Components to Navigate */}
+        {/* COMPONENTS TO NAVIGATE START */}
+
         {/* <AutomationFirstSheet /> */}
         {/* <AutomationConditionSheet /> */}
-        <AutomationActionSheet />
+        {/* <AutomationActionSheet /> */}
+        <AutomationNameSheet />
+
+        {/* COMPONENTS TO NAVIGATE END */}
       </RBSheet>
     </SafeAreaView>
   );
