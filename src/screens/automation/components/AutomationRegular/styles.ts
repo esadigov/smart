@@ -2,16 +2,8 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
-    backgroundColor: '#FFF',
-  },
-  header: {
-    textAlign: 'center',
-    fontWeight: '600',
-    fontSize: 20,
-    lineHeight: 25,
-    marginBottom: 30,
-    color: '#000',
+    flex: 1,
+    backgroundColor: '#fff',
   },
   box: {
     padding: 14,
@@ -19,9 +11,18 @@ const styles = StyleSheet.create({
     borderColor: '#F5F5F5',
     borderRadius: 6,
     marginVertical: 4,
+    marginHorizontal: 10,
+  },
+  condition: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: 14,
+    lineHeight: 20,
+    color: "#AAA",
   },
   icon: {
-    backgroundColor: '#C9EAFF',
+    backgroundColor: '#EAF3FF',
     borderRadius: 6,
     alignItems: 'center',
     justifyContent: 'center',
@@ -41,6 +42,21 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     color: '#000',
   },
+  main: {
+    flex: 4,
+  },
+  switchContainer: {
+    flex: 1,
+    marginRight: 24,
+    borderRadius: 24,
+    borderWidth: 1,
+    borderColor: '#F2F2F2'
+  },
+  switch: {
+    marginBottom: 2,
+    marginHorizontal: 3.5,
+    transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }]
+  }
 });
 
 export default styles;
