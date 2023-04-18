@@ -9,6 +9,7 @@ import {
 import RBSheet from 'react-native-raw-bottom-sheet';
 import { SearchInput } from '../../components/SearchBox';
 import { AutomationFirstSheet } from './modules/AutomationFirstSheet';
+import { AutomationConditionSheet } from './modules/AutomationConditionSheet';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import RobotImage from '../../components/Images/RobotImage';
 import styles from './styles';
@@ -33,7 +34,7 @@ export const AutomationScreen: React.FC = () => {
     dispatch(searchAutomations(searchQuery));
   }, [dispatch, searchQuery]);
   // Sheets
-  const refRBSheet = useRef(null);
+  const refRBSheet = useRef<RBSheet>(null);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -102,7 +103,7 @@ export const AutomationScreen: React.FC = () => {
           style={styles.backButton}>
           <AntDesign key="backIcon" name="left" color={'#3A6598'} size={20} />
         </TouchableOpacity>
-        <AutomationFirstSheet />
+        <AutomationConditionSheet />
       </RBSheet>
     </SafeAreaView>
   );

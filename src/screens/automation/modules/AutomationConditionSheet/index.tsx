@@ -1,71 +1,58 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  SafeAreaView,
+  FlatList,
   Text,
   View,
   TouchableOpacity,
 } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import DevicesPageIcon from '../../../../components/Icons/DevicesPageIcon';
 import styles from './styles';
 
 AntDesign.loadFont();
 
-export const AutomationConditionSheet = () => {
-  const [ conditionOpen, setConditionOpen ] = useState(true);
-  const [ actionOpen, setActionOpen ] = useState(true);
-  const handleConditionDrop = () => {
-    setConditionOpen(!conditionOpen);
-  }
+const CONDITIONS = [
+  {
+    id: 'Devices',
+    title: 'Devices',
+  },
+  {
+    id: 'SetTime',
+    title: 'Set time',
+  },
+]
 
-  const handleActionDrop = () => {
-    setActionOpen(!actionOpen);
-  }
+const Item = ({ title }) => (
+  <TouchableOpacity style={styles.box}>
+    <View style={styles.row}>
+      <View style={styles.icon}>
+        <DevicesPageIcon color='#008EE6' />
+      </View>
+      <View>
+        <Text style={styles.title}>{title}</Text>
+      </View>
+    </View>
+  </TouchableOpacity>
+)
+
+export const AutomationConditionSheet = () => {
+  const renderItem = ({ item }) => (
+    <Item title={item.title} />
+  );
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.box}>
-        <View style={styles.upper}>
-          <Text style={styles.primaryText}>
-            TEST
-          </Text>
-          <TouchableOpacity
-            onPress={handleConditionDrop}
-            style={styles.dropdownKey}>
-            <AntDesign name={conditionOpen ? "down" : "right"} color={'#A5A5A5'} size={24} />
-          </TouchableOpacity>
-          <Text style={styles.subText}>
-            Add the condition you want to perform
-          </Text>
-        </View>
-        {conditionOpen ?
-          <View style={styles.lower}>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.text}>Add condition</Text>
-            </TouchableOpacity>
-          </View> : null}
-      </View>
-      <View style={styles.box}>
-        <View style={styles.upper}>
-          <Text style={styles.primaryText}>
-            Action
-          </Text>
-          <TouchableOpacity
-            onPress={handleActionDrop}
-            style={styles.dropdownKey}>
-            <AntDesign name={actionOpen ? "down" : "right"} color={'#A5A5A5'} size={24} />
-          </TouchableOpacity>
-          <Text style={styles.subText}>
-            Add the action you want to perform
-          </Text>
-        </View>
-        {actionOpen ?
-        <View style={styles.lower}>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.text}>Add action</Text>
-          </TouchableOpacity>
-        </View> : null}
-      </View>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <Text key="automationConditionSheetTitle" style={styles.header}>
+        Condition
+      </Text>
+      <FlatList
+        keyExtractor={item => item.id}
+        data={CONDITIONS}
+        renderItem={renderItem}
+        scrollEnabled={false}
+        showsVerticalScrollIndicator={false}
+      />
+    </View>
   )
 }
