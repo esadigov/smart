@@ -2,44 +2,48 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
-    backgroundColor: '#FFF',
+    flex: 1,
+    paddingHorizontal: 20,
+    backgroundColor: '#fff',
   },
-  header: {
+  headerContainer: {
+    marginBottom: 12,
+  },
+  headline: {
     textAlign: 'center',
     fontWeight: '600',
-    fontSize: 20,
-    lineHeight: 25,
-    marginBottom: 30,
+    fontSize: 18,
+    lineHeight: 21,
     color: '#000',
+    marginTop: 20,
   },
-  box: {
-    padding: 14,
-    borderWidth: 1,
-    borderColor: '#F5F5F5',
-    borderRadius: 6,
-    marginVertical: 4,
-  },
-  icon: {
-    backgroundColor: '#C9EAFF',
-    borderRadius: 6,
+  plusButton: {
+    position: 'absolute',
+    right: 0,
+    top: 2,
+
+    backgroundColor: '#F5FAFF',
+    borderRadius: 9,
     alignItems: 'center',
     justifyContent: 'center',
-    width: 46,
-    height: 46,
-    marginRight: 24,
+    padding: 8,
   },
-  row: {
-    alignItems: 'center',
+  selected: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 20,
   },
-  title: {
-    fontFamily: 'Inter',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    fontSize: 16,
-    lineHeight: 22,
-    color: '#000',
+  spacing: {
+    marginTop: 20,
+  },
+  listContainer: {
+    paddingHorizontal: 10,
+  },
+  listItems: {
+    justifyContent: 'space-around',
+  },
+  switchButtonsSpacing: {
+    marginBottom: 10,
   },
 });
 

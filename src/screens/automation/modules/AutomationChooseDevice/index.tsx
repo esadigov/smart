@@ -1,62 +1,144 @@
-import React from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import {
   FlatList,
+  KeyboardAvoidingView,
+  Platform,
   Text,
   View,
-  TouchableOpacity,
 } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { BackButton } from '../../components/BackButton';
-import DevicesPageIcon from '../../../../components/Icons/DevicesPageIcon';
+
+import { Button } from '../../../../components/Button';
+import { SearchInput } from '../../../../components/SearchBox';
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
+import {
+  searchDeviceSections,
+  setSearchQuery,
+  switchDevice,
+} from '../../../../store/slices/deviceSlice';
+
+import { DeviceCheckBox } from './components/DeviceCheckBox';
 import styles from './styles';
 
-AntDesign.loadFont();
+const SelectedComponent = ({
+  name,
+  onPress,
+}: {
+  name: string;
+  onPress: () => void;
+}) => (
+  <View
+    style={{
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingVertical: 10,
+      backgroundColor: '#3A6598',
+      marginRight: 7,
+      marginBottom: 7,
+      borderRadius: 6,
+      paddingHorizontal: 10,
+    }}>
+    <Text
+      style={{
+        color: '#fff',
+        fontWeight: '500',
+        fontSize: 14,
+        lineHeight: 17,
+        marginRight: 10,
+      }}>
+      {name}
+    </Text>
+    <TouchableOpacity onPress={onPress}>
+      <AntDesign name="close" color="#fff" />
+    </TouchableOpacity>
+  </View>
+);
 
-const CONDITIONS = [
-  {
-    id: 'Devices',
-    title: 'Devices',
-  },
-  {
-    id: 'SetTime',
-    title: 'Set time',
-  },
-]
+export const AutomationChooseDevice: React.FC = () => {
+  const { selectedDeviceSection, filteredSections, searchQuery } =
+    useAppSelector(state => state.deviceSlice);
+  const dispatch = useAppDispatch();
 
-const Item = ({ title }) => (
-  <TouchableOpacity style={styles.box}>
-    <View style={styles.row}>
-      <View style={styles.icon}>
-        <DevicesPageIcon color='#008EE6' />
-      </View>
-      <View>
-        <Text style={styles.title}>{title}</Text>
-      </View>
-    </View>
-  </TouchableOpacity>
-)
-
-export const AutomationConditionSheet = (props: any) => {
-  const renderItem = ({ item }) => (
-    <Item title={item.title} />
+  const chosen = useMemo(
+    () => selectedDeviceSection.filter(device => device.enabled),
+    [selectedDeviceSection],
   );
 
-  return (
-    <View style={styles.container}>
-      <BackButton
-        onPress={props.closeSheet}
+  const disable = useCallback(
+    (id: string) => dispatch(switchDevice(id)),
+    [dispatch],
+  );
+
+  const renderSwitchButtons = useCallback(
+    ({ item }) => (
+      <DeviceCheckBox
+        title={item.device}
+        subtitle={item.room}
+        selected={item.enabled}
+        id={item.id}
+        icon={item.icon}
       />
-      <Text key="automationConditionSheetTitle" style={styles.header}>
-        Condition
-      </Text>
-      <FlatList
-        keyExtractor={item => item.id}
-        data={CONDITIONS}
-        renderItem={renderItem}
-        scrollEnabled={false}
-        showsVerticalScrollIndicator={false}
-      />
+    ),
+    [],
+  );
+
+  const handleSearch = useCallback(
+    (value: string) => dispatch(setSearchQuery(value)),
+    [dispatch],
+  );
+
+  useEffect(() => {
+    dispatch(searchDeviceSections(searchQuery));
+  }, [dispatch, searchQuery]);
+
+  const renderHeader = () => (
+    <View style={styles.headerContainer}>
+      <View>
+        <Text style={styles.headline}>Choose Device</Text>
+      </View>
+      <View style={styles.spacing}>
+        <SearchInput
+          onChange={handleSearch}
+          value={searchQuery}
+          placeholder="Search"
+        />
+      </View>
+      <View style={styles.selected}>
+        {chosen.map(item => (
+          <SelectedComponent
+            key={item.id}
+            name={item.room}
+            onPress={() => disable(item.id)}
+          />
+        ))}
+      </View>
     </View>
-  )
-}
+  );
+
+    return (
+      <KeyboardAvoidingView
+        {...(Platform.OS === 'ios' ? { behavior: 'padding' } : {})}
+        keyboardVerticalOffset={50}
+        style={styles.container}>
+        <FlatList
+          key="device"
+          data={selectedDeviceSection}
+          scrollEnabled={true}
+          renderItem={renderSwitchButtons}
+          ListHeaderComponent={renderHeader()}
+          contentContainerStyle={styles.listContainer}
+          showsVerticalScrollIndicator={false}
+        />
+        <View style={{ backgroundColor: '#fff', paddingTop: 20 }}>
+          <Button
+            text="Next"
+            onPress={() => {}}
+            style={{ marginBottom: 30 }}
+            disabled={!chosen.length}
+          />
+        </View>
+      </KeyboardAvoidingView>
+    );
+};

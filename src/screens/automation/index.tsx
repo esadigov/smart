@@ -14,7 +14,7 @@ import { AutomationRegular } from './components/AutomationRegular';
 import { AutomationFirstSheet } from './modules/AutomationFirstSheet';
 import { AutomationConditionSheet } from './modules/AutomationConditionSheet';
 import { AutomationChooseRoom } from './modules/AutomationChooseRoom';
-// import { AutomationChooseDevice } from './modules/AutomationChooseDevice';
+import { AutomationChooseDevice } from './modules/AutomationChooseDevice';
 import { AutomationActionSheet } from './modules/AutomationActionSheet';
 import { AutomationNameSheet } from './modules/AutomationNameSheet';
 // COMPONENTS TO NAVIGATE END
@@ -102,9 +102,10 @@ export const AutomationScreen: React.FC = () => {
             ListHeaderComponent={null}
             ListFooterComponent={
             // COMPONENTS TO NAVIGATE START
-            // <AutomationFirstSheet closeSheet={() => refRBSheet.current?.close()} />
+            <AutomationFirstSheet closeSheet={() => refRBSheet.current?.close()} />
             // <AutomationConditionSheet closeSheet={() => refRBSheet.current?.close()} />
-            <AutomationChooseRoom />
+            // <AutomationChooseRoom />
+            // <AutomationChooseDevice />
             // <AutomationActionSheet closeSheet={() => refRBSheet.current?.close()} />
             // <AutomationNameSheet closeSheet={() => refRBSheet.current?.close()} />
             // COMPONENTS TO NAVIGATE END

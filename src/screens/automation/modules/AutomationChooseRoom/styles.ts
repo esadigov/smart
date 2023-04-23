@@ -4,10 +4,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 10,
+    marginBottom: 20,
     backgroundColor: '#fff',
   },
   headerContainer: {
-    marginBottom: 32,
+    marginBottom: 20,
   },
   headline: {
     textAlign: 'center',
@@ -18,28 +19,6 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     color: '#000',
   },
-  backButton: {
-    position: 'absolute',
-    top: 8,
-    backgroundColor: '#F5FAFF',
-    borderRadius: 9,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 8,
-    margin: 8,
-  },
-  plusButton: {
-    position: 'absolute',
-    right: 0,
-    top: 2,
-    backgroundColor: '#F5FAFF',
-    borderRadius: 9,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 8,
-    marginVertical: 12,
-    marginHorizontal: 8,
-  },
   spacing: {
     marginTop: 20,
   },
@@ -48,9 +27,6 @@ const styles = StyleSheet.create({
   },
   listItems: {
     justifyContent: 'space-around',
-  },
-  switchButtonsSpacing: {
-    marginBottom: 10,
   },
 });
 
