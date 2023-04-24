@@ -41,18 +41,10 @@ export const DeviceCheckBox: React.FC<IDeviceCheckBox> = ({
 
   return (
     <TouchableOpacity
-      style={{
-        width: '100%',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        backgroundColor: selected ? '#E6F4FC' : '#D9D9D94D',
-        marginBottom: 10,
-        padding: 14,
-        borderColor: '#E9E9E9',
-        borderWidth: 1,
-        borderRadius: 6,
-      }}
+      style={[
+        styles.checkbox,
+        {backgroundColor: selected ? '#E6F4FC' : '#D9D9D94D'},
+      ]}
       onPress={handleSwitch}>
       <View style={[
         styles.icon,
@@ -66,34 +58,25 @@ export const DeviceCheckBox: React.FC<IDeviceCheckBox> = ({
       </View>
       <View style={{ maxWidth: '75%', flexDirection: 'column', flex: 1 }}>
         <Text
-          style={{
-            color: selected ? '#000' : '#343434',
-            fontSize: 16,
-            fontWeight: '600',
-            lineHeight: 20,
-          }}>
+          style={[
+            styles.title,
+            {color: selected ? '#000' : '#343434'},
+          ]}>
           {title}
         </Text>
         <Text
-          style={{
-            color: selected ? '#000' : '#343434',
-            fontSize: 14,
-            marginTop: 4,
-            fontWeight: '400',
-            lineHeight: 17,
-          }}>
+          style={[
+            styles.subtitle,
+            {color: selected ? '#000' : '#343434'},
+          ]}>
           {subtitle}
         </Text>
       </View>
       <View
-        style={{
-          borderRadius: 58,
-          width: 26,
-          height: 26,
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: selected ? '#008EE6' : "#E8E8E8",
-        }}>
+        style={[
+          styles.tick,
+          {backgroundColor: selected ? '#008EE6' : "#E8E8E8"},
+        ]}>
         {selected && <FeatherIcon name="check" color="#FFF" />}
       </View>
     </TouchableOpacity>

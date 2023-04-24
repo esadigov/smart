@@ -102,10 +102,10 @@ export const AutomationScreen: React.FC = () => {
             ListHeaderComponent={null}
             ListFooterComponent={
             // COMPONENTS TO NAVIGATE START
-            <AutomationFirstSheet closeSheet={() => refRBSheet.current?.close()} />
+            // <AutomationFirstSheet closeSheet={() => refRBSheet.current?.close()} />
             // <AutomationConditionSheet closeSheet={() => refRBSheet.current?.close()} />
             // <AutomationChooseRoom />
-            // <AutomationChooseDevice />
+            <AutomationChooseDevice />
             // <AutomationActionSheet closeSheet={() => refRBSheet.current?.close()} />
             // <AutomationNameSheet closeSheet={() => refRBSheet.current?.close()} />
             // COMPONENTS TO NAVIGATE END

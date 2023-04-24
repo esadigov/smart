@@ -33,8 +33,7 @@ const styles = StyleSheet.create({
   },
   line: {
     backgroundColor: '#F0F0F0',
-    width: 350,
-    left: 20,
+    marginHorizontal: 20,
     height: 2,
     marginTop: -20,
   },
