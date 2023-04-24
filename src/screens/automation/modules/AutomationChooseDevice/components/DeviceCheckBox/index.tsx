@@ -8,6 +8,7 @@ import { useAppDispatch } from '../../../../../../store/hooks';
 import { switchDevice } from '../../../../../../store/slices/deviceSlice';
 import LightbulbIcon from '../../../../../../components/Icons/LightbulbIcon';
 import TVSetIcon from '../../../../../../components/Icons/TVSetIcon';
+import SpeakerIcon from '../../../../../../components/Icons/SpeakerIcon';
 
 FeatherIcon.loadFont();
 
@@ -53,8 +54,9 @@ export const DeviceCheckBox: React.FC<IDeviceCheckBox> = ({
         {icon === 'lightbulb'
           ? <LightbulbIcon color={iconColor} />
           : icon === 'tvset'
-            ? <TVSetIcon color={iconColor}/>
-            : ''}
+            ? <TVSetIcon color={iconColor} />
+            : <SpeakerIcon color={iconColor} />
+        }
       </View>
       <View style={{ maxWidth: '75%', flexDirection: 'column', flex: 1 }}>
         <Text
