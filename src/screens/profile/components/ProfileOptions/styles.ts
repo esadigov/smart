@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     marginVertical: 20,
-    marginHorizontal: 10,
+    marginHorizontal: 20,
     overflow: 'hidden',
     backgroundColor: '#FFF',
   },
