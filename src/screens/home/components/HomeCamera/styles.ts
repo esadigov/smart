@@ -2,57 +2,77 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#FFF',
+    paddingBottom: 10,
   },
-  buttonField: {
+  cardContainer: {
+    backgroundColor: '#00000080',
+    borderRadius: 6,
+    width: 256,
+    height: 155,
+    marginHorizontal: 3,
+    overflow: 'hidden',
+  },
+  listContainer: {
+    paddingHorizontal: 11,
+  },
+  cameraHeader: {
+    marginHorizontal: 14,
+    marginVertical: 14,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginHorizontal: 20,
-    marginTop: 30,
   },
-  header: {
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-  title: {
-    color: '#353535',
+  cameraText: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '500',
     fontSize: 16,
-    lineHeight: 20,
-    fontWeight: '600',
-    marginBottom: 4,
+    lineHeight: 19,
+    color: '#343434',
   },
-  notification: {
-    position: 'absolute',
-    backgroundColor: '#D7293E',
-    paddingVertical: 3,
-    paddingHorizontal: 7,
-    borderRadius: 38,
-    right: 4,
-  },
-  notificationText: {
-    color: '#fff',
-    fontWeight: '600',
-    fontSize: 12
-  },
-  subtitle: {
-    color: '#CACACA',
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  plusButton: {
+  seeAllButton: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    width: 71,
+    height: 31,
     backgroundColor: '#F5FAFF',
-    borderRadius: 9,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 8,
+    borderRadius: 6,
   },
-  avatar: {
-    height: 48,
-    width: 48,
-    borderRadius: 48,
-    marginRight: 15,
+  seeAllText: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '600',
+    fontSize: 12,
+    lineHeight: 15,
+    color: '#1A5EAF',
+  },
+  backgroundImg: {
+    width: 256,
+    height: 155,
+  },
+  cardInfo: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    flexDirection: 'row',
+    backgroundColor: '#979797',
+    bottom: 9,
+    left: 9,
+    width: 80,
+    height: 28,
+    borderRadius: 6,
+  },
+  title: {
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: 12,
+    lineHeight: 18,
+    marginLeft: 6,
+    color: '#FFF',
   },
 });
 

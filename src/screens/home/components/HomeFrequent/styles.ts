@@ -5,55 +5,92 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFF',
   },
-  buttonField: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginHorizontal: 20,
-    marginTop: 30,
+  box: {
+    padding: 14,
+    borderWidth: 1,
+    borderColor: '#F5F5F5',
+    borderRadius: 6,
+    marginBottom: 6,
+    marginHorizontal: 14,
   },
-  header: {
+  icon: {
+    backgroundColor: '#EAF3FF',
+    borderRadius: 6,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 46,
+    height: 46,
+    marginRight: 24,
+  },
+  row: {
     alignItems: 'center',
     flexDirection: 'row',
   },
   title: {
-    color: '#353535',
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '600',
     fontSize: 16,
-    lineHeight: 20,
-    fontWeight: '600',
-    marginBottom: 4,
-  },
-  notification: {
-    position: 'absolute',
-    backgroundColor: '#D7293E',
-    paddingVertical: 3,
-    paddingHorizontal: 7,
-    borderRadius: 38,
-    right: 4,
-  },
-  notificationText: {
-    color: '#fff',
-    fontWeight: '600',
-    fontSize: 12
+    lineHeight: 19,
+    color: '#343434',
+    marginBottom: 6,
   },
   subtitle: {
-    color: '#CACACA',
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '400',
     fontSize: 14,
-    fontWeight: '600',
+    lineHeight: 17,
+    color: '#343434',
   },
-  plusButton: {
+  frequentHeader: {
+    marginHorizontal: 14,
+    marginVertical: 14,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  frequentText: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    fontSize: 16,
+    lineHeight: 19,
+    color: '#343434',
+  },
+  seeAllButton: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    width: 71,
+    height: 31,
     backgroundColor: '#F5FAFF',
-    borderRadius: 9,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 8,
+    borderRadius: 6,
   },
-  avatar: {
-    height: 48,
-    width: 48,
-    borderRadius: 48,
-    marginRight: 15,
+  seeAllText: {
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '600',
+    fontSize: 12,
+    lineHeight: 15,
+    color: '#1A5EAF',
   },
+  main: {
+    flex: 4,
+  },
+  switchContainer: {
+    flex: 1,
+    marginRight: 24,
+    borderRadius: 24,
+    borderWidth: 1,
+    borderColor: '#F2F2F2'
+  },
+  switch: {
+    marginBottom: 2,
+    marginHorizontal: 3.5,
+    transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }]
+  }
 });
 
 export default styles;

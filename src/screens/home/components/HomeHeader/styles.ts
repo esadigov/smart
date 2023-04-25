@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#FFF',
+    paddingBottom: 30,
   },
   buttonField: {
     flexDirection: 'row',
@@ -22,24 +22,26 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     fontWeight: '600',
     marginBottom: 4,
+    marginLeft: 2,
   },
   notification: {
     position: 'absolute',
     backgroundColor: '#D7293E',
-    paddingVertical: 3,
-    paddingHorizontal: 7,
+    paddingVertical: 2,
+    paddingHorizontal: 6,
     borderRadius: 38,
-    right: 4,
+    right: 9,
   },
   notificationText: {
     color: '#fff',
     fontWeight: '600',
-    fontSize: 12
+    fontSize: 12,
   },
   subtitle: {
     color: '#CACACA',
     fontSize: 14,
     fontWeight: '600',
+    marginLeft: 2,
   },
   plusButton: {
     backgroundColor: '#F5FAFF',

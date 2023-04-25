@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import LightbulbIcon from '../../../../components/Icons/LightbulbIcon';
 
 import styles from './styles';
@@ -49,7 +48,7 @@ const Item = ({ title, lifetime, status }: DataProps) => (
       styles.status,
       {backgroundColor: '#27C265'},
     ]}>
-      <Text>{status}</Text>
+      <Text style={styles.statusText}>{status}</Text>
     </View>
     <View style={styles.cardInfo}>
       <Text style={styles.title}>{title}</Text>
@@ -59,7 +58,7 @@ const Item = ({ title, lifetime, status }: DataProps) => (
 );
 
 export const HomeCards: React.FC = () => {
-  const renderItem = ({ item }) => (
+  const renderItem = ({item}: {item: DataProps}) => (
     <Item id={item.id}
           title={item.title}
           lifetime={item.lifetime}
@@ -74,7 +73,8 @@ export const HomeCards: React.FC = () => {
         data={DATA}
         scrollEnabled={true}
         renderItem={renderItem}
-        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.listContainer}
         horizontal={true}
       />
     </SafeAreaView>

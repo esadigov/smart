@@ -1,57 +1,113 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  Image,
-  SafeAreaView,
+  FlatList,
   Text,
   TouchableOpacity,
   View,
+  Switch,
 } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-
 import styles from './styles';
+import SpeakerIcon from '../../../../components/Icons/SpeakerIcon';
+import LightbulbIcon from '../../../../components/Icons/LightbulbIcon';
+import TVSetIcon from '../../../../components/Icons/TVSetIcon';
 
-const user = {
-  id: 'user1',
-  name: 'Nihad Abdulalizada',
-  avatar: 'https://reactnative.dev/img/tiny_logo.png',
-  status: 'owner',
-};
+interface DataProps {
+  id: string,
+  title: string,
+  subtitle: string,
+  icon: string,
+}
 
-export const HomeHeader: React.FC = () => {
-  const navigate = useNavigation();
-  const goToProfile = () => navigate.navigate('Profile');
+const FREQUENTLY_USED: DataProps[] = [
+  {
+    id: 'device1',
+    title: 'Speaker',
+    subtitle: 'Living room',
+    icon: 'speaker',
+  },
+  {
+    id: 'device2',
+    title: 'Light',
+    subtitle: 'Living room',
+    icon: 'lightbulb',
+  },
+  {
+    id: 'device3',
+    title: 'Smart TV',
+    subtitle: 'Bedroom',
+    icon: 'tvset',
+  },
+  {
+    id: 'device4',
+    title: 'Light',
+    subtitle: 'Hall',
+    icon: 'lightbulb',
+  },
+]
 
-  const { avatar, name } = user;
+
+export const HomeFrequent = () => {
+  const [isEnabled, setIsEnabled ] = useState(false);
+
+  const Item = ({ title, subtitle, icon }: DataProps) => (
+    <TouchableOpacity style={styles.box}>
+      <View style={styles.row}>
+        <View style={styles.icon}>
+          {icon === 'speaker'
+            ? <SpeakerIcon color='#1A5EAF' />
+            : icon === 'lightbulb'
+                ? <LightbulbIcon color='#1A5EAF' />
+                : <TVSetIcon color='#1A5EAF' />
+          }
+        </View>
+        <View style={styles.main}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.subtitle}>{subtitle}</Text>
+        </View>
+        <View style={styles.switchContainer}>
+          <Switch
+            style={styles.switch}
+            value={isEnabled}
+            onValueChange={handleSwitch}
+            trackColor={{ true: '#fff', false: '#fff' }}
+            thumbColor={isEnabled ? '#3A6598' : '#E3E0E0'}
+          />
+        </View>
+      </View>
+    </TouchableOpacity>
+  )
+
+  const handleSwitch = () => {
+    setIsEnabled(!isEnabled);
+  }
+
+  const renderItem = ({item}: {item: DataProps}) => (
+    <Item
+      id={item.id}
+      title={item.title}
+      subtitle={item.subtitle}
+      icon={item.icon}
+    />
+  );
 
   return (
-    <SafeAreaView style={styles.container}>
-      <TouchableOpacity
-        style={styles.buttonField}
-        onPress={goToProfile}>
-        <View style={styles.header}>
-          <View>
-            <Image style={styles.avatar} source={{ uri: avatar }} />
-            <View style={styles.notification}>
-              <Text style={styles.notificationText}>
-                2
-              </Text>
-            </View>
-          </View>
-          <View>
-            <Text style={styles.title}>
-              Hello, {name.split(' ')[0]}
-            </Text>
-            <Text style={styles.subtitle}>
-              Welcome back to Bhouse
-            </Text>
-          </View>
-        </View>
-        <TouchableOpacity style={styles.plusButton}>
-          <AntDesign name="plus" color={'#1A5EAF'} size={20} />
+    <View style={styles.container}>
+      <View style={styles.frequentHeader}>
+        <Text style={styles.frequentText}>
+          Frequently used
+        </Text>
+        <TouchableOpacity style={styles.seeAllButton}>
+          <Text style={styles.seeAllText}>See all</Text>
         </TouchableOpacity>
-      </TouchableOpacity>
-    </SafeAreaView>
-  );
+      </View>
+      <FlatList
+        keyExtractor={item => item.id}
+        data={FREQUENTLY_USED}
+        renderItem={renderItem}
+        scrollEnabled={true}
+        showsVerticalScrollIndicator={false}
+      />
+    </View>
+  )
 }

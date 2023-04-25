@@ -15,6 +15,7 @@ export const TemporaryNavigation: React.FC = () => {
   return (
     <View style={{
         alignItems: 'center',
+        paddingTop: 8,
         marginBottom: 20,
       }}>
       <TouchableOpacity style={{
