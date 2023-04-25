@@ -1,57 +1,74 @@
 import React from 'react';
-import {
-  Image,
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import styles from './styles';
+import AutomationPageIcon from '../../../../components/Icons/AutomationPageIcon';
+import RoomsPageIcon from '../../../../components/Icons/RoomsPageIcon';
 
-const user = {
-  id: 'user1',
-  name: 'Nihad Abdulalizada',
-  avatar: 'https://reactnative.dev/img/tiny_logo.png',
-  status: 'owner',
-};
+AntDesign.loadFont();
 
-export const HomeHeader: React.FC = () => {
-  const navigate = useNavigation();
-  const goToProfile = () => navigate.navigate('Profile');
+interface DataProps {
+  id: string,
+  title: string,
+  icon: string,
+}
 
-  const { avatar, name } = user;
+const DATA: DataProps[] = [
+  {
+    id: 'addMember',
+    title: 'Add new member',
+    icon: 'room',
+  },
+  {
+    id: 'addRoom',
+    title: 'Add new room',
+    icon: 'room',
+  },
+  {
+    id: 'addAutomation',
+    title: 'Add new automation',
+    icon: 'automation',
+  },
+];
+
+const Item = ({ title, icon }: DataProps) => (
+  <TouchableOpacity style={styles.list}>
+    <View style={styles.row}>
+      <View style={styles.icon}>
+        {icon === 'room'
+          ? <RoomsPageIcon color='#3A6598' />
+          : <AutomationPageIcon color='#3A6598' />
+        }
+      </View>
+      <View style={styles.text}>
+        <Text style={styles.title}>{title}</Text>
+      </View>
+    </View>
+    <View style={styles.plus}>
+      <AntDesign name="plus" color={'#3A6598'} size={20} />
+    </View>
+  </TouchableOpacity>
+);
+
+export const HomeBottomSheet = () => {
+  const renderItem = ({item}: {item: DataProps}) => (
+    <Item
+      id={item.id}
+      icon={item.icon}
+      title={item.title} />
+  );
 
   return (
-    <SafeAreaView style={styles.container}>
-      <TouchableOpacity
-        style={styles.buttonField}
-        onPress={goToProfile}>
-        <View style={styles.header}>
-          <View>
-            <Image style={styles.avatar} source={{ uri: avatar }} />
-            <View style={styles.notification}>
-              <Text style={styles.notificationText}>
-                2
-              </Text>
-            </View>
-          </View>
-          <View>
-            <Text style={styles.title}>
-              Hello, {name.split(' ')[0]}
-            </Text>
-            <Text style={styles.subtitle}>
-              Welcome back to Bhouse
-            </Text>
-          </View>
-        </View>
-        <TouchableOpacity style={styles.plusButton}>
-          <AntDesign name="plus" color={'#1A5EAF'} size={20} />
-        </TouchableOpacity>
-      </TouchableOpacity>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <FlatList
+        keyExtractor={item => item.id}
+        data={DATA}
+        renderItem={renderItem}
+        scrollEnabled={false}
+        showsVerticalScrollIndicator={false}
+      />
+    </View>
   );
-}
+};
