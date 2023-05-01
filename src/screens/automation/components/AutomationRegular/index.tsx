@@ -37,34 +37,32 @@ const AUTOMATIONS: DataProps[] = [
 ];
 
 export const AutomationRegular = () => {
-  const [ isEnabled, setIsEnabled ] = useState(false);
-
-  const Item = ({title, condition}: DataProps) => (
-    <TouchableOpacity style={styles.box}>
-      <View style={styles.row}>
-        <View style={styles.icon}>
-          <CloudIcon color='#3A6598' />
+  
+  const Item = ({title, condition}: DataProps) => {
+    const [ isEnabled, setIsEnabled ] = useState(false);
+    return (
+      <TouchableOpacity style={styles.box}>
+        <View style={styles.row}>
+          <View style={styles.icon}>
+            <CloudIcon color='#3A6598' />
+          </View>
+          <View style={styles.main}>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.condition}>{condition}</Text>
+          </View>
+          <View style={styles.switchContainer}>
+            <Switch
+              style={styles.switch}
+              value={isEnabled}
+              onValueChange={() => setIsEnabled(!isEnabled)}
+              trackColor={{ true: '#fff', false: '#fff' }}
+              thumbColor={isEnabled ? '#3A6598' : '#CDCDCD'}
+            />
+          </View>
         </View>
-        <View style={styles.main}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.condition}>{condition}</Text>
-        </View>
-        <View style={styles.switchContainer}>
-          <Switch
-            style={styles.switch}
-            value={isEnabled}
-            onValueChange={handleSwitch}
-            trackColor={{ true: '#fff', false: '#fff' }}
-            thumbColor={isEnabled ? '#3A6598' : '#CDCDCD'}
-          />
-        </View>
-      </View>
-    </TouchableOpacity>
-  );
-
-  const handleSwitch = () => {
-    setIsEnabled(!isEnabled);
-  }
+      </TouchableOpacity>
+    );
+  };
 
   const renderItem = ({item}: {item: DataProps}) => (
     <Item

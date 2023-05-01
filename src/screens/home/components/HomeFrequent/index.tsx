@@ -51,31 +51,32 @@ export const HomeFrequent = () => {
   const Item = ({ title, subtitle, icon }: DataProps) => {
     const [ isEnabled, setIsEnabled ] = useState(false);
     return (
-    <TouchableOpacity style={styles.box}>
-      <View style={styles.row}>
-        <View style={styles.icon}>
-          {icon === 'speaker'
-            ? <SpeakerIcon color='#1A5EAF' />
-            : icon === 'lightbulb'
-                ? <LightbulbIcon color='#1A5EAF' />
-                : <TVSetIcon color='#1A5EAF' />
-          }
+      <TouchableOpacity style={styles.box}>
+        <View style={styles.row}>
+          <View style={styles.icon}>
+            {icon === 'speaker'
+              ? <SpeakerIcon color='#1A5EAF' />
+              : icon === 'lightbulb'
+                  ? <LightbulbIcon color='#1A5EAF' />
+                  : <TVSetIcon color='#1A5EAF' />
+            }
+          </View>
+          <View style={styles.main}>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.subtitle}>{subtitle}</Text>
+          </View>
+          <View style={styles.switchContainer}>
+            <Switch
+              style={styles.switch}
+              value={isEnabled}
+              onValueChange={() => setIsEnabled(!isEnabled)}
+              trackColor={{ true: '#FFF', false: '#FFF' }}
+              thumbColor={isEnabled ? '#3A6598' : '#E3E0E0'}
+            />
+          </View>
         </View>
-        <View style={styles.main}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.subtitle}>{subtitle}</Text>
-        </View>
-        <View style={styles.switchContainer}>
-          <Switch
-            style={styles.switch}
-            value={isEnabled}
-            onValueChange={() => setIsEnabled(!isEnabled)}
-            trackColor={{ true: '#FFF', false: '#FFF' }}
-            thumbColor={isEnabled ? '#3A6598' : '#E3E0E0'}
-          />
-        </View>
-      </View>
-    </TouchableOpacity>)
+      </TouchableOpacity>
+    );
   }
 
   const renderItem = ({item}: {item: DataProps}) => (
