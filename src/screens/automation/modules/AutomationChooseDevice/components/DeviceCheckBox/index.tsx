@@ -5,7 +5,7 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 import styles from './styles';
 
 import { useAppDispatch } from '../../../../../../store/hooks';
-import { switchDevice } from '../../../../../../store/slices/deviceSlice';
+import { switchAutomation } from '../../../../../../store/slices/automationSlice';
 import LightbulbIcon from '../../../../../../components/Icons/LightbulbIcon';
 import TVSetIcon from '../../../../../../components/Icons/TVSetIcon';
 import SpeakerIcon from '../../../../../../components/Icons/SpeakerIcon';
@@ -30,7 +30,7 @@ export const DeviceCheckBox: React.FC<IDeviceCheckBox> = ({
   const dispatch = useAppDispatch();
 
   const handleSwitch = useCallback(() => {
-    dispatch(switchDevice(id));
+    dispatch(switchAutomation(id));
   }, [dispatch, id]);
   
   // Icon Colors

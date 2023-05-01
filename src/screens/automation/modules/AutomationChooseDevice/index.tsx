@@ -13,14 +13,14 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import { Button } from '../../../../components/Button';
 import { SearchInput } from '../../../../components/SearchBox';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
-import {
-  searchDeviceSections,
-  setSearchQuery,
-  switchDevice,
-} from '../../../../store/slices/deviceSlice';
-
 import { DeviceCheckBox } from './components/DeviceCheckBox';
 import styles from './styles';
+import {
+  switchAutomation,
+  searchAutomations,
+  setSearchQuery,
+  setSheet,
+} from '../../../../store/slices/automationSlice';
 
 const SelectedComponent = ({
   name,
@@ -57,17 +57,17 @@ const SelectedComponent = ({
 );
 
 export const AutomationChooseDevice: React.FC = () => {
-  const { selectedDeviceSection, filteredSections, searchQuery } =
-    useAppSelector(state => state.deviceSlice);
+  const { selectedAutomation, searchQuery } =
+    useAppSelector(state => state.automationSlice);
   const dispatch = useAppDispatch();
 
   const chosen = useMemo(
-    () => selectedDeviceSection.filter(device => device.enabled),
-    [selectedDeviceSection],
+    () => selectedAutomation.filter(automations => automations.enabled),
+    [selectedAutomation],
   );
 
   const disable = useCallback(
-    (id: string) => dispatch(switchDevice(id)),
+    (id: string) => dispatch(switchAutomation(id)),
     [dispatch],
   );
 
@@ -90,7 +90,7 @@ export const AutomationChooseDevice: React.FC = () => {
   );
 
   useEffect(() => {
-    dispatch(searchDeviceSections(searchQuery));
+    dispatch(searchAutomations(searchQuery));
   }, [dispatch, searchQuery]);
 
   const renderHeader = () => (
@@ -117,28 +117,28 @@ export const AutomationChooseDevice: React.FC = () => {
     </View>
   );
 
-    return (
-      <KeyboardAvoidingView
-        {...(Platform.OS === 'ios' ? { behavior: 'padding' } : {})}
-        keyboardVerticalOffset={50}
-        style={styles.container}>
-        <FlatList
-          key="device"
-          data={selectedDeviceSection}
-          scrollEnabled={true}
-          renderItem={renderSwitchButtons}
-          ListHeaderComponent={renderHeader()}
-          contentContainerStyle={styles.listContainer}
-          showsVerticalScrollIndicator={false}
+  return (
+    <KeyboardAvoidingView
+      {...(Platform.OS === 'ios' ? { behavior: 'padding' } : {})}
+      keyboardVerticalOffset={50}
+      style={styles.container}>
+      <FlatList
+        key="device"
+        data={selectedAutomation}
+        scrollEnabled={true}
+        renderItem={renderSwitchButtons}
+        ListHeaderComponent={renderHeader()}
+        contentContainerStyle={styles.listContainer}
+        showsVerticalScrollIndicator={false}
+      />
+      <View style={{ backgroundColor: '#fff', paddingTop: 20 }}>
+        <Button
+          text="Next"
+          onPress={() => dispatch(setSheet('Name'))}
+          style={{ marginBottom: 30 }}
+          disabled={!chosen.length}
         />
-        <View style={{ backgroundColor: '#fff', paddingTop: 20 }}>
-          <Button
-            text="Next"
-            onPress={() => {}}
-            style={{ marginBottom: 30 }}
-            disabled={!chosen.length}
-          />
-        </View>
-      </KeyboardAvoidingView>
-    );
+      </View>
+    </KeyboardAvoidingView>
+  );
 };

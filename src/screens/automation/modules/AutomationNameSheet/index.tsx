@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   View,
   TextInput,
-  TouchableOpacity,
 } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { BackButton } from '../../components/BackButton';
 import styles from './styles';
+import { Button } from '../../../../components/Button';
 
 AntDesign.loadFont();
 
 export const AutomationNameSheet = (props: any) => {
+  const [ automationName, setAutomationName ] = useState('');
+
   return (
     <View style={styles.container}>
       <BackButton
@@ -31,13 +33,16 @@ export const AutomationNameSheet = (props: any) => {
           autoCapitalize='none'
           autoComplete='off'
           autoCorrect={false}
+          onChangeText={text => setAutomationName(text)}
           spellCheck={false}
         />
-        <TouchableOpacity
+        <Button
+          onPress={props.closeSheet}
           key="saveButton"
           style={styles.saveButton}
-          ><Text style={styles.saveText}>Save</Text>
-        </TouchableOpacity>
+          disabled={!automationName.length}
+          text='Save'
+        />
       </View>
     </View>
   )

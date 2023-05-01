@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   SafeAreaView,
-  Text,
-  View,
-  TouchableOpacity,
 } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
 import { BackButton } from '../../components/BackButton';
 import { AutomationFirstSheetHeader } from '../../components/AutomationFirstSheetHeader';
 import { AutomationFirstSheetCondition } from '../../components/AutomationFirstSheetCondition';
@@ -17,9 +13,6 @@ import styles from './styles';
 AntDesign.loadFont();
 
 export const AutomationFirstSheet = (props: any) => {
-  const navigate = useNavigation();
-  // const goToAutomationConditionSheet = () => navigate.navigate('AutomationSheet');
-
   return (
     <SafeAreaView style={styles.container}>
       <BackButton

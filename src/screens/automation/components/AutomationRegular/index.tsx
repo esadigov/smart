@@ -14,9 +14,22 @@ import styles from './styles';
 
 AntDesign.loadFont();
 
-const AUTOMATIONS = [
+interface DataProps {
+  id: string,
+  title: string,
+  condition: string,
+  icon: string,
+}
+
+const AUTOMATIONS: DataProps[] = [
   {
-    id: 'SummerTime',
+    id: 'SummerTime1',
+    title: 'Summer time',
+    condition: "If the weather's sunny...",
+    icon: 'Cloud',
+  },
+  {
+    id: 'SummerTime2',
     title: 'Summer time',
     condition: "If the weather's sunny...",
     icon: 'Cloud',
@@ -24,9 +37,9 @@ const AUTOMATIONS = [
 ];
 
 export const AutomationRegular = () => {
-  const [isEnabled, setIsEnabled ] = useState(false);
+  const [ isEnabled, setIsEnabled ] = useState(false);
 
-  const Item = ({ title, condition }) => (
+  const Item = ({title, condition}: DataProps) => (
     <TouchableOpacity style={styles.box}>
       <View style={styles.row}>
         <View style={styles.icon}>
@@ -53,8 +66,13 @@ export const AutomationRegular = () => {
     setIsEnabled(!isEnabled);
   }
 
-  const renderItem = ({ item }) => (
-    <Item title={item.title} condition={item.condition} />
+  const renderItem = ({item}: {item: DataProps}) => (
+    <Item
+      id={item.id}
+      title={item.title}
+      condition={item.condition}
+      icon={item.icon}  
+    />
   );
 
   return (

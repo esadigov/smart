@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   View,
   SafeAreaView,
@@ -25,17 +25,23 @@ export const OTP = () => {
   const navigate = useNavigation();
   const goBack = useCallback(() => navigate.goBack(), [navigate]);
   // OTP States
-  const [value, setValue] = useState('');
+  const [ value, setValue ] = useState('');
   const ref = useBlurOnFulfill({value, cellCount: 4});
-  const [props, getCellOnLayoutHandler] = useClearByFocusCell({
+  const [ props, getCellOnLayoutHandler ] = useClearByFocusCell({
     value,
     setValue,
   });
   // Next Button Handler
-  const [input, setInput] = useState(false);
-  const handleNext = () => {
-    setInput(true)
-  };
+  const [ input, setInput ] = useState(false);
+  const [ error, setError ] = useState(false);
+  useEffect(() => {
+    if (value.length < 4) {
+      setInput(false);
+    } else {
+        setError(false);
+        setInput(true);
+      }
+  });
 
   return (
     <SafeAreaView key="signInFirst" style={styles.container}>
@@ -78,9 +84,10 @@ export const OTP = () => {
             </View>
           )}
         />
-        {/* NOTE: Appears AFTER Initial Input & Wrong Info/Empty
-        <Text style={styles.error}>Incorrect OTP</Text>
-        */}
+        { error
+            ? <Text style={styles.error}>Incorrect OTP</Text>
+            : null
+        }
       </View>
       <View style={styles.resendContainer}>
         <TouchableOpacity>
@@ -89,7 +96,7 @@ export const OTP = () => {
         <Text style={styles.resendText}> in PLACEHOLDER</Text>
       </View>
       <View style={{flex: 1,justifyContent: 'flex-end'}}>
-        <NextButtonOff />
+        <NextButtonOff /> 
       </View>
     </SafeAreaView>
   );

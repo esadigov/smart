@@ -10,10 +10,17 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import { BackButton } from '../../components/BackButton';
 import DevicesPageIcon from '../../../../components/Icons/DevicesPageIcon';
 import styles from './styles';
+import { useAppDispatch } from '../../../../store/hooks';
+import { setSheet } from '../../../../store/slices/automationSlice';
 
 AntDesign.loadFont();
 
-const CONDITIONS = [
+interface DataProps {
+  id: string,
+  title: string,
+}
+
+const CONDITIONS: DataProps[] = [
   {
     id: 'Devices',
     title: 'Devices',
@@ -24,28 +31,37 @@ const CONDITIONS = [
   },
 ]
 
-const Item = ({ title }) => (
-  <TouchableOpacity style={styles.box}>
-    <View style={styles.row}>
-      <View style={styles.icon}>
-        <DevicesPageIcon color='#008EE6' />
-      </View>
-      <View>
-        <Text style={styles.title}>{title}</Text>
-      </View>
-    </View>
-  </TouchableOpacity>
-)
+export const AutomationConditionSheet = () => {
+  const dispatch = useAppDispatch();
+  const handleChange = (id: string) => {
+    id === 'Devices'
+      ? dispatch(setSheet('Room'))
+      : null;
+  };
 
-export const AutomationConditionSheet = (props: any) => {
-  const renderItem = ({ item }) => (
-    <Item title={item.title} />
+  const Item = ({ title, id }: DataProps) => (
+    <TouchableOpacity
+      onPress={() => handleChange(id)}
+      style={styles.box}>
+      <View style={styles.row}>
+        <View style={styles.icon}>
+          <DevicesPageIcon color='#008EE6' />
+        </View>
+        <View>
+          <Text style={styles.title}>{title}</Text>
+        </View>
+      </View>
+    </TouchableOpacity>
   );
+
+  const renderItem = ({item}: {item: DataProps}) => (
+    <Item id={item.id} title={item.title} />
+    );
 
   return (
     <View style={styles.container}>
       <BackButton
-        onPress={props.closeSheet}
+        onPress={() => dispatch(setSheet('FirstSheet'))}
       />
       <Text key="automationConditionSheetTitle" style={styles.header}>
         Condition
@@ -58,5 +74,5 @@ export const AutomationConditionSheet = (props: any) => {
         showsVerticalScrollIndicator={false}
       />
     </View>
-  )
+  );
 }

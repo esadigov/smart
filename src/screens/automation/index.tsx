@@ -26,6 +26,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
   searchAutomations,
   setSearchQuery,
+  setSheet,
 } from '../../store/slices/automationSlice';
 
 let blank = true;
@@ -34,8 +35,8 @@ let blank = true;
 
 export const AutomationScreen: React.FC = () => {
   // Redux
-  const { filteredAutomations, searchQuery } =
-  useAppSelector(state => state.automationSlice);
+  const { searchQuery, selectedSheet } =
+    useAppSelector(state => state.automationSlice);
   const dispatch = useAppDispatch();
   const handleSearch = useCallback(
     (value: string) => dispatch(setSearchQuery(value)),
@@ -46,6 +47,38 @@ export const AutomationScreen: React.FC = () => {
   }, [dispatch, searchQuery]);
   // Sheets
   const refRBSheet = useRef<RBSheet>(null);
+  const targetOpen = () => {
+    refRBSheet.current?.open();
+    dispatch(setSheet('FirstSheet'));
+  }
+  const targetClose = () => refRBSheet.current?.close();
+  let currentSheet: JSX.Element = <></>;
+
+  switch (selectedSheet) {
+    case 'FirstSheet':
+      currentSheet =
+        <AutomationFirstSheet closeSheet={targetClose} />
+      break;
+    case 'Condition':
+      currentSheet =
+        <AutomationConditionSheet />
+      break;
+    case 'Action':
+      currentSheet =
+        <AutomationActionSheet />
+      break;
+    case 'Room':
+      currentSheet =
+        <AutomationChooseRoom />
+      break;
+    case 'Device':
+      currentSheet =
+        <AutomationChooseDevice />
+      break;
+    case 'Name':
+      currentSheet =
+        <AutomationNameSheet closeSheet={targetClose} />
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -54,7 +87,7 @@ export const AutomationScreen: React.FC = () => {
       </Text>
       <TouchableOpacity
         key="createAutomation"
-        onPress={() => refRBSheet.current?.open()}
+        onPress={targetOpen}
         style={styles.plusButton}>
         <AntDesign name="plus" color={'#3A6598'} size={20} />
       </TouchableOpacity>
@@ -68,14 +101,12 @@ export const AutomationScreen: React.FC = () => {
 
       {!blank
         ? <AutomationRegular />
-        : <AutomationBlank
-            onPress={() => refRBSheet.current?.open()}
-          />
+        : <AutomationBlank onPress={targetOpen} />
       }
 
       <RBSheet
         ref={refRBSheet}
-        height={750} // 750 Default, 440 for AutomationName
+        height={750}
         closeOnDragDown={true}
         openDuration={200}
         closeDuration={200}
@@ -100,16 +131,7 @@ export const AutomationScreen: React.FC = () => {
             renderItem={null}
             showsVerticalScrollIndicator={false}
             ListHeaderComponent={null}
-            ListFooterComponent={
-            // COMPONENTS TO NAVIGATE START
-            <AutomationFirstSheet closeSheet={() => refRBSheet.current?.close()} />
-            // <AutomationConditionSheet closeSheet={() => refRBSheet.current?.close()} />
-            // <AutomationChooseRoom />
-            // <AutomationChooseDevice />
-            // <AutomationActionSheet closeSheet={() => refRBSheet.current?.close()} />
-            // <AutomationNameSheet closeSheet={() => refRBSheet.current?.close()} />
-            // COMPONENTS TO NAVIGATE END
-            }
+            ListFooterComponent={currentSheet}
           />
       </RBSheet>
     </SafeAreaView>

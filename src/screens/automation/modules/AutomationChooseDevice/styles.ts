@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 0,
     top: 2,
-
     backgroundColor: '#F5FAFF',
     borderRadius: 9,
     alignItems: 'center',

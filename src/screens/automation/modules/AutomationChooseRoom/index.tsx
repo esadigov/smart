@@ -12,9 +12,9 @@ import { SearchInput } from '../../../../components/SearchBox';
 // Redux START
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
 import {
-  searchDeviceSections,
+  searchAutomations,
   setSearchQuery,
-} from '../../../../store/slices/deviceSlice';
+} from '../../../../store/slices/automationSlice';
 // Redux END
 import { DeviceCard } from './components/DeviceCard';
 import styles from './styles';
@@ -22,8 +22,8 @@ import styles from './styles';
 AntDesign.loadFont();
 
 export const AutomationChooseRoom: React.FC = () => {
-  const { filteredSections, searchQuery } =
-    useAppSelector(state => state.deviceSlice);
+  const { filteredAutomations, searchQuery } =
+    useAppSelector(state => state.automationSlice);
   const dispatch = useAppDispatch();
 
   const renderItem = useCallback(
@@ -37,7 +37,7 @@ export const AutomationChooseRoom: React.FC = () => {
   );
 
   useEffect(() => {
-    dispatch(searchDeviceSections(searchQuery));
+    dispatch(searchAutomations(searchQuery));
   }, [dispatch, searchQuery]);
 
   const renderHeader = () => (
@@ -58,8 +58,8 @@ export const AutomationChooseRoom: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        key="device-sections"
-        data={filteredSections}
+        key="automation-sections"
+        data={filteredAutomations}
         numColumns={2}
         scrollEnabled={true}
         renderItem={renderItem}

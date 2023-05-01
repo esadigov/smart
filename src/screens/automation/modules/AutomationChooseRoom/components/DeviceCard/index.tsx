@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react';
 import { Text, TouchableOpacity, ImageBackground } from 'react-native';
 
-import { setSelectedDevice } from '../../../../../../store/slices/deviceSlice';
+import { setAutomation } from '../../../../../../store/slices/automationSlice';
 import { useAppDispatch } from '../../../../../../store/hooks';
-import { DEVICES } from '../../../../../../store/mock';
-
+import { AUTOMATIONS } from '../../../../../../store/mock'; 
+import { setSheet } from '../../../../../../store/slices/automationSlice';
 import styles from './styles';
+
 interface IDeviceCard {
   item: any;
 }
@@ -14,7 +15,10 @@ export const DeviceCard: React.FC<IDeviceCard> = ({ item }) => {
   const dispatch = useAppDispatch();
 
   const handleOpenDevice = useCallback(
-    () => dispatch(setSelectedDevice(DEVICES)),
+    () => {
+      dispatch(setAutomation(AUTOMATIONS));
+      dispatch(setSheet('Device'));
+    },
     [dispatch],
   );
 

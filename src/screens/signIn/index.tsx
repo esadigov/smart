@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect,useState } from 'react';
 import {
   View,
   SafeAreaView,
@@ -19,11 +19,25 @@ export const SignIn = () => {
   const navigate = useNavigation();
   const goBack = useCallback(() => navigate.goBack(), [navigate]);
   
-  const [input, setInput] = useState(false);
+  const [ input, setInput ] = useState(false);
+  const [ error, setError ] = useState(false);
+  const [ emailText, setEmailText ] = useState('');
   // Next Button Handler
-  const handleNext = () => {
-    setInput(true)
+  const errorCheck = () => {
+    if (!emailText.trim())
+      setError(true);
+    else
+      setError(false);
   };
+
+  useEffect(() => {
+    if (!emailText.trim())
+      setInput(false);
+    else {
+      setError(false);
+      setInput(true);
+    }
+  });
 
   return (
     <SafeAreaView key="signInFirst" style={styles.container}>
@@ -59,11 +73,15 @@ export const SignIn = () => {
           autoComplete='off'
           autoCorrect={false}
           spellCheck={false}
-          onChange={handleNext} // TODO: Next Button Logic Hook with API
+          onSubmitEditing={errorCheck}
+          onChangeText={text => setEmailText(text)} // TODO: Next Button Logic Hook with API
         ></TextInput>
-        {/* NOTE: Appears AFTER Initial Input & Wrong Info/Empty
-        <Text style={styles.error}>Incorrect Credentials</Text>
-        */}
+        { error
+          ? <Text style={styles.error}>
+              Incorrect Credentials
+            </Text>
+          : null
+        }
       </View>
       <View style={{flex: 1, justifyContent: 'flex-end'}}>
         { input ? <NextButtonOnPass /> : <NextButtonOff /> }

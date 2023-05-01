@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   View,
   SafeAreaView,
@@ -18,12 +18,33 @@ AntDesign.loadFont();
 export const Password = () => {  
   const navigate = useNavigation();
   const goBack = useCallback(() => navigate.goBack(), [navigate]);
+  const defaultError = 'Passwords do not match';
   
-  const [input, setInput] = useState(false);
+  const [ input, setInput ] = useState(false);
+  const [ error, setError ] =useState(false);
+  const [ errorMessage, setErrorMessage ] = useState(defaultError);
+  const [ passwordText, setPasswordText ] = useState('');
+  const [ repeatText, setRepeatText ] = useState('');
   // Next Button Handler
-  const handleNext = () => {
-    setInput(true)
+  const errorCheck = () => {
+    if (!passwordText.trim()) {
+      setErrorMessage('Incorrect Password');
+      setError(true);
+    } else setError(false);
   };
+
+  useEffect(() => {
+    if (!passwordText.trim())
+      setInput(false);
+    else if (passwordText !== repeatText) {
+      setInput(false);
+      setError(true);
+      setErrorMessage(defaultError);
+    } else {
+        setError(false);
+        setInput(true);
+      }
+  });
 
   return (
     <SafeAreaView key="signInFirst" style={styles.container}>
@@ -59,7 +80,8 @@ export const Password = () => {
           autoCorrect={false}
           spellCheck={false}
           secureTextEntry={true}
-          onChange={handleNext} // TODO: Next Button Logic Hook with API
+          onSubmitEditing={errorCheck}
+          onChangeText={text => setPasswordText(text)} // TODO: Next Button Logic Hook with API
         ></TextInput>
       </View>
       <View style={styles.inputLowerContainer}>
@@ -75,11 +97,15 @@ export const Password = () => {
           autoCorrect={false}
           spellCheck={false}
           secureTextEntry={true}
-          onChange={handleNext} // TODO: Next Button Logic Hook with API
+          onSubmitEditing={errorCheck}
+          onChangeText={text => setRepeatText(text)} // TODO: Next Button Logic Hook with API
         ></TextInput>
-        {/* NOTE: Appears AFTER Initial Input & Wrong Info/Empty
-        <Text style={styles.error}>Incorrect Password</Text>
-        */}
+        { error
+          ? <Text style={styles.error}>
+              {errorMessage}
+            </Text>
+          : null
+        }
       </View>
       <View style={{flex: 1,justifyContent: 'flex-end'}}>
         { input ? <NextButtonOnOTP /> : <NextButtonOff /> }

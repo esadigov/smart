@@ -11,6 +11,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import MarkerIcon from '../../../../components/Icons/MarkerIcon';
 import { ProfileEditIcon } from '../../../../components/Icons/ProfilePageIcons';
 import styles from './styles';
+import { useAppDispatch } from '../../../../store/hooks';
+import { setSheet } from '../../../../store/slices/automationSlice';
 
 AntDesign.loadFont();
 
@@ -29,6 +31,7 @@ const CREATE_CONDITIONS = [
 ];
 
 export const AutomationFirstSheetCondition = () => {
+  const dispatch = useAppDispatch();
   const [ conditionOpen, setConditionOpen ] = useState(true);
   const handleConditionDrop = () => {
     setConditionOpen(!conditionOpen);
@@ -86,7 +89,7 @@ export const AutomationFirstSheetCondition = () => {
               />
               <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                  // onPress={goToAutomationConditionSheet}
+                  onPress={() => dispatch(setSheet('Condition'))}
                   style={styles.button}>
                   <Text style={styles.text}>
                     Add condition

@@ -48,9 +48,9 @@ const FREQUENTLY_USED: DataProps[] = [
 
 
 export const HomeFrequent = () => {
-  const [isEnabled, setIsEnabled ] = useState(false);
-
-  const Item = ({ title, subtitle, icon }: DataProps) => (
+  const Item = ({ title, subtitle, icon }: DataProps) => {
+    const [ isEnabled, setIsEnabled ] = useState(false);
+    return (
     <TouchableOpacity style={styles.box}>
       <View style={styles.row}>
         <View style={styles.icon}>
@@ -69,17 +69,13 @@ export const HomeFrequent = () => {
           <Switch
             style={styles.switch}
             value={isEnabled}
-            onValueChange={handleSwitch}
-            trackColor={{ true: '#fff', false: '#fff' }}
+            onValueChange={() => setIsEnabled(!isEnabled)}
+            trackColor={{ true: '#FFF', false: '#FFF' }}
             thumbColor={isEnabled ? '#3A6598' : '#E3E0E0'}
           />
         </View>
       </View>
-    </TouchableOpacity>
-  )
-
-  const handleSwitch = () => {
-    setIsEnabled(!isEnabled);
+    </TouchableOpacity>)
   }
 
   const renderItem = ({item}: {item: DataProps}) => (

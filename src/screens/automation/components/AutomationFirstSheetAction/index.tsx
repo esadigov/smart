@@ -10,6 +10,8 @@ import {
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import AlarmIcon from '../../../../components/Icons/AlarmIcon';
 import styles from './styles';
+import { useAppDispatch } from '../../../../store/hooks';
+import { setSheet } from '../../../../store/slices/automationSlice';
 
 AntDesign.loadFont();
 
@@ -23,6 +25,7 @@ const CREATE_ACTIONS = [
 ];
 
 export const AutomationFirstSheetAction = () => {
+  const dispatch = useAppDispatch();
   const [ actionOpen, setActionOpen ] = useState(true);
   const handleActionDrop = () => {
     setActionOpen(!actionOpen);
@@ -72,7 +75,7 @@ export const AutomationFirstSheetAction = () => {
               />
               <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                  // onPress={goToAutomationActionSheet}
+                  onPress={() => dispatch(setSheet('Action'))}
                   style={styles.button}>
                   <Text style={styles.text}>
                     Add action

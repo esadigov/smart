@@ -11,10 +11,18 @@ import AlarmIcon from '../../../../components/Icons/AlarmIcon';
 import { BackButton } from '../../components/BackButton';
 import DevicesPageIcon from '../../../../components/Icons/DevicesPageIcon';
 import styles from './styles';
+import { useAppDispatch } from '../../../../store/hooks';
+import { setSheet } from '../../../../store/slices/automationSlice';
 
 AntDesign.loadFont();
 
-const ACTIONS = [
+interface DataProps {
+  id: string,
+  title: string,
+  icon: string,
+}
+
+const ACTIONS: DataProps[] = [
   {
     id: 'Devices',
     title: 'Devices',
@@ -27,39 +35,51 @@ const ACTIONS = [
   },
 ]
 
-const Item = ({ title, icon }) => (
-  <TouchableOpacity style={styles.box}>
-    <View style={styles.row}>
-      <View style={
-        [styles.icon,
-          icon === 'alarm'
-            ? {backgroundColor: '#FFEAEA'}
-            : null
-        ]
-      }>
-        {icon === 'device'
-          ? <DevicesPageIcon color='#008EE6' />
-          : icon === 'alarm'
-            ? <AlarmIcon color='#952323' />
-            : null
-        }
-      </View>
-      <View>
-        <Text style={styles.title}>{title}</Text>
-      </View>
-    </View>
-  </TouchableOpacity>
-)
 
-export const AutomationActionSheet = (props: any) => {
-  const renderItem = ({ item }) => (
-    <Item icon={item.icon} title={item.title} />
-  );
+export const AutomationActionSheet = () => {
+  const dispatch = useAppDispatch();
+  const handleChange = (id: string) => {
+    id === 'Devices'
+      ? dispatch(setSheet('Room'))
+      : null;
+  };
+
+  const Item = ({ id, title, icon }: DataProps) => (
+    <TouchableOpacity
+      onPress={() => handleChange(id)}
+      style={styles.box}>
+      <View style={styles.row}>
+        <View style={
+          [styles.icon,
+            icon === 'alarm'
+              ? {backgroundColor: '#FFEAEA'}
+              : null
+          ]
+        }>
+          {icon === 'device'
+            ? <DevicesPageIcon color='#008EE6' />
+            : icon === 'alarm'
+              ? <AlarmIcon color='#952323' />
+              : null
+          }
+        </View>
+        <View>
+          <Text style={styles.title}>{title}</Text>
+        </View>
+      </View>
+    </TouchableOpacity>
+  )
+
+  const renderItem = ({item}: {item: DataProps}) => (
+    <Item id={item.id}
+          icon={item.icon}
+          title={item.title} />
+    );
 
   return (
     <View style={styles.container}>
       <BackButton
-        onPress={props.closeSheet}
+        onPress={() => dispatch(setSheet('FirstSheet'))}
       />
       <Text key="automationActionsSheetTitle" style={styles.header}>
         Action

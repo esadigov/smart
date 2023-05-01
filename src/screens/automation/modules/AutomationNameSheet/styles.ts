@@ -35,15 +35,11 @@ const styles = StyleSheet.create({
     color: '#353535'
   },
   saveButton: {
-    backgroundColor: '#3A6598',
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 12,
     paddingHorizontal: 24,
     marginVertical: 24,
-    borderRadius: 6,
-    borderWidth: 1,
-    borderColor: '#3A6598',
   },
   saveText: {
     fontFamily: 'Inter',
