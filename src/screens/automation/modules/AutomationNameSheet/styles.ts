@@ -41,14 +41,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     marginVertical: 24,
   },
-  saveText: {
-    fontFamily: 'Inter',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    fontSize: 15,
-    lineHeight: 19,
-    color: '#FFF',
-  },
 });
 
 export default styles;

@@ -123,7 +123,7 @@ export const AutomationScreen: React.FC = () => {
             width: 100,
           },
         }}>
-          
+
           <FlatList
             key="bottomSheet"
             data={null}

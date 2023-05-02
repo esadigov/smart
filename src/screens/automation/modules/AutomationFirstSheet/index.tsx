@@ -18,7 +18,9 @@ export const AutomationFirstSheet = (props: any) => {
       <BackButton
         onPress={props.closeSheet}
       />
-      <AutomationFirstSheetHeader />
+      <AutomationFirstSheetHeader
+        onPress={props.closeSheet}
+      />
       <AutomationFirstSheetCondition />
       <AutomationFirstSheetAction />
     </SafeAreaView>

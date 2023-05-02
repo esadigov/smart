@@ -10,13 +10,15 @@ import styles from './styles';
 
 AntDesign.loadFont();
 
-export const AutomationFirstSheetHeader = () => {
+export const AutomationFirstSheetHeader = (props: any) => {
   return (
     <SafeAreaView>
       <Text key="automationFirstSheetTitle" style={styles.header}>
         Create Automation
       </Text>
-      <TouchableOpacity style={styles.saveContainer}>
+      <TouchableOpacity
+        onPress={props.onPress}
+        style={styles.saveContainer}>
         <Text style={styles.save}>Save</Text>
       </TouchableOpacity>
     </SafeAreaView>
