@@ -6,22 +6,46 @@ import DeleteNotifyIcon from '../../../../components/Icons/DeleteNotifyIcon';
 import styles from './styles';
 
 export const DeletionModal: any = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [ modalVisible, setModalVisible ] = useState(false);
   return (
     <SafeAreaView>
     <TouchableOpacity
+      style={{
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 6,
+        backgroundColor: '#B52A2A',
+        width: 80,
+        height: 40,
+        position: 'absolute',
+        marginVertical: 360,
+        marginHorizontal: 170,
+      }}
       onPress={() => setModalVisible(true)}
     >
-      <Text>Press me!</Text>
+      <Text
+        style={{
+          color: '#FFF',
+        }}
+      >Press me!</Text>
     </TouchableOpacity>
     <Modal
+      hardwareAccelerated={true}
       animationType='fade'
       transparent={true}
       visible={modalVisible}
       onRequestClose={() => {
         setModalVisible(!modalVisible)
     }}>
-      <View key="deletionWindow" style={styles.container}>
+      <View
+        key="deletionWindow"
+        style={[
+          styles.container,
+          {
+            marginVertical: 250,
+            marginHorizontal: 40,
+          }
+          ]}>
         <View style={styles.icon}>
           <DeleteNotifyIcon />
         </View>
