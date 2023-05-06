@@ -62,7 +62,7 @@ const Item = ({ title, color, icon, goHome }) => (
 
 export const ProfileOptions = () => {
   const navigate = useNavigation();
-  const goToHomeManagements = () => navigate.navigate('HomeManagements')
+  const goToHomeManagements = () => navigate.navigate('HomeManagements');
 
   const renderOptions = ({ item }) => (
     <Item goHome={goToHomeManagements} icon={item.icon} color={item.color} title={item.title} />

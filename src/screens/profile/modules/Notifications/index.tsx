@@ -9,67 +9,61 @@ import styles from './styles';
 
 AntDesign.loadFont();
 
-const HOME_LIST = [
+interface DataProps {
+  id: string,
+  title: string,
+  sender: string,
+}
+
+const HOME_LIST: DataProps[] = [
   {
-    id: 'home1',
-    title: 'Home 1',
-    address: 'Cəfər Cabbarlı 105',
+    id: 'notif1',
+    title: 'Kitchen',
+    sender: 'Sənan Məmmədov',
   },
   {
-    id: 'home2',
-    title: 'Home 2',
-    address: '20 Yanvar 18A',
-  },
-  {
-    id: 'home3',
-    title: 'Office 1',
-    address: 'Cəfər Cabbarlı 103',
-  },
-  {
-    id: 'home4',
-    title: 'Office 2',
-    address: '20 Yanvar 17B',
+    id: 'notif2',
+    title: 'Garage',
+    sender: 'Sənan Məmmədov',
   },
 ];
 
-const Item = ({ title, address }) => (
-  <TouchableOpacity style={styles.list}>
-    <View style={styles.row}>
-      <View style={styles.icon}>
-        <HomeIconMini />
-      </View>
-      <View style={styles.text}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>{address}</Text>
-      </View>
-    </View>
-    <View style={styles.forward}>
-      <AntDesign name="right" color={'#3A6598'} size={20} />
-    </View>
-  </TouchableOpacity>
-);
 
-export const HomeManagements = () => {
+export const Notifications = () => {
   const navigate = useNavigation();
   const goBack = useCallback(() => navigate.goBack(), [navigate]);
 
-  const renderItem = ({ item }) => (
-    <Item title={item.title} address={item.address} />
+  const Item = ({ title, sender }: DataProps) => (
+    <TouchableOpacity style={styles.list}>
+      <View style={styles.row}>
+        <View style={styles.icon}>
+          <HomeIconMini />
+        </View>
+        <View style={styles.text}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.subtitle}>by {sender}</Text>
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
+
+  const renderItem = ({item}: {item: DataProps}) => (
+    <Item
+      id={item.id}
+      title={item.title}
+      sender={item.sender} />
   );
 
   return (
     <View style={styles.container}>
       <Text key="homeManagementsTitle" style={styles.header}>
-        Home managements
+        Notifications
       </Text>
       <TouchableOpacity
         key="backButton"
         onPress={goBack}
         style={styles.backButton}>
         <AntDesign key="backIcon" name="left" color={'#3A6598'} size={20} />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.plusButton}>
-          <AntDesign name="plus" color={'#3A6598'} size={20} />
       </TouchableOpacity>
       <FlatList
         keyExtractor={item => item.id}

@@ -50,9 +50,6 @@ const styles = StyleSheet.create({
     lineHeight: 17,
     color: "#343434",
   },
-  forward: {
-    marginRight: 5,
-  },
   header: {
     fontFamily: 'Inter',
     textAlign: 'center',
@@ -72,18 +69,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 8,
     margin: 8,
-  },
-  plusButton: {
-    position: 'absolute',
-    right: 10,
-    top: 2,
-    backgroundColor: '#F5FAFF',
-    borderRadius: 9,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 8,
-    marginVertical: 12,
-    marginHorizontal: 18,
   },
 });
 

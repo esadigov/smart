@@ -32,7 +32,7 @@ export const RoomSwitchRow: React.FC<IRoomSwitchRow> = ({
 
   const sizeInterpolate = filledBox.interpolate({
     inputRange: [0, 1],
-    outputRange: [160, 250],
+    outputRange: [160, 500],
   });
 
   const textInterpolate = filledBox.interpolate({
@@ -52,11 +52,13 @@ export const RoomSwitchRow: React.FC<IRoomSwitchRow> = ({
 
   return (
     <View style={styles.container}>
-      <View style={{ flex: 1 }} />
+      <View style={{
+        flex: 1,
+      }} />
       <View
         style={{
           marginRight: 45,
-          backgroundColor: 'red',
+          backgroundColor: 'transparent',
           flex: 1,
         }}>
         <Animated.Text style={[styles.titleText, { color: textInterpolate }]}>

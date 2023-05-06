@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
+    marginBottom: 6,
   },
   titleText: {
     fontFamily: 'Inter',
@@ -31,8 +32,7 @@ const styles = StyleSheet.create({
   },
   circle: {
     position: 'absolute',
-    left: -35,
-    top: -15,
+    left: -60,
     borderRadius: 1000,
     zIndex: -1,
   },
