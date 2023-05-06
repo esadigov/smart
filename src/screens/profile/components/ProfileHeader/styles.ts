@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   userName: {
-    textAlign: 'center',
     fontFamily: 'Inter',
+    textAlign: 'center',
     fontWeight: '500',
     fontStyle: 'normal',
     fontSize: 18,

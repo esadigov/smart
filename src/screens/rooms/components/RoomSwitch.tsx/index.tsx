@@ -32,7 +32,7 @@ export const RoomSwitch: React.FC<IRoomSwitch> = ({
 
   const sizeInterpolate = filledBox.interpolate({
     inputRange: [0, 1],
-    outputRange: [135, 250],
+    outputRange: [135, 300],
   });
 
   const textInterpolate = filledBox.interpolate({

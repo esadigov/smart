@@ -9,7 +9,6 @@ const USERS = [
   {
     id: 'user1',
     name: 'Nihad Abdulalizada',
-    avatar: 'https://reactnative.dev/img/tiny_logo.png',
     status: 'owner',
   },
 ];
@@ -19,7 +18,7 @@ export const ProfileHeader: any = () => {
     return (
       <View key={user.id} style={styles.container}>
         <View style={styles.relative}>
-          <Image style={styles.avatar} source={{ uri: user.avatar }} />
+          <Image style={styles.avatar} source={require('../../../../components/Images/User.png')} />
           <TouchableOpacity style={styles.editButton}>
             <ProfileEditIcon color={'#255B99'} />
           </TouchableOpacity>

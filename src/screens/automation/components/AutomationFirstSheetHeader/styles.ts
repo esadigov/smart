@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   header: {
+    fontFamily: 'Inter',
     textAlign: 'center',
     fontWeight: '600',
     fontSize: 20,

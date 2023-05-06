@@ -28,7 +28,7 @@ AntDesign.loadFont();
 export const RoomsScreen: React.FC = () => {
   const navigate = useNavigation();
 
-  const [twoColumnView, setTwoColumnView] = useState(false);
+  const [ twoColumnView, setTwoColumnView ] = useState(false);
 
   const { filteredRooms, searchQuery } = useAppSelector(
     state => state.roomSlice,

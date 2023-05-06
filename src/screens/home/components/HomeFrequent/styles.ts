@@ -84,12 +84,12 @@ const styles = StyleSheet.create({
     marginRight: 24,
     borderRadius: 24,
     borderWidth: 1,
-    borderColor: '#F2F2F2'
+    borderColor: '#F2F2F2',
   },
   switch: {
     marginBottom: 2,
     marginHorizontal: 3.5,
-    transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }]
+    transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }],
   }
 });
 

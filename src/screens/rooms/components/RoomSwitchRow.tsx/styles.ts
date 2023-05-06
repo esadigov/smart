@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   titleText: {
+    fontFamily: 'Inter',
     fontWeight: '600',
     fontSize: 14,
     lineHeight: 17,

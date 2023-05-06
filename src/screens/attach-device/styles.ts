@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   headline: {
+    fontFamily: 'Inter',
     textAlign: 'center',
     fontWeight: '600',
     fontSize: 18,
@@ -20,7 +21,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 0,
     top: 2,
-
     backgroundColor: '#F5FAFF',
     borderRadius: 9,
     alignItems: 'center',

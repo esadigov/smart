@@ -4,6 +4,12 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFF',
     paddingBottom: 30,
+    marginTop: -8,
+  },
+  flexSet: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   buttonField: {
     flexDirection: 'row',
@@ -17,6 +23,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   title: {
+    fontFamily: 'Inter',
     color: '#353535',
     fontSize: 16,
     lineHeight: 20,
@@ -38,6 +45,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   subtitle: {
+    fontFamily: 'Inter',
     color: '#CACACA',
     fontSize: 14,
     fontWeight: '600',
@@ -49,6 +57,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 8,
+    marginRight: 18,
+    marginTop: 3,
   },
   avatar: {
     height: 48,

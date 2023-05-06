@@ -36,7 +36,6 @@ export const DeviceCheckBox: React.FC<IDeviceCheckBox> = ({
         justifyContent: 'space-between',
         backgroundColor: selected ? '#3A6598' : '#fff',
         marginBottom: 10,
-
         padding: 14,
         borderColor: '#E9E9E9',
         borderWidth: 1,

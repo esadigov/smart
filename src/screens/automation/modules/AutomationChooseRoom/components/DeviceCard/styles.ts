@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   text: {
+    fontFamily: 'Inter',
     textAlign: 'center',
     color: '#fff',
     fontWeight: '600',

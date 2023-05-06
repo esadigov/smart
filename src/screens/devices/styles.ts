@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
   headline: {
+    fontFamily: 'Inter',
     textAlign: 'center',
     fontWeight: '600',
     fontSize: 20,

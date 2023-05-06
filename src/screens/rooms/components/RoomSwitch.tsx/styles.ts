@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   titleText: {
+    fontFamily: 'Inter',
     fontWeight: '600',
     fontSize: 14,
     lineHeight: 17,

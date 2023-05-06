@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   headline: {
+    fontFamily: 'Inter',
     textAlign: 'center',
     fontWeight: '600',
     fontSize: 18,

@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   headline: {
+    fontFamily: 'Inter',
     textAlign: 'center',
     fontWeight: '600',
     fontSize: 18,

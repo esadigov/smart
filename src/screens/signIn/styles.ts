@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
+    fontFamily: 'Inter',
     textAlign: 'center',
     fontWeight: '600',
     fontSize: 20,
