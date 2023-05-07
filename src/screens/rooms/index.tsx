@@ -93,6 +93,8 @@ export const RoomsScreen: React.FC = () => {
       color={item.color}
       isEnabled={item.enabled}
       setIsEnabled={() => handleSwitch(item.id)}
+      image={item.image}
+      user={item.user}
     />
   );
 
@@ -108,6 +110,7 @@ export const RoomsScreen: React.FC = () => {
       color={item.color}
       isEnabled={item.enabled}
       setIsEnabled={() => handleSwitch(item.id)}
+      image={item.image}
     />
   );
 

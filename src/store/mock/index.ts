@@ -93,6 +93,8 @@ export const ROOMS = [
     numDevices: 10,
     enabled: false,
     color: '#3A7670',
+    image: require('../../components/Images/LivingRoom.png'),
+    user: require('../../components/Images/User.png'),
   },
   {
     id: 'kitchen',
@@ -100,6 +102,26 @@ export const ROOMS = [
     numDevices: 1,
     enabled: false,
     color: '#D1B19A',
+    image: require('../../components/Images/Kitchen.png'),
+    user: require('../../components/Images/User.png'),
+  },
+  {
+    id: 'bathroom',
+    name: 'Bathroom',
+    numDevices: 5,
+    enabled: false,
+    color: '#AFC6CB',
+    image: require('../../components/Images/Bathroom.png'),
+    user: require('../../components/Images/User.png'),
+  },
+  {
+    id: 'bedroom',
+    name: 'Bedroom',
+    numDevices: 4,
+    enabled: false,
+    color: '#444756',
+    image: require('../../components/Images/Bedroom.png'),
+    user: require('../../components/Images/User.png'),
   },
 ];
 

@@ -6,9 +6,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     position: 'relative',
+    marginHorizontal: 2,
   },
   inputContainer: {
-    backgroundColor: '#F5F6FB',
+    backgroundColor: '#F8F8F8',
     borderRadius: 10,
     flex: 1,
     flexDirection: 'row',
@@ -18,11 +19,12 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
+    fontFamily: 'Inter',
     alignSelf: 'stretch',
     fontWeight: '400',
     fontSize: 15,
     lineHeight: 21,
-    color: '#9AA4C9',
+    color: '#CCC',
   },
   inputIcon: {
     position: 'absolute',

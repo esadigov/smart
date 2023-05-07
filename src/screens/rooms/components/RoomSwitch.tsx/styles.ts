@@ -2,14 +2,18 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 12,
+    flex: 1,
+    paddingTop: 12,
+    paddingBottom: 8,
     width: '48%',
     paddingLeft: 12,
-    borderRadius: 6,
+    borderRadius: 10,
     position: 'relative',
     overflow: 'hidden',
     borderColor: '#F3F3F3',
     borderWidth: 1,
+    marginVertical: 5.5,
+    marginHorizontal: 9.5,
   },
   titleText: {
     fontFamily: 'Inter',
@@ -33,6 +37,24 @@ const styles = StyleSheet.create({
     bottom: -55,
     borderRadius: 1000,
     zIndex: -1,
+  },
+  switchContainer: {
+    width: 54,
+    borderRadius: 24,
+    borderWidth: 1,
+    backgroundColor: '#FFF',
+    borderColor: '#F2F2F2',
+  },
+  switch: {
+    width: 46,
+    marginBottom: 2,
+    marginHorizontal: 3.5,
+    transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }],
+  },
+  images: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
   },
 });
 

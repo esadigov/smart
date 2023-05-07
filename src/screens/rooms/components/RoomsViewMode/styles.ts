@@ -9,6 +9,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 6,
-    padding: 4,
+    marginLeft: 4,
+    left: -4,
   },
 });

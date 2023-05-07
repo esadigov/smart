@@ -27,7 +27,7 @@ export const SearchInput: React.FC<ISearchInput> = ({
         <TextInput
           style={styles.input}
           placeholder={placeholder}
-          placeholderTextColor={'#9AA4C9'}
+          placeholderTextColor={'#CCC'}
           value={value}
           onChangeText={onChange}
         />
@@ -36,7 +36,7 @@ export const SearchInput: React.FC<ISearchInput> = ({
         <AntDesign
           name="search1"
           size={24}
-          color={'#9AA4C9'}
+          color={'#CCC'}
           style={styles.inputIcon}
         />
       )}

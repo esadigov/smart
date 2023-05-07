@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
   },
   searchContainer: {
-    marginVertical: 10,
+    marginTop: 10,
+    marginBottom: 15.5,
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
@@ -38,6 +39,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   listItems: {
+    marginHorizontal: -7.5,
     justifyContent: 'space-around',
   },
 });
