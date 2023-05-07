@@ -94,6 +94,7 @@ export const CreateRoom: React.FC = () => {
             value={searchQuery}
             onChange={setSearchQuery}
             style={{ flex: 0 }}
+            hideIcon
           />
         </View>
         <Text

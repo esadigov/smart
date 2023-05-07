@@ -7,10 +7,11 @@ import styles from './styles';
 AntDesign.loadFont();
 
 interface ISearchInput {
-  value: string;
-  onChange: (value: string) => void;
-  placeholder?: string;
-  style?: any;
+  value: string,
+  onChange: (value: string) => void,
+  placeholder?: string,
+  style?: any,
+  hideIcon?: boolean,
 }
 
 export const SearchInput: React.FC<ISearchInput> = ({
@@ -18,6 +19,7 @@ export const SearchInput: React.FC<ISearchInput> = ({
   onChange,
   placeholder,
   style,
+  hideIcon,
 }) => {
   const [focus, setFocus] = useState(false);
   return (
@@ -44,7 +46,7 @@ export const SearchInput: React.FC<ISearchInput> = ({
           onChangeText={onChange}
         />
       </View>
-      {!focus
+      {(!focus && !hideIcon)
         ? <AntDesign
             name="search1"
             size={24}
