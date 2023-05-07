@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingHorizontal: 20,
     backgroundColor: '#fff',
   },
   headerContainer: {
@@ -12,8 +13,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     textAlign: 'center',
     fontWeight: '600',
-    fontSize: 18,
-    lineHeight: 21,
+    fontSize: 20,
+    lineHeight: 25,
     color: '#000',
     marginTop: 20,
   },
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   spacing: {
-    marginTop: 20,
+    marginTop: 31,
   },
   listContainer: {
     paddingHorizontal: 10,

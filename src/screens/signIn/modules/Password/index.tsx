@@ -72,7 +72,7 @@ export const Password = () => {
           Password
         </Text>
         <TextInput
-          style={styles.input} // TODO: Change to 'wrongInput' if HandleNext
+          style={error ? styles.wrongInput : styles.input} // TODO: Change to 'wrongInput' if HandleNext
           underlineColorAndroid="transparent"
           autoCapitalize='none'
           autoComplete='password'
@@ -89,7 +89,7 @@ export const Password = () => {
           Repeat password
         </Text>
         <TextInput
-          style={styles.input} // TODO: Change to 'wrongInput' if HandleNext
+          style={error ? styles.wrongInput : styles.input} // TODO: Change to 'wrongInput' if HandleNext
           underlineColorAndroid="transparent"
           autoCapitalize='none'
           autoComplete='password'
@@ -107,7 +107,7 @@ export const Password = () => {
           : null
         }
       </View>
-      <View style={{flex: 1,justifyContent: 'flex-end'}}>
+      <View style={{flex: 1, justifyContent: 'flex-end'}}>
         { input ? <NextButtonOnOTP /> : <NextButtonOff /> }
       </View>
     </SafeAreaView>

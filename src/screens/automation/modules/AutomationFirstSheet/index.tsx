@@ -3,7 +3,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 
-import { BackButton } from '../../components/BackButton';
+import { BackButton } from '../../../../components/BackButton';
 import { AutomationFirstSheetHeader } from '../../components/AutomationFirstSheetHeader';
 import { AutomationFirstSheetCondition } from '../../components/AutomationFirstSheetCondition';
 import { AutomationFirstSheetAction } from '../../components/AutomationFirstSheetAction';

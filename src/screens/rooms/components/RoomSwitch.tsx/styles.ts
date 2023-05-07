@@ -5,8 +5,8 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 12,
     paddingBottom: 8,
-    width: '48%',
     paddingLeft: 12,
+    width: '45%',
     borderRadius: 10,
     position: 'relative',
     overflow: 'hidden',
@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginVertical: 5.5,
     marginHorizontal: 9.5,
+    maxWidth: '45%',
   },
   titleText: {
     fontFamily: 'Inter',

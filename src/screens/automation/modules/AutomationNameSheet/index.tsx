@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { BackButton } from '../../components/BackButton';
+import { BackButton } from '../../../../components/BackButton';
 import styles from './styles';
 import { Button } from '../../../../components/Button';
 

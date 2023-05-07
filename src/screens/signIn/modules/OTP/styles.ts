@@ -69,8 +69,8 @@ const styles = StyleSheet.create({
     top: 12,
     paddingVertical: 10,
     paddingHorizontal: 10,
-    backgroundColor: '#EEE',
-    borderColor: '#DDD',
+    backgroundColor: '#FCFCFC',
+    borderColor: '#CBCBCB',
     borderWidth: 1,
     borderRadius: 6,
     color: '#353535'
@@ -103,7 +103,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderRadius: 6,
-    borderColor: '#8E8E8E',
+    backgroundColor: '#FCFCFC',
+    borderColor: '#CBCBCB',
   },
   focusCell: {
     borderColor: '#3A6598',

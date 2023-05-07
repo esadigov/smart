@@ -2,18 +2,20 @@ import React, { useState } from 'react';
 import {
   KeyboardAvoidingView,
   Platform,
-  SafeAreaView,
   ScrollView,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
+
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-import { Button } from '../../components/Button';
-import { SearchInput } from '../../components/SearchBox';
+import { Button } from '../../../../components/Button';
+import { SearchInput } from '../../../../components/SearchBox';
+import { BackButton } from '../../../../components/BackButton';
+import { useAppDispatch } from '../../../../store/hooks';
+import { setSheet } from '../../../../store/slices/roomSlice';
 
 import styles from './styles';
 
@@ -62,36 +64,36 @@ export const Recommendation: React.FC<IRecommendation> = ({
 );
 
 export const CreateRoom: React.FC = () => {
-  const navigation = useNavigation();
-
   const [searchQuery, setSearchQuery] = useState('');
   const [recommendations] = useState(recommendationsData);
 
   const selectRecommendation = (value: string) => {
     setSearchQuery(value);
   };
-
+  const dispatch = useAppDispatch();
   const onNextPress = () => {
-    // logic here
-
-    navigation.navigate('Attach-device');
+    dispatch(setSheet('ChooseRoom'))
   };
 
   return (
     <KeyboardAvoidingView
-      {...(Platform.OS === 'ios' ? { behavior: 'padding' } : {})}
-      keyboardVerticalOffset={50}
-      style={styles.container}>
-      <ScrollView style={{ paddingHorizontal: 20 }} scrollEnabled={false}>
+    {...(Platform.OS === 'ios' ? { behavior: 'padding' } : {})}
+    keyboardVerticalOffset={50}
+    style={styles.container}>
+      <BackButton onPress={() => dispatch(setSheet('RoomOptions'))} />
+      <ScrollView
+        scrollEnabled={false}
+        contentContainerStyle={{
+          paddingHorizontal: 20,
+        }}>
         <View style={styles.header}>
-          <Text style={styles.headline}>Room Name</Text>
+          <Text style={styles.headline}>Room name</Text>
         </View>
         <View style={{ marginTop: 35, marginBottom: 14 }}>
           <SearchInput
             value={searchQuery}
             onChange={setSearchQuery}
             style={{ flex: 0 }}
-            hideIcon
           />
         </View>
         <Text
@@ -103,7 +105,12 @@ export const CreateRoom: React.FC = () => {
           }}>
           We recommend
         </Text>
-        <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 10 }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            marginVertical: 10,
+          }}>
           {recommendations.map(recommendation => (
             <Recommendation
               key={recommendation}
@@ -113,13 +120,13 @@ export const CreateRoom: React.FC = () => {
             />
           ))}
         </View>
+        <Button
+          style={{marginTop: 20}}
+          text="Next"
+          onPress={onNextPress}
+          disabled={!searchQuery.length}
+        />
       </ScrollView>
-      <Button
-        text="Next"
-        onPress={onNextPress}
-        style={{ marginHorizontal: 20, marginBottom: 30 }}
-        disabled={!searchQuery.length}
-      />
     </KeyboardAvoidingView>
   );
 };

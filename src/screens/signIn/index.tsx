@@ -65,8 +65,8 @@ export const SignIn = () => {
           Username, phone number or e-mail
         </Text>
         <TextInput
-          style={styles.input} // TODO: Change to 'wrongInput' if HandleNext
-          placeholder="place@holder.az"
+          style={error ? styles.wrongInput : styles.input} // TODO: Change to 'wrongInput' if HandleNext
+          placeholder={error ? '' : 'place@holder.az'}
           placeholderTextColor="#8E8E8E"
           underlineColorAndroid="transparent"
           autoCapitalize='none'
@@ -78,7 +78,7 @@ export const SignIn = () => {
         ></TextInput>
         { error
           ? <Text style={styles.error}>
-              Incorrect Credentials
+              Field cannot be empty
             </Text>
           : null
         }

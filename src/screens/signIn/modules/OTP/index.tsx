@@ -61,7 +61,7 @@ export const OTP = () => {
       </View>
       <View style={styles.subTextContainer}>
         <Text style={styles.subText}>
-          4-digit code was sent to number PLACEHOLDER
+          4-digit code was sent to number *******1025
         </Text>
       </View>
       <View style={styles.inputContainer}>
@@ -93,7 +93,7 @@ export const OTP = () => {
         <TouchableOpacity>
           <Text style={styles.resend}>resend</Text>
         </TouchableOpacity>
-        <Text style={styles.resendText}> in PLACEHOLDER</Text>
+        <Text style={styles.resendText}> in 01:59</Text>
       </View>
       <View style={{flex: 1,justifyContent: 'flex-end'}}>
         <NextButtonOff /> 

@@ -21,7 +21,7 @@ import {
 import { DeviceCard } from './components/DeviceCard';
 import { DeviceSwitch } from './components/DeviceSwitch';
 import styles from './styles';
-import { BackButton } from '../automation/components/BackButton';
+import { BackButton } from '../../components/BackButton';
 
 AntDesign.loadFont();
 

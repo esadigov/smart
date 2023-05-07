@@ -10,18 +10,18 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-import { Button } from '../../components/Button';
-import { SearchInput } from '../../components/SearchBox';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import {
-  searchDeviceSections,
-  setSearchQuery,
-  switchDevice,
-} from '../../store/slices/deviceSlice';
-import { DeviceCard } from '../devices/components/DeviceCard';
-
+import { Button } from '../../../../components/Button';
+import { SearchInput } from '../../../../components/SearchBox';
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
 import { DeviceCheckBox } from './components/DeviceCheckBox';
 import styles from './styles';
+import {
+  switchDevice,
+  searchRooms,
+  setSearchQuery,
+  setSheet,
+} from '../../../../store/slices/roomSlice';
+import { BackButton } from '../../../../components/BackButton';
 
 const SelectedComponent = ({
   name,
@@ -57,24 +57,19 @@ const SelectedComponent = ({
   </View>
 );
 
-export const AttachDevice: React.FC = () => {
-  const { selectedDeviceSection, filteredSections, searchQuery } =
-    useAppSelector(state => state.deviceSlice);
+export const AttachDevice: React.FC = (props: any) => {
+  const { selectedDevice, searchQuery } =
+    useAppSelector(state => state.roomSlice);
   const dispatch = useAppDispatch();
 
   const chosen = useMemo(
-    () => selectedDeviceSection.filter(device => device.enabled),
-    [selectedDeviceSection],
+    () => selectedDevice.filter(rooms => rooms.enabled),
+    [selectedDevice],
   );
 
   const disable = useCallback(
     (id: string) => dispatch(switchDevice(id)),
     [dispatch],
-  );
-
-  const renderItem = useCallback(
-    ({ item }) => <DeviceCard key={item.id} item={item} />,
-    [],
   );
 
   const renderSwitchButtons = useCallback(
@@ -84,6 +79,7 @@ export const AttachDevice: React.FC = () => {
         subtitle={item.room}
         selected={item.enabled}
         id={item.id}
+        icon={item.icon}
       />
     ),
     [],
@@ -95,13 +91,16 @@ export const AttachDevice: React.FC = () => {
   );
 
   useEffect(() => {
-    dispatch(searchDeviceSections(searchQuery));
+    dispatch(searchRooms(searchQuery));
   }, [dispatch, searchQuery]);
 
   const renderHeader = () => (
     <View style={styles.headerContainer}>
+      <View style={{left: -20}}>
+        <BackButton onPress={() => dispatch(setSheet('ChooseRoom'))} />
+      </View>
       <View>
-        <Text style={styles.headline}>Attach Device</Text>
+        <Text style={styles.headline}>Attach device</Text>
       </View>
       <View style={styles.spacing}>
         <SearchInput
@@ -122,55 +121,25 @@ export const AttachDevice: React.FC = () => {
     </View>
   );
 
-  if (selectedDeviceSection.length) {
-    return (
-      <KeyboardAvoidingView
-        {...(Platform.OS === 'ios' ? { behavior: 'padding' } : {})}
-        keyboardVerticalOffset={50}
-        style={styles.container}>
-        <FlatList
-          key="device"
-          data={selectedDeviceSection}
-          scrollEnabled={true}
-          renderItem={renderSwitchButtons}
-          ListHeaderComponent={renderHeader()}
-          contentContainerStyle={styles.listContainer}
-          showsVerticalScrollIndicator={false}
-        />
-        <View style={{ backgroundColor: '#fff', paddingTop: 20 }}>
-          <Button
-            text="Done"
-            onPress={() => {}}
-            style={{ marginHorizontal: 15, marginBottom: 30 }}
-            disabled={!chosen.length}
-          />
-        </View>
-      </KeyboardAvoidingView>
-    );
-  }
-
   return (
     <KeyboardAvoidingView
       {...(Platform.OS === 'ios' ? { behavior: 'padding' } : {})}
       keyboardVerticalOffset={50}
       style={styles.container}>
       <FlatList
-        key="device-sections"
-        data={filteredSections}
-        numColumns={2}
+        key="device"
+        data={selectedDevice}
         scrollEnabled={true}
-        renderItem={renderItem}
+        renderItem={renderSwitchButtons}
         ListHeaderComponent={renderHeader()}
         contentContainerStyle={styles.listContainer}
-        columnWrapperStyle={styles.listItems}
         showsVerticalScrollIndicator={false}
       />
       <View style={{ backgroundColor: '#fff', paddingTop: 20 }}>
         <Button
           text="Done"
-          onPress={() => {}}
-          style={{ marginHorizontal: 15, marginBottom: 30 }}
-          // add selecting
+          onPress={props.closeSheet}
+          style={{ marginBottom: 30 }}
           disabled={!chosen.length}
         />
       </View>

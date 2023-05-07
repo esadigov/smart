@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { BackButton } from '../../components/BackButton';
+import { BackButton } from '../../../../components/BackButton';
 import DevicesPageIcon from '../../../../components/Icons/DevicesPageIcon';
 import styles from './styles';
 import { useAppDispatch } from '../../../../store/hooks';

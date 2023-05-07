@@ -14,9 +14,7 @@ import DevicesPageIcon from '../components/Icons/DevicesPageIcon';
 import HomePageIcon from '../components/Icons/HomePageIcon';
 import RoomsPageIcon from '../components/Icons/RoomsPageIcon';
 // Component Imports
-import { AttachDevice } from '../screens/attach-device';
 import { AutomationScreen } from '../screens/automation';
-import { CreateRoom } from '../screens/create-room';
 import { DevicesScreen } from '../screens/devices';
 import { HomeScreen } from '../screens/home';
 import { ProfileScreen } from '../screens/profile';
@@ -144,8 +142,6 @@ const StackNavigation = () => {
           presentation: 'modal',
           headerShown: false,
         }}>
-        <Stack.Screen name="Create-room" component={CreateRoom} />
-        <Stack.Screen name="Attach-device" component={AttachDevice} />
       </Stack.Group>
     </Stack.Navigator>
   );

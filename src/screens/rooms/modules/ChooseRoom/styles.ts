@@ -3,19 +3,22 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: '#fff',
+    marginHorizontal: 20,
+    marginBottom: 20,
   },
-  header: {
+  headerContainer: {
+    marginBottom: 10,
+  },
+  headline: {
     fontFamily: 'Inter',
     textAlign: 'center',
     fontWeight: '600',
-    fontSize: 20,
-    lineHeight: 25,
-    padding: 20,
+    fontSize: 18,
+    lineHeight: 21,
     color: '#000',
-  },
-  searchStyles: {
-    marginRight: 10,
+    marginTop: 20,
+    marginBottom: 15,
   },
   plusButton: {
     position: 'absolute',
@@ -26,21 +29,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 8,
-    marginVertical: 12,
-    marginHorizontal: 8,
   },
-  searchContainer: {
-    marginTop: 10,
-    marginBottom: 15.5,
+  selected: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    flexWrap: 'wrap',
+    marginTop: 20,
+  },
+  spacing: {
+    marginTop: 20,
   },
   listContainer: {
     paddingHorizontal: 10,
   },
   listItems: {
-    marginHorizontal: -7.5,
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
+    marginHorizontal: -5,
+  },
+  switchButtonsSpacing: {
+    marginBottom: 10,
   },
 });
 

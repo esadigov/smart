@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  useWindowDimensions,
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
@@ -23,6 +24,7 @@ const user = {
 export const HomeHeader: React.FC = () => {
   const navigate = useNavigation();
   const goToProfile = () => navigate.navigate('Profile');
+  const sheetHeight = useWindowDimensions().height * .39;
   const refRBSheet = useRef<RBSheet>(null);
 
   const { name } = user;
@@ -61,7 +63,7 @@ export const HomeHeader: React.FC = () => {
       {/* BottomSheet */}
       <RBSheet
         ref={refRBSheet}
-        height={340}
+        height={sheetHeight}
         closeOnDragDown={true}
         openDuration={200}
         closeDuration={200}
