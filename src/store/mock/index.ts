@@ -73,7 +73,7 @@ export const DEVICES = [
   {
     id: 'lrl2',
     device: 'Light',
-    room: 'Living Room',
+    room: 'Hall',
     icon: 'lightbulb',
     enabled: false,
   },

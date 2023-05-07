@@ -15,11 +15,13 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
   searchDeviceSections,
   setSearchQuery,
+  setSelectedDevice,
 } from '../../store/slices/deviceSlice';
 
 import { DeviceCard } from './components/DeviceCard';
 import { DeviceSwitch } from './components/DeviceSwitch';
 import styles from './styles';
+import { BackButton } from '../automation/components/BackButton';
 
 AntDesign.loadFont();
 
@@ -51,6 +53,11 @@ export const DevicesScreen: React.FC = () => {
     [],
   );
 
+  const cleanDevice = useCallback(
+    () => dispatch(setSelectedDevice('')),
+    [dispatch],
+  );
+
   const handleSearch = useCallback(
     (value: string) => dispatch(setSearchQuery(value)),
     [dispatch],
@@ -62,6 +69,11 @@ export const DevicesScreen: React.FC = () => {
 
   const renderHeader = () => (
     <View style={styles.headerContainer}>
+      <View style={{ left: -12 }}>
+        {selectedDeviceSection.length
+          ? <BackButton onPress={cleanDevice} />
+          : null}
+      </View>
       <View>
         <Text style={styles.headline}>Devices</Text>
         <TouchableOpacity style={styles.plusButton}>

@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import {
+  useWindowDimensions,
   SafeAreaView,
   Text,
   TouchableOpacity,
@@ -52,6 +53,7 @@ export const AutomationScreen: React.FC = () => {
     dispatch(setSheet('FirstSheet'));
   }
   const targetClose = () => refRBSheet.current?.close();
+  const sheetHeight = useWindowDimensions().height * .87;
   let currentSheet: JSX.Element = <></>;
 
   switch (selectedSheet) {
@@ -106,7 +108,7 @@ export const AutomationScreen: React.FC = () => {
 
       <RBSheet
         ref={refRBSheet}
-        height={750}
+        height={sheetHeight}
         closeOnDragDown={true}
         openDuration={200}
         closeDuration={200}

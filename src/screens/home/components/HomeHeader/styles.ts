@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
     paddingHorizontal: 6,
     borderRadius: 38,
-    right: 9,
+    right: 8,
   },
   notificationText: {
     color: '#fff',

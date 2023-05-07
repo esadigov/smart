@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   container: {
     width: '47%',
     borderRadius: 6,
-    marginVertical: 6,
+    marginBottom: 12,
     overflow: 'hidden',
   },
   text: {

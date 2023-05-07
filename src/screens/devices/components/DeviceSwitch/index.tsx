@@ -59,6 +59,7 @@ export const DeviceSwitch: React.FC<IDeviceSwitch> = ({ item }) => {
         isEnabled={item.enabled}
         setIsEnabled={handleSwitch}
         textInterpolate={textInterpolate}
+        icon={item.icon}
       />
     </View>
   );
