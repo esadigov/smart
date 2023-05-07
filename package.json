@@ -1,6 +1,6 @@
 {
-  "name": "SmartHome",
-  "version": "0.0.1",
+  "name": "BHouse",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
