@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   headerContainer: {
-    marginBottom: 10,
+    marginBottom: 30,
   },
   headline: {
     fontFamily: 'Inter',
@@ -29,11 +29,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 8,
-  },
-  selected: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginTop: 20,
   },
   spacing: {
     marginTop: 20,

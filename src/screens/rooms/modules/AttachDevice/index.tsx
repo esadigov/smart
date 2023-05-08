@@ -17,7 +17,6 @@ import { DeviceCheckBox } from './components/DeviceCheckBox';
 import styles from './styles';
 import {
   switchDevice,
-  searchRooms,
   setSearchQuery,
   setSheet,
 } from '../../../../store/slices/roomSlice';
@@ -89,10 +88,6 @@ export const AttachDevice: React.FC = (props: any) => {
     (value: string) => dispatch(setSearchQuery(value)),
     [dispatch],
   );
-
-  useEffect(() => {
-    dispatch(searchRooms(searchQuery));
-  }, [dispatch, searchQuery]);
 
   const renderHeader = () => (
     <View style={styles.headerContainer}>
