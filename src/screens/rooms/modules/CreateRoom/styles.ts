@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     textAlign: 'center',
     fontWeight: '600',
-    fontSize: 18,
-    lineHeight: 21,
+    fontSize: 20,
+    lineHeight: 25,
     color: '#000',
   },
   header: {
