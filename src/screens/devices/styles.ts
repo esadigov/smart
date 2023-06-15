@@ -15,19 +15,9 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 20,
     lineHeight: 25,
-    paddingTop: 20,
-    paddingBottom: 10,
+    marginTop: 20,
+    marginBottom: 10,
     color: '#000'
-  },
-  backButton: {
-    position: 'absolute',
-    top: 8,
-    backgroundColor: '#F5FAFF',
-    borderRadius: 9,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 8,
-    margin: 8
   },
   plusButton: {
     position: 'absolute',

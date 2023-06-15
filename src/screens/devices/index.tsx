@@ -44,19 +44,18 @@ export const DevicesScreen: React.FC = () => {
   const [option, setOption] = useState(SWITCH_OPTIONS[0].value);
 
   const renderItem = useCallback(
-    ({ item }) => <DeviceCard key={item.id} item={item} />,
+    ({ item }: any) => <DeviceCard key={item.id} item={item} />,
     []
   );
 
   const renderSwitchButtons = useCallback(
-    ({ item }) => <DeviceSwitch item={item} />,
+    ({ item }: any) => <DeviceSwitch item={item} />,
     []
   );
 
-  const cleanDevice = useCallback(
-    () => dispatch(setSelectedDevice('')),
-    [dispatch]
-  );
+  const cleanDevice = () => {
+    dispatch(setSelectedDevice([]));
+  };
 
   const handleSearch = useCallback(
     (value: string) => dispatch(setSearchQuery(value)),
@@ -69,7 +68,7 @@ export const DevicesScreen: React.FC = () => {
 
   const renderHeader = () => (
     <View style={styles.headerContainer}>
-      <View style={{ left: -12 }}>
+      <View style={{ left: -12, zIndex: 1 }}>
         {selectedDeviceSection.length ? (
           <BackButton onPress={cleanDevice} />
         ) : null}

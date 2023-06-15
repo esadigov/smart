@@ -74,7 +74,7 @@ export const AutomationChooseDevice: React.FC = () => {
   );
 
   const renderSwitchButtons = useCallback(
-    ({ item }) => (
+    ({ item }: any) => (
       <DeviceCheckBox
         title={item.device}
         subtitle={item.room}

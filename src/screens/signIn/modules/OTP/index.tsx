@@ -21,6 +21,7 @@ export const OTP = () => {
   const navigate = useNavigation();
   const goBack = useCallback(() => navigate.goBack(), [navigate]);
   // OTP States
+  const [input, setInput] = useState(false);
   const [value, setValue] = useState('');
   const ref = useBlurOnFulfill({ value, cellCount: 4 });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
