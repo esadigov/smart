@@ -1,22 +1,18 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import {
-  View,
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
-
-import { useNavigation } from '@react-navigation/native';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import { View, SafeAreaView, Text, TouchableOpacity } from 'react-native';
 import {
   CodeField,
   Cursor,
   useBlurOnFulfill,
-  useClearByFocusCell,
+  useClearByFocusCell
 } from 'react-native-confirmation-code-field';
 
-import styles from './styles';
+import { useNavigation } from '@react-navigation/native';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+
 import { NextButtonOff } from '../../components/NextButton';
+
+import styles from './styles';
 
 AntDesign.loadFont();
 
@@ -25,39 +21,36 @@ export const OTP = () => {
   const navigate = useNavigation();
   const goBack = useCallback(() => navigate.goBack(), [navigate]);
   // OTP States
-  const [ value, setValue ] = useState('');
-  const ref = useBlurOnFulfill({value, cellCount: 4});
-  const [ props, getCellOnLayoutHandler ] = useClearByFocusCell({
+  const [value, setValue] = useState('');
+  const ref = useBlurOnFulfill({ value, cellCount: 4 });
+  const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
-    setValue,
+    setValue
   });
   // Next Button Handler
-  const [ input, setInput ] = useState(false);
-  const [ error, setError ] = useState(false);
+  const [error, setError] = useState(false);
   useEffect(() => {
     if (value.length < 4) {
       setInput(false);
     } else {
-        setError(false);
-        setInput(true);
-      }
-  });
+      setError(false);
+      setInput(true);
+    }
+  }, [value.length]);
 
   return (
-    <SafeAreaView key="signInFirst" style={styles.container}>
-      <Text key="signHeader" style={styles.header}>
+    <SafeAreaView key='signInFirst' style={styles.container}>
+      <Text key='signHeader' style={styles.header}>
         Sign in
       </Text>
       <TouchableOpacity
-        key="backButton"
+        key='backButton'
         onPress={goBack}
         style={styles.backButton}>
-        <AntDesign key="backIcon" name="left" color={'#3A6598'} size={20} />
+        <AntDesign key='backIcon' name='left' color={'#3A6598'} size={20} />
       </TouchableOpacity>
       <View style={styles.personalContainer}>
-        <Text style={styles.personal}>
-          OTP
-        </Text>
+        <Text style={styles.personal}>OTP</Text>
       </View>
       <View style={styles.subTextContainer}>
         <Text style={styles.subText}>
@@ -71,9 +64,9 @@ export const OTP = () => {
           value={value}
           onChangeText={setValue}
           cellCount={4}
-          keyboardType="number-pad"
-          textContentType="oneTimeCode"
-          renderCell={({index, symbol, isFocused}) => (
+          keyboardType='number-pad'
+          textContentType='oneTimeCode'
+          renderCell={({ index, symbol, isFocused }) => (
             <View
               onLayout={getCellOnLayoutHandler(index)}
               key={index}
@@ -84,10 +77,7 @@ export const OTP = () => {
             </View>
           )}
         />
-        { error
-            ? <Text style={styles.error}>Incorrect OTP</Text>
-            : null
-        }
+        {error ? <Text style={styles.error}>Incorrect OTP</Text> : null}
       </View>
       <View style={styles.resendContainer}>
         <TouchableOpacity>
@@ -95,8 +85,8 @@ export const OTP = () => {
         </TouchableOpacity>
         <Text style={styles.resendText}> in 01:59</Text>
       </View>
-      <View style={{flex: 1,justifyContent: 'flex-end'}}>
-        <NextButtonOff /> 
+      <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+        <NextButtonOff />
       </View>
     </SafeAreaView>
   );

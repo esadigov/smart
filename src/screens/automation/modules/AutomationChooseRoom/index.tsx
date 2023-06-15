@@ -1,10 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import {
-  FlatList,
-  SafeAreaView,
-  Text,
-  View,
-} from 'react-native';
+import { FlatList, SafeAreaView, Text, View } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
@@ -13,8 +8,9 @@ import { SearchInput } from '../../../../components/SearchBox';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
 import {
   searchAutomations,
-  setSearchQuery,
+  setSearchQuery
 } from '../../../../store/slices/automationSlice';
+
 // Redux END
 import { DeviceCard } from './components/DeviceCard';
 import styles from './styles';
@@ -22,18 +18,19 @@ import styles from './styles';
 AntDesign.loadFont();
 
 export const AutomationChooseRoom: React.FC = () => {
-  const { filteredAutomations, searchQuery } =
-    useAppSelector(state => state.automationSlice);
+  const { filteredAutomations, searchQuery } = useAppSelector(
+    state => state.automationSlice
+  );
   const dispatch = useAppDispatch();
 
   const renderItem = useCallback(
     ({ item }) => <DeviceCard key={item.id} item={item} />,
-    [],
+    []
   );
 
   const handleSearch = useCallback(
     (value: string) => dispatch(setSearchQuery(value)),
-    [dispatch],
+    [dispatch]
   );
 
   useEffect(() => {
@@ -49,7 +46,7 @@ export const AutomationChooseRoom: React.FC = () => {
         <SearchInput
           onChange={handleSearch}
           value={searchQuery}
-          placeholder="Search"
+          placeholder='Search'
         />
       </View>
     </View>
@@ -58,7 +55,7 @@ export const AutomationChooseRoom: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        key="automation-sections"
+        key='automation-sections'
         data={filteredAutomations}
         numColumns={2}
         scrollEnabled={true}

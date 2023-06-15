@@ -8,18 +8,18 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 25,
     marginBottom: 30,
-    color: '#000',
+    color: '#000'
   },
   saveContainer: {
     position: 'absolute',
-    right: 0,
+    right: 0
   },
   save: {
     fontFamily: 'Inter',
     fontStyle: 'normal',
     fontWeight: '600',
     fontSize: 17,
-    color: '#3A6598',
+    color: '#3A6598'
   }
 });
 

@@ -3,23 +3,23 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFF',
-    paddingBottom: 10,
+    paddingBottom: 10
   },
   cardContainer: {
     backgroundColor: '#1A569D',
     borderRadius: 6,
     width: 158,
     height: 115,
-    marginHorizontal: 4.5,
+    marginHorizontal: 4.5
   },
   listContainer: {
-    paddingHorizontal: 11,
+    paddingHorizontal: 11
   },
   icon: {
     position: 'absolute',
     left: 15,
     top: 16,
-    zIndex: 1,
+    zIndex: 1
   },
   status: {
     position: 'absolute',
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     width: 51,
     height: 24,
     borderRadius: 4,
-    zIndex: 1,
+    zIndex: 1
   },
   statusText: {
     fontFamily: 'Inter',
@@ -38,14 +38,14 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 10,
     lineHeight: 12,
-    color: '#FFF',
+    color: '#FFF'
   },
   cardInfo: {
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
     bottom: 14,
-    left: 14,
+    left: 14
   },
   title: {
     fontFamily: 'Inter',
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     lineHeight: 17,
     color: '#FFF',
     alignSelf: 'flex-start',
-    marginBottom: 2.5,
+    marginBottom: 2.5
   },
   lifetime: {
     fontFamily: 'Inter',
@@ -63,8 +63,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 12,
     lineHeight: 15,
-    color: '#FFF',
-  },
+    color: '#FFF'
+  }
 });
 
 export default styles;

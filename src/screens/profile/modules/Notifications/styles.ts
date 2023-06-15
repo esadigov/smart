@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFF',
-    flex: 1,
+    flex: 1
   },
   list: {
     flexDirection: 'row',
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   icon: {
     backgroundColor: '#EAF3FF',
@@ -25,14 +25,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: 40,
-    height: 40,
+    height: 40
   },
   row: {
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   text: {
     justifyContent: 'center',
-    marginLeft: 15,
+    marginLeft: 15
   },
   title: {
     fontFamily: 'Inter',
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
     lineHeight: 19,
-    color: '#343434',
+    color: '#343434'
   },
   subtitle: {
     fontFamily: 'Inter',
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 14,
     lineHeight: 17,
-    color: "#343434",
+    color: '#343434'
   },
   header: {
     fontFamily: 'Inter',
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 25,
     padding: 20,
-    color: '#000',
+    color: '#000'
   },
   backButton: {
     position: 'absolute',
@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 8,
-    margin: 8,
-  },
+    margin: 8
+  }
 });
 
 export default styles;

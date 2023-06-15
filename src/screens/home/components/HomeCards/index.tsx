@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
 import LightbulbIcon from '../../../../components/Icons/LightbulbIcon';
@@ -12,10 +7,10 @@ import LightbulbIcon from '../../../../components/Icons/LightbulbIcon';
 import styles from './styles';
 
 interface DataProps {
-  id: string,
-  title: string,
-  lifetime: string,
-  status: string
+  id: string;
+  title: string;
+  lifetime: string;
+  status: string;
 }
 
 const DATA: DataProps[] = [
@@ -23,20 +18,20 @@ const DATA: DataProps[] = [
     id: 'card1',
     title: 'Light',
     lifetime: '5 hours',
-    status: 'Active',
+    status: 'Active'
   },
   {
     id: 'card2',
     title: 'Light',
     lifetime: '4 hours',
-    status: 'Active',
+    status: 'Active'
   },
   {
     id: 'card3',
     title: 'Light',
     lifetime: '4 hours',
-    status: 'Active',
-  },
+    status: 'Active'
+  }
 ];
 
 const Item = ({ title, lifetime, status }: DataProps) => (
@@ -44,10 +39,7 @@ const Item = ({ title, lifetime, status }: DataProps) => (
     <View style={styles.icon}>
       <LightbulbIcon color='#FFF' />
     </View>
-    <View style={[
-      styles.status,
-      {backgroundColor: '#27C265'},
-    ]}>
+    <View style={[styles.status, { backgroundColor: '#27C265' }]}>
       <Text style={styles.statusText}>{status}</Text>
     </View>
     <View style={styles.cardInfo}>
@@ -58,11 +50,12 @@ const Item = ({ title, lifetime, status }: DataProps) => (
 );
 
 export const HomeCards: React.FC = () => {
-  const renderItem = ({item}: {item: DataProps}) => (
-    <Item id={item.id}
-          title={item.title}
-          lifetime={item.lifetime}
-          status={item.status}
+  const renderItem = ({ item }: { item: DataProps }) => (
+    <Item
+      id={item.id}
+      title={item.title}
+      lifetime={item.lifetime}
+      status={item.status}
     />
   );
 
@@ -79,4 +72,4 @@ export const HomeCards: React.FC = () => {
       />
     </SafeAreaView>
   );
-}
+};

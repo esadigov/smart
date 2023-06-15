@@ -4,7 +4,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   Text,
-  View,
+  View
 } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -13,18 +13,19 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import { Button } from '../../../../components/Button';
 import { SearchInput } from '../../../../components/SearchBox';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
-import { DeviceCheckBox } from './components/DeviceCheckBox';
-import styles from './styles';
 import {
   switchAutomation,
   searchAutomations,
   setSearchQuery,
-  setSheet,
+  setSheet
 } from '../../../../store/slices/automationSlice';
+
+import { DeviceCheckBox } from './components/DeviceCheckBox';
+import styles from './styles';
 
 const SelectedComponent = ({
   name,
-  onPress,
+  onPress
 }: {
   name: string;
   onPress: () => void;
@@ -38,7 +39,7 @@ const SelectedComponent = ({
       marginRight: 7,
       marginBottom: 7,
       borderRadius: 6,
-      paddingHorizontal: 10,
+      paddingHorizontal: 10
     }}>
     <Text
       style={{
@@ -46,29 +47,30 @@ const SelectedComponent = ({
         fontWeight: '500',
         fontSize: 14,
         lineHeight: 17,
-        marginRight: 10,
+        marginRight: 10
       }}>
       {name}
     </Text>
     <TouchableOpacity onPress={onPress}>
-      <AntDesign name="close" color="#fff" />
+      <AntDesign name='close' color='#fff' />
     </TouchableOpacity>
   </View>
 );
 
 export const AutomationChooseDevice: React.FC = () => {
-  const { selectedAutomation, searchQuery } =
-    useAppSelector(state => state.automationSlice);
+  const { selectedAutomation, searchQuery } = useAppSelector(
+    state => state.automationSlice
+  );
   const dispatch = useAppDispatch();
 
   const chosen = useMemo(
     () => selectedAutomation.filter(automations => automations.enabled),
-    [selectedAutomation],
+    [selectedAutomation]
   );
 
   const disable = useCallback(
     (id: string) => dispatch(switchAutomation(id)),
-    [dispatch],
+    [dispatch]
   );
 
   const renderSwitchButtons = useCallback(
@@ -81,12 +83,12 @@ export const AutomationChooseDevice: React.FC = () => {
         icon={item.icon}
       />
     ),
-    [],
+    []
   );
 
   const handleSearch = useCallback(
     (value: string) => dispatch(setSearchQuery(value)),
-    [dispatch],
+    [dispatch]
   );
 
   useEffect(() => {
@@ -102,7 +104,7 @@ export const AutomationChooseDevice: React.FC = () => {
         <SearchInput
           onChange={handleSearch}
           value={searchQuery}
-          placeholder="Search"
+          placeholder='Search'
         />
       </View>
       <View style={styles.selected}>
@@ -123,7 +125,7 @@ export const AutomationChooseDevice: React.FC = () => {
       keyboardVerticalOffset={50}
       style={styles.container}>
       <FlatList
-        key="device"
+        key='device'
         data={selectedAutomation}
         scrollEnabled={true}
         renderItem={renderSwitchButtons}
@@ -133,7 +135,7 @@ export const AutomationChooseDevice: React.FC = () => {
       />
       <View style={{ backgroundColor: '#fff', paddingTop: 20 }}>
         <Button
-          text="Next"
+          text='Next'
           onPress={() => dispatch(setSheet('Name'))}
           style={{ marginBottom: 30 }}
           disabled={!chosen.length}

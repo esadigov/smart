@@ -3,10 +3,10 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
   },
   headerContainer: {
-    marginBottom: 32,
+    marginBottom: 32
   },
   header: {
     fontFamily: 'Inter',
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     lineHeight: 25,
     paddingTop: 20,
     paddingBottom: 10,
-    color: '#000',
+    color: '#000'
   },
   plusButton: {
     position: 'absolute',
@@ -28,12 +28,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 8,
     marginVertical: 12,
-    marginHorizontal: 18,
+    marginHorizontal: 18
   },
   spacing: {
     marginVertical: 44,
-    marginHorizontal: 10,
-  },
-})
+    marginHorizontal: 10
+  }
+});
 
 export default styles;

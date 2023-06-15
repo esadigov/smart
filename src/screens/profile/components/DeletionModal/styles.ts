@@ -11,27 +11,27 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderStyle: 'solid',
     borderColor: '#EDEDED',
-    borderRadius: 6,
+    borderRadius: 6
   },
   icon: {
     flex: 7,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   mainTextContainer: {
     flex: 6,
     alignItems: 'center',
-    bottom: 2,
+    bottom: 2
   },
   mainText: {
     color: '#353535',
     fontFamily: 'Inter',
     fontStyle: 'normal',
     fontWeight: '700',
-    fontSize: 16,
+    fontSize: 16
   },
   subTextContainer: {
     alignItems: 'center',
-    bottom: 12,
+    bottom: 12
   },
   subText: {
     color: '#A0A0A0',
@@ -40,12 +40,12 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 12,
     lineHeight: 19,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   buttonContainer: {
     flex: 10,
     flexDirection: 'row',
-    alignItems: 'flex-end',
+    alignItems: 'flex-end'
   },
   button: {
     flex: 1,
@@ -54,15 +54,15 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     borderStyle: 'solid',
     paddingVertical: 12,
-    marginHorizontal: 6,
+    marginHorizontal: 6
   },
   buttonText: {
     fontFamily: 'Inter',
     fontStyle: 'normal',
     fontWeight: '700',
     fontSize: 16,
-    lineHeight: 19,
-  },
+    lineHeight: 19
+  }
 });
 
 export default styles;

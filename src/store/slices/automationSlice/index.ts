@@ -4,19 +4,19 @@ import { AUTOMATION_SECTIONS } from '../../mock';
 
 // NOTE: get rid of any
 interface StateType {
-  selectedAutomation: any[],
-  automationSection: any[],
-  filteredAutomations: any[],
-  searchQuery: string,
-  selectedSheet: string,
-};
+  selectedAutomation: any[];
+  automationSection: any[];
+  filteredAutomations: any[];
+  searchQuery: string;
+  selectedSheet: string;
+}
 
 const initialState = {
   selectedAutomation: [],
   automationSection: AUTOMATION_SECTIONS,
   filteredAutomations: AUTOMATION_SECTIONS,
   searchQuery: '',
-  selectedSheet: 'FirstSheet',
+  selectedSheet: 'FirstSheet'
 } as StateType;
 
 export const automationSlice = createSlice({
@@ -30,14 +30,14 @@ export const automationSlice = createSlice({
       state.selectedAutomation = state.selectedAutomation.map(automation =>
         automation.id === action.payload
           ? { ...automation, enabled: !automation.enabled }
-          : automation,
+          : automation
       );
     },
     searchAutomations(state, action) {
       state.filteredAutomations = state.automationSection.filter(
         section =>
           section.id.includes(action.payload) ||
-          section.title.includes(action.payload),
+          section.title.includes(action.payload)
       );
     },
     setSearchQuery(state, action) {
@@ -45,8 +45,8 @@ export const automationSlice = createSlice({
     },
     setSheet(state, action) {
       state.selectedSheet = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const {
@@ -54,7 +54,7 @@ export const {
   switchAutomation,
   searchAutomations,
   setSearchQuery,
-  setSheet,
+  setSheet
 } = automationSlice.actions;
 
 export default automationSlice.reducer;

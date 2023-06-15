@@ -1,49 +1,48 @@
 import React from 'react';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import {
   ProfileMessageIcon,
   ProfileShieldIcon,
   ProfileLogOutIcon,
-  RingbellIcon,
+  RingbellIcon
 } from '../../../../components/Icons/ProfilePageIcons';
 
 import styles from './styles';
-import { useNavigation } from '@react-navigation/native';
 
 AntDesign.loadFont();
 
 interface DataProps {
-  id: string,
-  title: string,
-  icon: string,
+  id: string;
+  title: string;
+  icon: string;
 }
 
 const PROFILE_SETTINGS: DataProps[] = [
   {
     id: 'Notifications',
     title: 'Notifications',
-    icon: 'ringbell',
+    icon: 'ringbell'
   },
   {
     id: 'ThirdParty',
     title: 'Third party authorization',
-    icon: 'shield',
+    icon: 'shield'
   },
   {
     id: 'HelpFeedback',
     title: 'Help & Feedback',
-    icon: 'message',
+    icon: 'message'
   },
   {
     id: 'LogOut',
     title: 'Log out',
-    icon: 'logout',
-  },
+    icon: 'logout'
+  }
 ];
-
 
 export const ProfileList = () => {
   const navigate = useNavigation();
@@ -51,10 +50,7 @@ export const ProfileList = () => {
 
   const Item = ({ id, title, icon }: DataProps) => (
     <TouchableOpacity
-      onPress={
-        id === 'Notifications'
-          ? goToNotifications
-          : undefined}
+      onPress={id === 'Notifications' ? goToNotifications : undefined}
       style={styles.list}>
       <View style={styles.row}>
         <View style={styles.icon}>
@@ -74,17 +70,14 @@ export const ProfileList = () => {
       </View>
       <View style={styles.forward}>
         {icon !== 'logout' ? (
-          <AntDesign name="right" color={'#3A6598'} size={20} />
+          <AntDesign name='right' color={'#3A6598'} size={20} />
         ) : null}
       </View>
     </TouchableOpacity>
   );
 
-  const renderItem = ({item}: {item: DataProps}) => (
-    <Item
-      id={item.id}
-      icon={item.icon}
-      title={item.title} />
+  const renderItem = ({ item }: { item: DataProps }) => (
+    <Item id={item.id} icon={item.icon} title={item.title} />
   );
 
   return (

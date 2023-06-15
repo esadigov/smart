@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 12,
     margin: 8,
-    zIndex: 1,
-  },
+    zIndex: 1
+  }
 });
 
 export default styles;

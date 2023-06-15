@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import { TextInput, View } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
+
 import styles from './styles';
 
 AntDesign.loadFont();
 
 interface ISearchInput {
-  value: string,
-  onChange: (value: string) => void,
-  placeholder?: string,
-  style?: any,
-  hideIcon?: boolean,
+  value: string;
+  onChange: (value: string) => void;
+  placeholder?: string;
+  style?: any;
+  hideIcon?: boolean;
 }
 
 export const SearchInput: React.FC<ISearchInput> = ({
@@ -19,21 +20,22 @@ export const SearchInput: React.FC<ISearchInput> = ({
   onChange,
   placeholder,
   style,
-  hideIcon,
+  hideIcon
 }) => {
   const [focus, setFocus] = useState(false);
   return (
     <View style={[styles.container, style]}>
-      <View style={[
+      <View
+        style={[
           styles.inputContainer,
           focus
             ? {
                 backgroundColor: '#E9F3FF',
-                borderColor: '#3A6598',
+                borderColor: '#3A6598'
               }
             : {
                 backgroundColor: '#F8F8F8',
-                borderColor: '#ECECEC',
+                borderColor: '#ECECEC'
               }
         ]}>
         <TextInput
@@ -46,15 +48,14 @@ export const SearchInput: React.FC<ISearchInput> = ({
           onChangeText={onChange}
         />
       </View>
-      {(!focus && !hideIcon)
-        ? <AntDesign
-            name="search1"
-            size={24}
-            color='#CCC'
-            style={styles.inputIcon}
-          />
-        : null
-      }
+      {!focus && !hideIcon ? (
+        <AntDesign
+          name='search1'
+          size={24}
+          color='#CCC'
+          style={styles.inputIcon}
+        />
+      ) : null}
     </View>
   );
 };

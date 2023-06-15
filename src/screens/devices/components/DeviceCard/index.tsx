@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
 import { Text, TouchableOpacity, ImageBackground } from 'react-native';
 
-import { setSelectedDevice } from '../../../../store/slices/deviceSlice';
 import { useAppDispatch } from '../../../../store/hooks';
 import { DEVICES } from '../../../../store/mock';
+import { setSelectedDevice } from '../../../../store/slices/deviceSlice';
 
 import styles from './styles';
 interface IDeviceCard {
@@ -15,7 +15,7 @@ export const DeviceCard: React.FC<IDeviceCard> = ({ item }) => {
 
   const handleOpenDevice = useCallback(
     () => dispatch(setSelectedDevice(DEVICES)),
-    [dispatch],
+    [dispatch]
   );
 
   return (
@@ -23,7 +23,7 @@ export const DeviceCard: React.FC<IDeviceCard> = ({ item }) => {
       <ImageBackground
         source={{ uri: item.img }}
         style={styles.backgroundImg}
-        resizeMode="cover">
+        resizeMode='cover'>
         <Text style={styles.text}>{item.title}</Text>
       </ImageBackground>
     </TouchableOpacity>

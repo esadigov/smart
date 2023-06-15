@@ -1,48 +1,41 @@
 import React from 'react';
-import {
-  FlatList,
-  Text,
-  View,
-  TouchableOpacity,
-} from 'react-native';
+import { FlatList, Text, View, TouchableOpacity } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
+
 import { BackButton } from '../../../../components/BackButton';
 import DevicesPageIcon from '../../../../components/Icons/DevicesPageIcon';
-import styles from './styles';
 import { useAppDispatch } from '../../../../store/hooks';
 import { setSheet } from '../../../../store/slices/automationSlice';
+
+import styles from './styles';
 
 AntDesign.loadFont();
 
 interface DataProps {
-  id: string,
-  title: string,
+  id: string;
+  title: string;
 }
 
 const CONDITIONS: DataProps[] = [
   {
     id: 'Devices',
-    title: 'Devices',
+    title: 'Devices'
   },
   {
     id: 'SetTime',
-    title: 'Set time',
-  },
-]
+    title: 'Set time'
+  }
+];
 
 export const AutomationConditionSheet = () => {
   const dispatch = useAppDispatch();
   const handleChange = (id: string) => {
-    id === 'Devices'
-      ? dispatch(setSheet('Room'))
-      : null;
+    id === 'Devices' ? dispatch(setSheet('Room')) : null;
   };
 
   const Item = ({ title, id }: DataProps) => (
-    <TouchableOpacity
-      onPress={() => handleChange(id)}
-      style={styles.box}>
+    <TouchableOpacity onPress={() => handleChange(id)} style={styles.box}>
       <View style={styles.row}>
         <View style={styles.icon}>
           <DevicesPageIcon color='#008EE6' />
@@ -54,16 +47,14 @@ export const AutomationConditionSheet = () => {
     </TouchableOpacity>
   );
 
-  const renderItem = ({item}: {item: DataProps}) => (
+  const renderItem = ({ item }: { item: DataProps }) => (
     <Item id={item.id} title={item.title} />
-    );
+  );
 
   return (
     <View style={styles.container}>
-      <BackButton
-        onPress={() => dispatch(setSheet('FirstSheet'))}
-      />
-      <Text key="automationConditionSheetTitle" style={styles.header}>
+      <BackButton onPress={() => dispatch(setSheet('FirstSheet'))} />
+      <Text key='automationConditionSheetTitle' style={styles.header}>
         Condition
       </Text>
       <FlatList
@@ -75,4 +66,4 @@ export const AutomationConditionSheet = () => {
       />
     </View>
   );
-}
+};

@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFF'
   },
   header: {
     fontFamily: 'Inter',
@@ -12,14 +12,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 25,
     marginBottom: 30,
-    color: '#000',
+    color: '#000'
   },
   inputText: {
     fontFamily: 'Inter',
     fontStyle: 'normal',
     fontWeight: '500',
     fontSize: 16,
-    color: '#353535',
+    color: '#353535'
   },
   input: {
     fontFamily: 'Poppins',
@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 12,
     paddingHorizontal: 24,
-    marginVertical: 24,
-  },
+    marginVertical: 24
+  }
 });
 
 export default styles;

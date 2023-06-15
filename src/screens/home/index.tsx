@@ -1,15 +1,13 @@
 import React from 'react';
-import {
-  FlatList,
-} from 'react-native';
+import { FlatList } from 'react-native';
 
-import styles from './styles';
+import { HomeCamera } from './components/HomeCamera';
+import { HomeCards } from './components/HomeCards';
+import { HomeFrequent } from './components/HomeFrequent';
 import { HomeHeader } from './components/HomeHeader';
 // TEMPORARY
 import { TemporaryNavigation } from './components/TemporaryNavigation';
-import { HomeCards } from './components/HomeCards';
-import { HomeCamera } from './components/HomeCamera';
-import { HomeFrequent } from './components/HomeFrequent';
+import styles from './styles';
 
 export const HomeScreen: React.FC = () => {
   return (
@@ -32,6 +30,5 @@ export const HomeScreen: React.FC = () => {
         </>
       }
     />
-      
   );
-}
+};

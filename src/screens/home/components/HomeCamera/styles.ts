@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFF',
-    paddingBottom: 10,
+    paddingBottom: 10
   },
   cardContainer: {
     backgroundColor: '#00000080',
@@ -11,17 +11,17 @@ const styles = StyleSheet.create({
     width: 256,
     height: 155,
     marginHorizontal: 3,
-    overflow: 'hidden',
+    overflow: 'hidden'
   },
   listContainer: {
-    paddingHorizontal: 11,
+    paddingHorizontal: 11
   },
   cameraHeader: {
     marginHorizontal: 14,
     marginVertical: 14,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   cameraText: {
     fontFamily: 'Inter',
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 16,
     lineHeight: 19,
-    color: '#343434',
+    color: '#343434'
   },
   seeAllButton: {
     paddingHorizontal: 16,
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FAFF',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 6,
+    borderRadius: 6
   },
   seeAllText: {
     fontFamily: 'Inter',
@@ -47,11 +47,11 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 12,
     lineHeight: 15,
-    color: '#1A5EAF',
+    color: '#1A5EAF'
   },
   backgroundImg: {
     width: 256,
-    height: 155,
+    height: 155
   },
   cardInfo: {
     justifyContent: 'center',
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     left: 9,
     width: 80,
     height: 28,
-    borderRadius: 6,
+    borderRadius: 6
   },
   title: {
     fontFamily: 'Poppins',
@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 18,
     marginLeft: 6,
-    color: '#FFF',
-  },
+    color: '#FFF'
+  }
 });
 
 export default styles;

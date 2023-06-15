@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     width: '47%',
     borderRadius: 6,
     marginVertical: 6,
-    overflow: 'hidden',
+    overflow: 'hidden'
   },
   text: {
     fontFamily: 'Inter',
@@ -19,11 +19,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingVertical: 55,
     lineHeight: 24,
-    backgroundColor: '#00000080',
+    backgroundColor: '#00000080'
   },
   backgroundImg: {
-    borderRadius: 6,
-  },
+    borderRadius: 6
+  }
 });
 
 export default styles;

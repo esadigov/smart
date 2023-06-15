@@ -17,7 +17,7 @@ interface ISwitchButton {
 const SwitchButton: React.FC<ISwitchButton> = ({
   options,
   selectedValue,
-  onPress,
+  onPress
 }) => {
   return (
     <View style={styles.container}>

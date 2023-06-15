@@ -9,8 +9,8 @@ const USERS = [
   {
     id: 'user1',
     name: 'Nihad Abdulalizada',
-    status: 'owner',
-  },
+    status: 'owner'
+  }
 ];
 
 export const ProfileHeader: any = () => {
@@ -18,7 +18,10 @@ export const ProfileHeader: any = () => {
     return (
       <View key={user.id} style={styles.container}>
         <View style={styles.relative}>
-          <Image style={styles.avatar} source={require('../../../../components/Images/User.png')} />
+          <Image
+            style={styles.avatar}
+            source={require('../../../../components/Images/User.png')}
+          />
           <TouchableOpacity style={styles.editButton}>
             <ProfileEditIcon color={'#255B99'} />
           </TouchableOpacity>

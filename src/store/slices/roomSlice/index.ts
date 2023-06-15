@@ -4,13 +4,13 @@ import { ROOMS } from '../../mock';
 
 // NOTE: get rid of any
 interface StateType {
-  selectedRoom: any[],
-  selectedDevice: any[],
-  roomSection: any[],
-  filteredRooms: any[],
-  searchQuery: string,
-  selectedSheet: string,
-};
+  selectedRoom: any[];
+  selectedDevice: any[];
+  roomSection: any[];
+  filteredRooms: any[];
+  searchQuery: string;
+  selectedSheet: string;
+}
 
 const initialState = {
   selectedRoom: [],
@@ -18,7 +18,7 @@ const initialState = {
   roomSection: ROOMS,
   filteredRooms: ROOMS,
   searchQuery: '',
-  selectedSheet: 'RoomOptions',
+  selectedSheet: 'RoomOptions'
 } as StateType;
 
 export const roomSlice = createSlice({
@@ -33,23 +33,21 @@ export const roomSlice = createSlice({
     },
     switchRoom(state, action) {
       state.filteredRooms = state.filteredRooms.map(room =>
-        room.id === action.payload
-          ? { ...room, enabled: !room.enabled }
-          : room,
+        room.id === action.payload ? { ...room, enabled: !room.enabled } : room
       );
     },
     switchDevice(state, action) {
       state.selectedDevice = state.selectedDevice.map(device =>
         device.id === action.payload
           ? { ...device, enabled: !device.enabled }
-          : device,
+          : device
       );
     },
     searchRooms(state, action) {
       state.filteredRooms = state.roomSection.filter(
         section =>
           section.id.includes(action.payload) ||
-          section.name.includes(action.payload),
+          section.name.includes(action.payload)
       );
     },
     setSearchQuery(state, action) {
@@ -57,8 +55,8 @@ export const roomSlice = createSlice({
     },
     setSheet(state, action) {
       state.selectedSheet = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const {
@@ -68,7 +66,7 @@ export const {
   switchDevice,
   searchRooms,
   setSearchQuery,
-  setSheet,
+  setSheet
 } = roomSlice.actions;
 
 export default roomSlice.reducer;

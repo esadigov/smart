@@ -5,13 +5,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#E1E1E1',
     borderRadius: 6,
-    marginVertical: 4,
+    marginVertical: 4
   },
   upper: {
     borderBottomWidth: 1,
     borderBottomColor: '#E1E1E1',
     paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingVertical: 16
   },
   primaryText: {
     fontFamily: 'Inter',
@@ -19,12 +19,12 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 18,
     lineHeight: 22,
-    color: '#353535',
+    color: '#353535'
   },
   dropdownKey: {
     position: 'absolute',
     top: 16,
-    right: 16,
+    right: 16
   },
   subText: {
     fontFamily: 'Inter',
@@ -33,17 +33,17 @@ const styles = StyleSheet.create({
     lineHeight: 15,
     top: 8,
     fontSize: 12,
-    color: '#A5A5A5',
+    color: '#A5A5A5'
   },
   lower: {
     flexDirection: 'column',
     paddingBottom: 22,
     paddingTop: 4,
     alignItems: 'flex-start',
-    marginHorizontal: 24,
+    marginHorizontal: 24
   },
   buttonContainer: {
-    alignItems: 'center',
+    alignItems: 'center'
   },
   button: {
     marginTop: 16,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     borderColor: '#3A6598',
     backgroundColor: '#3A6598',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   text: {
     fontFamily: 'Inter',
@@ -62,14 +62,14 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 16,
     lineHeight: 19,
-    color: '#FFF',
+    color: '#FFF'
   },
   conditionsContainer: {
     paddingTop: 4,
     flexDirection: 'column',
     alignItems: 'flex-start',
     marginHorizontal: 24,
-    marginBottom: 18,
+    marginBottom: 18
   },
   conditions: {
     flexDirection: 'row',
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'flex-start',
-    borderRadius: 6,
+    borderRadius: 6
   },
   conditionsText: {
     fontFamily: 'Inter',
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 17,
     color: '#000',
-    marginLeft: 10,
+    marginLeft: 10
   },
   specifications: {
     flexDirection: 'row',
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 6,
-    alignSelf: 'flex-start',
+    alignSelf: 'flex-start'
   },
   specificationsText: {
     fontFamily: 'Inter',
@@ -109,11 +109,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 17,
     color: '#3A6598',
-    marginLeft: 10,
+    marginLeft: 10
   },
   combined: {
-    paddingTop: 12,
-  },
+    paddingTop: 12
+  }
 });
 
 export default styles;

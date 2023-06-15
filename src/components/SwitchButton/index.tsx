@@ -1,13 +1,10 @@
 import React, { memo } from 'react';
-import {
-  View, 
-  Switch,
-  Animated,
-} from 'react-native';
+import { View, Switch, Animated } from 'react-native';
 
-import SpeakerIcon from '../../components/Icons/SpeakerIcon';
 import LightbulbIcon from '../../components/Icons/LightbulbIcon';
+import SpeakerIcon from '../../components/Icons/SpeakerIcon';
 import TVSetIcon from '../../components/Icons/TVSetIcon';
+
 import styles from './styles';
 
 interface ISwitchButton {
@@ -18,7 +15,7 @@ interface ISwitchButton {
   disabled?: boolean;
   textInterpolate: any;
   style?: any;
-  icon?: string,
+  icon?: string;
 }
 
 // NOTE: add logic to change text color animated
@@ -30,16 +27,17 @@ const SwitchButton: React.FC<ISwitchButton> = ({
   textInterpolate,
   disabled,
   style,
-  icon,
+  icon
 }) => (
   <View style={[styles.container, style]}>
     <View style={styles.icon}>
-      {icon === 'speaker'
-        ? <SpeakerIcon color='#1A5EAF' />
-        : icon === 'lightbulb'
-            ? <LightbulbIcon color='#1A5EAF' />
-            : <TVSetIcon color='#1A5EAF' />
-      }
+      {icon === 'speaker' ? (
+        <SpeakerIcon color='#1A5EAF' />
+      ) : icon === 'lightbulb' ? (
+        <LightbulbIcon color='#1A5EAF' />
+      ) : (
+        <TVSetIcon color='#1A5EAF' />
+      )}
     </View>
     <View style={styles.titleContainer}>
       <Animated.Text style={[styles.title, { color: textInterpolate }]}>

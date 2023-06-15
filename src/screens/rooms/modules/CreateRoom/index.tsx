@@ -5,14 +5,14 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
+import { BackButton } from '../../../../components/BackButton';
 import { Button } from '../../../../components/Button';
 import { SearchInput } from '../../../../components/SearchBox';
-import { BackButton } from '../../../../components/BackButton';
 import { useAppDispatch } from '../../../../store/hooks';
 import { setSheet } from '../../../../store/slices/roomSlice';
 
@@ -32,13 +32,13 @@ const recommendationsData = [
   'Hall',
   'Bedroom',
   'Kitchen',
-  'Kid room',
+  'Kid room'
 ];
 
 export const Recommendation: React.FC<IRecommendation> = ({
   name,
   onPress,
-  isActive,
+  isActive
 }) => (
   <TouchableOpacity
     style={{
@@ -48,14 +48,14 @@ export const Recommendation: React.FC<IRecommendation> = ({
       borderWidth: 1,
       borderRadius: 6,
       backgroundColor: isActive ? '#3A6598' : '#fff',
-      margin: 2.5,
+      margin: 2.5
     }}
     onPress={onPress}>
     <Text
       style={{
         color: isActive ? '#fff' : '#353535',
         fontWeight: '500',
-        fontSize: 14,
+        fontSize: 14
       }}>
       {name}
     </Text>
@@ -71,19 +71,19 @@ export const CreateRoom: React.FC = () => {
   };
   const dispatch = useAppDispatch();
   const onNextPress = () => {
-    dispatch(setSheet('ChooseRoom'))
+    dispatch(setSheet('ChooseRoom'));
   };
 
   return (
     <KeyboardAvoidingView
-    {...(Platform.OS === 'ios' ? { behavior: 'padding' } : {})}
-    keyboardVerticalOffset={50}
-    style={styles.container}>
+      {...(Platform.OS === 'ios' ? { behavior: 'padding' } : {})}
+      keyboardVerticalOffset={50}
+      style={styles.container}>
       <BackButton onPress={() => dispatch(setSheet('RoomOptions'))} />
       <ScrollView
         scrollEnabled={false}
         contentContainerStyle={{
-          paddingHorizontal: 20,
+          paddingHorizontal: 20
         }}>
         <View style={styles.header}>
           <Text style={styles.headline}>Room name</Text>
@@ -101,7 +101,7 @@ export const CreateRoom: React.FC = () => {
             color: '#C0C0C0',
             fontWeight: '500',
             fontSize: 14,
-            lineHeight: 22,
+            lineHeight: 22
           }}>
           We recommend
         </Text>
@@ -109,7 +109,7 @@ export const CreateRoom: React.FC = () => {
           style={{
             flexDirection: 'row',
             flexWrap: 'wrap',
-            marginVertical: 10,
+            marginVertical: 10
           }}>
           {recommendations.map(recommendation => (
             <Recommendation
@@ -121,8 +121,8 @@ export const CreateRoom: React.FC = () => {
           ))}
         </View>
         <Button
-          style={{marginTop: 20}}
-          text="Next"
+          style={{ marginTop: 20 }}
+          text='Next'
           onPress={onNextPress}
           disabled={!searchQuery.length}
         />

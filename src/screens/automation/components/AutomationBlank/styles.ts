@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: -1,
+    zIndex: -1
   },
   createAutomation: {
     backgroundColor: '#3A6598',
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     margin: 24,
     borderRadius: 6,
     borderWidth: 1,
-    borderColor: '#3A6598',
+    borderColor: '#3A6598'
   },
   createAutomationText: {
     fontFamily: 'Inter',
@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 16,
     lineHeight: 19,
-    color: '#FFF',
-  },
+    color: '#FFF'
+  }
 });
 
 export default styles;

@@ -1,15 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import automationSlice from './slices/automationSlice';
 import deviceSlice from './slices/deviceSlice';
 import roomSlice from './slices/roomSlice';
-import automationSlice from './slices/automationSlice';
 
 export const store = configureStore({
   reducer: {
     deviceSlice,
     roomSlice,
-    automationSlice,
-  },
+    automationSlice
+  }
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

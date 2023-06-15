@@ -10,6 +10,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 6,
     marginLeft: 4,
-    left: -4,
-  },
+    left: -4
+  }
 });

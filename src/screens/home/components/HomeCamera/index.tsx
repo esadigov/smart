@@ -4,30 +4,31 @@ import {
   Text,
   TouchableOpacity,
   View,
-  ImageBackground,
+  ImageBackground
 } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
-import styles from './styles';
 import CameraIcon from '../../../../components/Icons/CameraIcon';
 
+import styles from './styles';
+
 interface DataProps {
-  id: string,
-  title: string,
-  img: string,
+  id: string;
+  title: string;
+  img: string;
 }
 
 const DATA: DataProps[] = [
   {
     id: 'camera1',
     title: 'Garage',
-    img: 'https://st.hzcdn.com/simgs/pictures/garages/harney-bungalow-m-2405crd-mark-stewart-home-design-img~99c1b4b105ae8e03_16-7330-1-107f142.jpg',
+    img: 'https://st.hzcdn.com/simgs/pictures/garages/harney-bungalow-m-2405crd-mark-stewart-home-design-img~99c1b4b105ae8e03_16-7330-1-107f142.jpg'
   },
   {
     id: 'camera2',
     title: 'Garden',
-    img: 'https://f7e5m2b4.rocketcdn.me/wp-content/uploads/2015/01/Contemporary-garden-design-Ideas-and-Tips-www.homeworlddesign.-com-2.jpg',
-  },
+    img: 'https://f7e5m2b4.rocketcdn.me/wp-content/uploads/2015/01/Contemporary-garden-design-Ideas-and-Tips-www.homeworlddesign.-com-2.jpg'
+  }
 ];
 
 const Item = ({ title, img }: DataProps) => (
@@ -45,7 +46,7 @@ const Item = ({ title, img }: DataProps) => (
 );
 
 export const HomeCamera: React.FC = () => {
-  const renderItem = ({item}: {item: DataProps}) => (
+  const renderItem = ({ item }: { item: DataProps }) => (
     <Item id={item.id} title={item.title} img={item.img} />
   );
 
@@ -68,4 +69,4 @@ export const HomeCamera: React.FC = () => {
       />
     </SafeAreaView>
   );
-}
+};

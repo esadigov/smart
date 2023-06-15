@@ -5,10 +5,10 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 10,
     marginBottom: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
   },
   headerContainer: {
-    marginBottom: 20,
+    marginBottom: 20
   },
   headline: {
     fontFamily: 'Inter',
@@ -18,17 +18,17 @@ const styles = StyleSheet.create({
     lineHeight: 25,
     paddingTop: 20,
     paddingBottom: 10,
-    color: '#000',
+    color: '#000'
   },
   spacing: {
-    marginTop: 20,
+    marginTop: 20
   },
   listContainer: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 10
   },
   listItems: {
-    justifyContent: 'space-around',
-  },
+    justifyContent: 'space-around'
+  }
 });
 
 export default styles;

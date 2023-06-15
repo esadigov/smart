@@ -1,16 +1,17 @@
 // Primary Imports
 import React from 'react';
 import { StatusBar, useColorScheme } from 'react-native';
-import { Navigation } from './src/navigation';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-// Redux Imports
 import { Provider } from 'react-redux';
+
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+
+import { Navigation } from './src/navigation';
 import { store } from './src/store';
 // Primary Render
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter
   };
 
   return (

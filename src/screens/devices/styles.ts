@@ -4,10 +4,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFF',
-    paddingBottom: 32,
+    paddingBottom: 32
   },
   headerContainer: {
-    marginBottom: 32,
+    marginBottom: 32
   },
   headline: {
     fontFamily: 'Inter',
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     lineHeight: 25,
     paddingTop: 20,
     paddingBottom: 10,
-    color: '#000',
+    color: '#000'
   },
   backButton: {
     position: 'absolute',
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 8,
-    margin: 8,
+    margin: 8
   },
   plusButton: {
     position: 'absolute',
@@ -39,20 +39,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 8,
     marginVertical: 12,
-    marginHorizontal: 8,
+    marginHorizontal: 8
   },
   spacing: {
-    marginTop: 20,
+    marginTop: 20
   },
   listContainer: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 10
   },
   listItems: {
-    justifyContent: 'space-around',
+    justifyContent: 'space-around'
   },
   switchButtonsSpacing: {
-    marginBottom: 10,
-  },
+    marginBottom: 10
+  }
 });
 
 export default styles;

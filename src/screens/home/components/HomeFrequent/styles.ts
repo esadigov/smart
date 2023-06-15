@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFF'
   },
   box: {
     padding: 14,
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     borderColor: '#F5F5F5',
     borderRadius: 6,
     marginBottom: 6,
-    marginHorizontal: 14,
+    marginHorizontal: 14
   },
   icon: {
     backgroundColor: '#EAF3FF',
@@ -20,11 +20,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: 46,
     height: 46,
-    marginRight: 24,
+    marginRight: 24
   },
   row: {
     alignItems: 'center',
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   title: {
     fontFamily: 'Inter',
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 19,
     color: '#343434',
-    marginBottom: 6,
+    marginBottom: 6
   },
   subtitle: {
     fontFamily: 'Inter',
@@ -41,14 +41,14 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 14,
     lineHeight: 17,
-    color: '#343434',
+    color: '#343434'
   },
   frequentHeader: {
     marginHorizontal: 14,
     marginVertical: 14,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   frequentText: {
     fontFamily: 'Inter',
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 16,
     lineHeight: 19,
-    color: '#343434',
+    color: '#343434'
   },
   seeAllButton: {
     paddingHorizontal: 16,
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FAFF',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 6,
+    borderRadius: 6
   },
   seeAllText: {
     fontFamily: 'Inter',
@@ -74,10 +74,10 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 12,
     lineHeight: 15,
-    color: '#1A5EAF',
+    color: '#1A5EAF'
   },
   main: {
-    flex: 4,
+    flex: 4
   },
   switchContainer: {
     flex: 1,
@@ -85,14 +85,14 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     borderWidth: 1,
     backgroundColor: '#FFF',
-    borderColor: '#F2F2F2',
+    borderColor: '#F2F2F2'
   },
   switch: {
     width: 46,
     marginBottom: 2,
     marginHorizontal: 3.5,
-    transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }],
-  },
+    transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }]
+  }
 });
 
 export default styles;

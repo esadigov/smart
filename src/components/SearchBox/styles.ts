@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     position: 'relative',
-    marginHorizontal: 3,
+    marginHorizontal: 3
   },
   inputContainer: {
     backgroundColor: '#F8F8F8',
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 48,
     alignItems: 'center',
-    paddingLeft: 13,
+    paddingLeft: 13
   },
   input: {
     flex: 1,
@@ -25,12 +25,12 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 16,
     lineHeight: 21,
-    color: '#000',
+    color: '#000'
   },
   inputIcon: {
     position: 'absolute',
-    right: 15,
-  },
+    right: 15
+  }
 });
 
 export default styles;

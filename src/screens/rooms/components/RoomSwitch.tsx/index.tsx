@@ -1,10 +1,5 @@
 import React, { useCallback, useRef } from 'react';
-import {
-  Animated,
-  Switch,
-  View,
-  Image,
-} from 'react-native';
+import { Animated, Switch, View, Image } from 'react-native';
 
 import styles from './styles';
 
@@ -23,7 +18,7 @@ export const RoomSwitch: React.FC<IRoomSwitch> = ({
   color = '#3A6598',
   title,
   subtitle,
-  image,
+  image
 }) => {
   const filledBox = useRef(new Animated.Value(isEnabled ? 1 : 0)).current;
   const handleSwitch = useCallback(() => {
@@ -31,27 +26,27 @@ export const RoomSwitch: React.FC<IRoomSwitch> = ({
     Animated.timing(filledBox, {
       toValue: isEnabled ? 0 : 1,
       duration: 500,
-      useNativeDriver: false,
+      useNativeDriver: false
     }).start();
   }, [filledBox, isEnabled, setIsEnabled]);
   const sizeInterpolate = filledBox.interpolate({
     inputRange: [0, 1],
-    outputRange: [135, 300],
+    outputRange: [135, 300]
   });
 
   const textInterpolate = filledBox.interpolate({
     inputRange: [0, 1],
-    outputRange: ['#353535', '#fff'],
+    outputRange: ['#353535', '#fff']
   });
 
   const subTextInterpolate = filledBox.interpolate({
     inputRange: [0, 1],
-    outputRange: ['#B3B3B3', '#fff'],
+    outputRange: ['#B3B3B3', '#fff']
   });
 
   const animatedStyle = {
     height: sizeInterpolate,
-    width: sizeInterpolate,
+    width: sizeInterpolate
   };
 
   return (
@@ -71,17 +66,14 @@ export const RoomSwitch: React.FC<IRoomSwitch> = ({
           thumbColor={isEnabled ? color : '#CDCDCD'}
         />
       </View>
-      <Image
-        style={styles.images}
-        source={image}
-      />
+      <Image style={styles.images} source={image} />
       <Animated.View
         style={[
           styles.circle,
           animatedStyle,
           {
-            backgroundColor: color,
-          },
+            backgroundColor: color
+          }
         ]}
       />
     </View>

@@ -4,44 +4,48 @@ import {
   SafeAreaView,
   Text,
   TouchableOpacity,
-  FlatList,
+  FlatList
 } from 'react-native';
-
 import RBSheet from 'react-native-raw-bottom-sheet';
-import { SearchInput } from '../../components/SearchBox';
-import { AutomationBlank } from './components/AutomationBlank';
-import { AutomationRegular } from './components/AutomationRegular';
-// COMPONENTS TO NAVIGATE START
-import { AutomationFirstSheet } from './modules/AutomationFirstSheet';
-import { AutomationConditionSheet } from './modules/AutomationConditionSheet';
-import { AutomationChooseRoom } from './modules/AutomationChooseRoom';
-import { AutomationChooseDevice } from './modules/AutomationChooseDevice';
-import { AutomationActionSheet } from './modules/AutomationActionSheet';
-import { AutomationNameSheet } from './modules/AutomationNameSheet';
-// COMPONENTS TO NAVIGATE END
+
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import styles from './styles';
-AntDesign.loadFont();
-// Redux
+
+import { SearchInput } from '../../components/SearchBox';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
   searchAutomations,
   setSearchQuery,
-  setSheet,
+  setSheet
 } from '../../store/slices/automationSlice';
 
-let blank = true;
+import { AutomationBlank } from './components/AutomationBlank';
+import { AutomationRegular } from './components/AutomationRegular';
+// COMPONENTS TO NAVIGATE START
+import { AutomationActionSheet } from './modules/AutomationActionSheet';
+import { AutomationChooseDevice } from './modules/AutomationChooseDevice';
+import { AutomationChooseRoom } from './modules/AutomationChooseRoom';
+import { AutomationConditionSheet } from './modules/AutomationConditionSheet';
+import { AutomationFirstSheet } from './modules/AutomationFirstSheet';
+import { AutomationNameSheet } from './modules/AutomationNameSheet';
+// COMPONENTS TO NAVIGATE END
+import styles from './styles';
+
+AntDesign.loadFont();
+// Redux
+
+const blank = true;
 // COMMENT TO SWITCH SCREENS
 // blank = false;
 
 export const AutomationScreen: React.FC = () => {
   // Redux
-  const { searchQuery, selectedSheet } =
-    useAppSelector(state => state.automationSlice);
+  const { searchQuery, selectedSheet } = useAppSelector(
+    state => state.automationSlice
+  );
   const dispatch = useAppDispatch();
   const handleSearch = useCallback(
     (value: string) => dispatch(setSearchQuery(value)),
-    [dispatch],
+    [dispatch]
   );
   useEffect(() => {
     dispatch(searchAutomations(searchQuery));
@@ -51,60 +55,55 @@ export const AutomationScreen: React.FC = () => {
   const targetOpen = () => {
     refRBSheet.current?.open();
     dispatch(setSheet('FirstSheet'));
-  }
+  };
   const targetClose = () => refRBSheet.current?.close();
-  const sheetHeight = useWindowDimensions().height * .87;
+  const sheetHeight = useWindowDimensions().height * 0.87;
   let currentSheet: JSX.Element = <></>;
 
   switch (selectedSheet) {
     case 'FirstSheet':
-      currentSheet =
-        <AutomationFirstSheet closeSheet={targetClose} />
+      currentSheet = <AutomationFirstSheet closeSheet={targetClose} />;
       break;
     case 'Condition':
-      currentSheet =
-        <AutomationConditionSheet />
+      currentSheet = <AutomationConditionSheet />;
       break;
     case 'Action':
-      currentSheet =
-        <AutomationActionSheet />
+      currentSheet = <AutomationActionSheet />;
       break;
     case 'Room':
-      currentSheet =
-        <AutomationChooseRoom />
+      currentSheet = <AutomationChooseRoom />;
       break;
     case 'Device':
-      currentSheet =
-        <AutomationChooseDevice />
+      currentSheet = <AutomationChooseDevice />;
       break;
     case 'Name':
-      currentSheet =
-        <AutomationNameSheet closeSheet={targetClose} />
+      currentSheet = <AutomationNameSheet closeSheet={targetClose} />;
   }
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text key="automationTitle" style={styles.header}>
+      <Text key='automationTitle' style={styles.header}>
         Automation
       </Text>
       <TouchableOpacity
-        key="createAutomation"
+        key='createAutomation'
         onPress={targetOpen}
         style={styles.plusButton}>
-        <AntDesign name="plus" color={'#3A6598'} size={20} />
+        <AntDesign name='plus' color={'#3A6598'} size={20} />
       </TouchableOpacity>
       <SafeAreaView style={styles.spacing}>
         <SearchInput
           onChange={handleSearch}
           value={searchQuery}
-          placeholder="Search"
+          placeholder='Search'
         />
       </SafeAreaView>
 
-      {!blank
-        ? <AutomationRegular />
-        : <AutomationBlank onPress={targetOpen} />
-      }
+      {!blank ? (
+        <AutomationRegular />
+      ) : (
+        <AutomationBlank onPress={targetOpen} />
+      )}
 
       <RBSheet
         ref={refRBSheet}
@@ -114,28 +113,27 @@ export const AutomationScreen: React.FC = () => {
         closeDuration={200}
         customStyles={{
           wrapper: {
-            backgroundColor: "#20202020",
+            backgroundColor: '#20202020'
           },
           container: {
             borderTopLeftRadius: 30,
-            borderTopRightRadius: 30,
+            borderTopRightRadius: 30
           },
           draggableIcon: {
-            backgroundColor: "#000",
-            width: 100,
-          },
+            backgroundColor: '#000',
+            width: 100
+          }
         }}>
-
-          <FlatList
-            key="bottomSheet"
-            data={null}
-            scrollEnabled={true}
-            renderItem={null}
-            showsVerticalScrollIndicator={false}
-            ListHeaderComponent={null}
-            ListFooterComponent={currentSheet}
-          />
+        <FlatList
+          key='bottomSheet'
+          data={null}
+          scrollEnabled={true}
+          renderItem={null}
+          showsVerticalScrollIndicator={false}
+          ListHeaderComponent={null}
+          ListFooterComponent={currentSheet}
+        />
       </RBSheet>
     </SafeAreaView>
   );
-}
+};

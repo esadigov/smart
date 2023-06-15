@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
   },
   box: {
     padding: 14,
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     borderColor: '#F5F5F5',
     borderRadius: 6,
     marginVertical: 4,
-    marginHorizontal: 10,
+    marginHorizontal: 10
   },
   condition: {
     fontFamily: 'Inter',
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 14,
     lineHeight: 20,
-    color: "#AAA",
+    color: '#AAA'
   },
   icon: {
     backgroundColor: '#EAF3FF',
@@ -28,11 +28,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: 46,
     height: 46,
-    marginRight: 24,
+    marginRight: 24
   },
   row: {
     alignItems: 'center',
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   title: {
     fontFamily: 'Inter',
@@ -40,10 +40,10 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 16,
     lineHeight: 22,
-    color: '#000',
+    color: '#000'
   },
   main: {
-    flex: 4,
+    flex: 4
   },
   switchContainer: {
     flex: 1,

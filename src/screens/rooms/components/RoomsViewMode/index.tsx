@@ -14,13 +14,13 @@ interface ViewSwitch {
 
 export const RoomsViewMode: React.FC<ViewSwitch> = ({
   twoColumnsView,
-  onPress,
+  onPress
 }) => (
   <TouchableOpacity onPress={onPress} style={styles.container}>
     {twoColumnsView ? (
-      <Octicons name="rows" color={'#FFF'} size={24} />
+      <Octicons name='rows' color={'#FFF'} size={24} />
     ) : (
-      <Octicons name="apps" color={'#FFF'} size={28} />
+      <Octicons name='apps' color={'#FFF'} size={28} />
     )}
   </TouchableOpacity>
 );

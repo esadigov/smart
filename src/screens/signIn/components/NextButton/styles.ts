@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     margin: 24,
     borderRadius: 6,
     borderWidth: 1,
-    borderColor: '#CBCBCB',
+    borderColor: '#CBCBCB'
   },
   nextButtonOn: {
     backgroundColor: '#3A6598',
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     margin: 24,
     borderRadius: 6,
     borderWidth: 1,
-    borderColor: '#3A6598',
+    borderColor: '#3A6598'
   },
   nextTextOff: {
     fontFamily: 'Inter',
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 15,
     lineHeight: 19,
-    color: '#7A7A7A',
+    color: '#7A7A7A'
   },
   nextTextOn: {
     fontFamily: 'Inter',
@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 15,
     lineHeight: 19,
-    color: '#FFF',
-  },
+    color: '#FFF'
+  }
 });
 
 export default styles;

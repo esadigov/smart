@@ -1,30 +1,31 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import {
   FlatList,
   KeyboardAvoidingView,
   Platform,
   Text,
-  View,
+  View
 } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
+import { BackButton } from '../../../../components/BackButton';
 import { Button } from '../../../../components/Button';
 import { SearchInput } from '../../../../components/SearchBox';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
-import { DeviceCheckBox } from './components/DeviceCheckBox';
-import styles from './styles';
 import {
   switchDevice,
   setSearchQuery,
-  setSheet,
+  setSheet
 } from '../../../../store/slices/roomSlice';
-import { BackButton } from '../../../../components/BackButton';
+
+import { DeviceCheckBox } from './components/DeviceCheckBox';
+import styles from './styles';
 
 const SelectedComponent = ({
   name,
-  onPress,
+  onPress
 }: {
   name: string;
   onPress: () => void;
@@ -38,7 +39,7 @@ const SelectedComponent = ({
       marginRight: 7,
       marginBottom: 7,
       borderRadius: 6,
-      paddingHorizontal: 10,
+      paddingHorizontal: 10
     }}>
     <Text
       style={{
@@ -46,29 +47,30 @@ const SelectedComponent = ({
         fontWeight: '500',
         fontSize: 14,
         lineHeight: 17,
-        marginRight: 10,
+        marginRight: 10
       }}>
       {name}
     </Text>
     <TouchableOpacity onPress={onPress}>
-      <AntDesign name="close" color="#fff" />
+      <AntDesign name='close' color='#fff' />
     </TouchableOpacity>
   </View>
 );
 
 export const AttachDevice: React.FC = (props: any) => {
-  const { selectedDevice, searchQuery } =
-    useAppSelector(state => state.roomSlice);
+  const { selectedDevice, searchQuery } = useAppSelector(
+    state => state.roomSlice
+  );
   const dispatch = useAppDispatch();
 
   const chosen = useMemo(
     () => selectedDevice.filter(rooms => rooms.enabled),
-    [selectedDevice],
+    [selectedDevice]
   );
 
   const disable = useCallback(
     (id: string) => dispatch(switchDevice(id)),
-    [dispatch],
+    [dispatch]
   );
 
   const renderSwitchButtons = useCallback(
@@ -81,17 +83,17 @@ export const AttachDevice: React.FC = (props: any) => {
         icon={item.icon}
       />
     ),
-    [],
+    []
   );
 
   const handleSearch = useCallback(
     (value: string) => dispatch(setSearchQuery(value)),
-    [dispatch],
+    [dispatch]
   );
 
   const renderHeader = () => (
     <View style={styles.headerContainer}>
-      <View style={{left: -20}}>
+      <View style={{ left: -20 }}>
         <BackButton onPress={() => dispatch(setSheet('ChooseRoom'))} />
       </View>
       <View>
@@ -101,7 +103,7 @@ export const AttachDevice: React.FC = (props: any) => {
         <SearchInput
           onChange={handleSearch}
           value={searchQuery}
-          placeholder="Search"
+          placeholder='Search'
         />
       </View>
       <View style={styles.selected}>
@@ -122,7 +124,7 @@ export const AttachDevice: React.FC = (props: any) => {
       keyboardVerticalOffset={50}
       style={styles.container}>
       <FlatList
-        key="device"
+        key='device'
         data={selectedDevice}
         scrollEnabled={true}
         renderItem={renderSwitchButtons}
@@ -132,7 +134,7 @@ export const AttachDevice: React.FC = (props: any) => {
       />
       <View style={{ backgroundColor: '#fff', paddingTop: 20 }}>
         <Button
-          text="Done"
+          text='Done'
           onPress={props.closeSheet}
           style={{ marginBottom: 30 }}
           disabled={!chosen.length}

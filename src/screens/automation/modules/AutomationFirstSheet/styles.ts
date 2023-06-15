@@ -3,19 +3,19 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFF'
   },
   box: {
     borderWidth: 1,
     borderColor: '#E1E1E1',
     borderRadius: 6,
-    marginVertical: 4,
+    marginVertical: 4
   },
   upper: {
     borderBottomWidth: 1,
     borderBottomColor: '#E1E1E1',
     paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingVertical: 16
   },
   primaryText: {
     fontFamily: 'Inter',
@@ -23,12 +23,12 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 18,
     lineHeight: 22,
-    color: '#353535',
+    color: '#353535'
   },
   dropdownKey: {
     position: 'absolute',
     top: 16,
-    right: 16,
+    right: 16
   },
   subText: {
     fontFamily: 'Inter',
@@ -37,11 +37,11 @@ const styles = StyleSheet.create({
     lineHeight: 15,
     top: 8,
     fontSize: 12,
-    color: '#A5A5A5',
+    color: '#A5A5A5'
   },
   lower: {
     paddingVertical: 22,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   button: {
     width: 320,
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     borderColor: '#3A6598',
     backgroundColor: '#3A6598',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   text: {
     fontFamily: 'Inter',
@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 16,
     lineHeight: 19,
-    color: '#FFF',
-  },
+    color: '#FFF'
+  }
 });
 
 export default styles;

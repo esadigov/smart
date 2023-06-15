@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import {
   ProfileHomeIcon,
-  ProfileLogsIcon,
+  ProfileLogsIcon
   // ProfileUsersIcon, Temporarily Removed
 } from '../../../../components/Icons/ProfilePageIcons';
 
@@ -16,14 +16,14 @@ const OPTIONS = [
     id: 'HomeManagements',
     title: 'Home managements',
     color: '#3A6598',
-    icon: 'home',
+    icon: 'home'
   },
   {
     id: 'LogsHistory',
     title: 'Logs history',
     color: '#27A69E',
-    icon: 'logs',
-  },
+    icon: 'logs'
+  }
   /* { Temporarily Removed
     id: 'ManageUsers',
     title: 'Manage users',
@@ -35,14 +35,12 @@ const OPTIONS = [
 const Item = ({ title, color, icon, goHome }) => (
   <View>
     <TouchableOpacity
-      onPress={title === 'Home managements' ?
-        goHome
-        : undefined}
+      onPress={title === 'Home managements' ? goHome : undefined}
       style={[
         styles.profileOptionContainer,
         {
-          backgroundColor: color,
-        },
+          backgroundColor: color
+        }
       ]}>
       <View>
         <Text style={styles.title}>{title}</Text>
@@ -51,10 +49,12 @@ const Item = ({ title, color, icon, goHome }) => (
         {icon === 'home' ? (
           <ProfileHomeIcon style={{ left: 70, bottom: 13 }} />
         ) : icon === 'logs' ? (
-          <ProfileLogsIcon style={{ left: 65, bottom: 22 }} />
-        ) /* : icon === 'users' ? (
+          <ProfileLogsIcon
+            style={{ left: 65, bottom: 22 }}
+          /> /* : icon === 'users' ? (
           <ProfileUsersIcon style={{ left: 79, bottom: 7 }} /> Temporarily Removed
-        ) */ : null}
+        ) */
+        ) : null}
       </View>
     </TouchableOpacity>
   </View>
@@ -65,7 +65,12 @@ export const ProfileOptions = () => {
   const goToHomeManagements = () => navigate.navigate('HomeManagements');
 
   const renderOptions = ({ item }) => (
-    <Item goHome={goToHomeManagements} icon={item.icon} color={item.color} title={item.title} />
+    <Item
+      goHome={goToHomeManagements}
+      icon={item.icon}
+      color={item.color}
+      title={item.title}
+    />
   );
 
   return (

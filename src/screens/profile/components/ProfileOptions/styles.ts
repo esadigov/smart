@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     marginHorizontal: 20,
     overflow: 'hidden',
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFF'
   },
   title: {
     position: 'absolute',
@@ -17,24 +17,24 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     fontSize: 14,
     fontWeight: '500',
-    color: '#FFF',
+    color: '#FFF'
   },
   profileOptionContainer: {
     borderRadius: 6,
     width: 164,
     margin: 10,
     paddingVertical: 76,
-    paddingHorizontal: 20,
+    paddingHorizontal: 20
   },
   icons: {
-    height: 0,
+    height: 0
   },
   listContainer: {
-    paddingHorizontal: 0,
+    paddingHorizontal: 0
   },
   listItems: {
-    justifyContent: 'flex-start',
-  },
+    justifyContent: 'flex-start'
+  }
 });
 
 export default styles;

@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: '@react-native-community',
+  extends: ['@react-native-community', 'prettier'],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'import'],
   overrides: [
@@ -26,19 +26,19 @@ module.exports = {
           'error',
           {
             array: true,
-            object: true,
+            object: true
           },
           {
-            enforceForRenamedProperties: false,
-          },
+            enforceForRenamedProperties: false
+          }
         ],
         camelcase: [
           'error',
           {
             ignoreImports: true,
             ignoreDestructuring: true,
-            properties: 'always',
-          },
+            properties: 'always'
+          }
         ],
         // import rules
         'import/no-unresolved': 'off',
@@ -60,35 +60,38 @@ module.exports = {
               'internal',
               'parent',
               'sibling',
-              'index',
+              'index'
             ],
             pathGroups: [
               {
                 pattern: '*',
                 group: 'external',
-                position: 'before',
+                position: 'before'
               },
               {
                 pattern: 'react',
                 group: 'external',
-                position: 'before',
-              },
+                position: 'before'
+              }
             ],
             pathGroupsExcludedImportTypes: ['builtin'],
             'newlines-between': 'always',
             alphabetize: {
               order: 'asc',
-              caseInsensitive: true,
-            },
-          },
+              caseInsensitive: true
+            }
+          }
         ],
         'prettier/prettier': [
           'error',
           {
-            endOfLine: 'auto',
-          },
-        ],
-      },
-    },
+            endOfLine: 'auto'
+          }
+        ]
+      }
+    }
   ],
+  rules: {
+    'react-native/no-inline-styles': 'off'
+  }
 };

@@ -5,20 +5,22 @@ import {
   TouchableOpacity,
   FlatList,
   View,
-  Switch,
+  Switch
 } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
+
 import CloudIcon from '../../../../components/Icons/CloudIcon';
+
 import styles from './styles';
 
 AntDesign.loadFont();
 
 interface DataProps {
-  id: string,
-  title: string,
-  condition: string,
-  icon: string,
+  id: string;
+  title: string;
+  condition: string;
+  icon: string;
 }
 
 const AUTOMATIONS: DataProps[] = [
@@ -26,20 +28,19 @@ const AUTOMATIONS: DataProps[] = [
     id: 'SummerTime1',
     title: 'Summer time',
     condition: "If the weather's sunny...",
-    icon: 'Cloud',
+    icon: 'Cloud'
   },
   {
     id: 'SummerTime2',
     title: 'Summer time',
     condition: "If the weather's sunny...",
-    icon: 'Cloud',
-  },
+    icon: 'Cloud'
+  }
 ];
 
 export const AutomationRegular = () => {
-  
-  const Item = ({title, condition}: DataProps) => {
-    const [ isEnabled, setIsEnabled ] = useState(false);
+  const Item = ({ title, condition }: DataProps) => {
+    const [isEnabled, setIsEnabled] = useState(false);
     return (
       <TouchableOpacity style={styles.box}>
         <View style={styles.row}>
@@ -64,12 +65,12 @@ export const AutomationRegular = () => {
     );
   };
 
-  const renderItem = ({item}: {item: DataProps}) => (
+  const renderItem = ({ item }: { item: DataProps }) => (
     <Item
       id={item.id}
       title={item.title}
       condition={item.condition}
-      icon={item.icon}  
+      icon={item.icon}
     />
   );
 
@@ -84,4 +85,4 @@ export const AutomationRegular = () => {
       />
     </SafeAreaView>
   );
-}
+};
