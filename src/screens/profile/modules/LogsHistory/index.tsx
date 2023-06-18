@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
@@ -52,9 +52,19 @@ export const LogsHistory = () => {
   const navigate = useNavigation();
   const goBack = useCallback(() => navigate.goBack(), [navigate]);
 
-  const Item = ({ date, collapsed }: { date: string; collapsed: boolean }) => (
+  const Item = ({ date, collapsed }: { date: string; collapsed: boolean }) => {
+    const [ closed, setClosed ] = useState(collapsed);
+    return (
     <View>
-      <TouchableOpacity style={styles.list}>
+      <TouchableOpacity
+        onPress={() => setClosed(!closed)}
+        style={[
+          styles.list,
+          {
+            borderBottomStartRadius: closed ? 6 : 0,
+            borderBottomEndRadius: closed ? 6 : 0
+          }
+        ]}>
         <View style={styles.row}>
           <View style={styles.text}>
             <Text style={styles.date}>{date}</Text>
@@ -62,15 +72,16 @@ export const LogsHistory = () => {
         </View>
         <View style={styles.forward}>
           <AntDesign
-            name={collapsed ? 'right' : 'down'}
+            name={closed ? 'right' : 'down'}
             color={'#8D8D8D'}
             size={20}
           />
         </View>
       </TouchableOpacity>
-      {collapsed ? <LogsList logs={LOG_LIST} /> : null}
+      {!closed ? <LogsList logs={LOG_LIST} /> : null}
     </View>
-  );
+    )
+  };
 
   const renderItem = ({ item }: any) => (
     <Item date={item.date} collapsed={item.collapsed} />
@@ -104,6 +115,8 @@ export const LogsHistory = () => {
         renderItem={renderItem}
         scrollEnabled={true}
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ gap: 9 }}
+        style={{marginBottom: 20}}
       />
     </View>
   );

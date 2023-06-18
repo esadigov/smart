@@ -1,13 +1,6 @@
-import React, { useCallback } from 'react';
-import {
-  SafeAreaView,
-  FlatList,
-  View,
-  Text,
-  TouchableOpacity
-} from 'react-native';
+import React from 'react';
+import { SafeAreaView, FlatList, View, Text } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import styles from './styles';
@@ -26,13 +19,23 @@ export const LogsList: React.FC = (props: any) => {
     message: string;
     state: boolean;
   }) => (
-    <View>
-      <View>
-      <Text>{time}</Text>
-      <Text>{title}</Text>
+    <View style={{ gap: 6 }}>
+      <View style={styles.main}>
+        <Text style={styles.time}>{time}</Text>
+        <Text style={styles.title}>{title}</Text>
       </View>
-      <View>
-        <Text>{message}</Text>
+      <View
+        style={[
+          styles.message,
+          { backgroundColor: state ? '#F3FFEA' : '#FFEEEE' }
+        ]}>
+        <Text
+          style={[
+            styles.messageText,
+            { color: state ? '#248F2F' : '#B42A2A' }
+          ]}>
+          {message}
+        </Text>
       </View>
     </View>
   );
@@ -54,6 +57,7 @@ export const LogsList: React.FC = (props: any) => {
         renderItem={renderItem}
         scrollEnabled={true}
         showsVerticalScrollIndicator={false}
+        style={styles.spacing}
       />
     </SafeAreaView>
   );
