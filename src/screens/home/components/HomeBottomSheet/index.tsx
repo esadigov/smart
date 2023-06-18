@@ -1,13 +1,13 @@
 import React from 'react';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import AutomationPageIcon from '../../../../components/Icons/AutomationPageIcon';
 import RoomsPageIcon from '../../../../components/Icons/RoomsPageIcon';
 
 import styles from './styles';
-import { useNavigation } from '@react-navigation/native';
 
 AntDesign.loadFont();
 

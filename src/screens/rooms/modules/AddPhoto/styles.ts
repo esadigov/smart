@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 25,
     color: '#000',
-    marginLeft: 36
+    marginLeft: 42
   },
   skip: {
     fontFamily: 'Inter',
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#3A6598',
     textDecorationLine: 'underline',
-    marginRight: 4
+    marginRight: 12
   }
 });
 

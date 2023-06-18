@@ -20,55 +20,68 @@ import styles from './styles';
 
 AntDesign.loadFont();
 
+interface IPhotos {
+  id: string;
+  color: string;
+  source: any;
+  onPress: () => void;
+  isActive: boolean;
+}
+
+const PHOTOS_DATA = [
+  {
+    id: 'living',
+    color: '#3A7670',
+    source: require('../../../../components/Images/LivingRoom.png')
+  },
+  {
+    id: 'kitchen',
+    color: '#D1B19A',
+    source: require('../../../../components/Images/Kitchen.png')
+  },
+  {
+    id: 'bath',
+    color: '#AFC6CB',
+    source: require('../../../../components/Images/Bathroom.png')
+  },
+  {
+    id: 'bed',
+    color: '#444756',
+    source: require('../../../../components/Images/Bedroom.png')
+  }
+]
+
+export const PhotoItem: React.FC<IPhotos> = ({
+  id,
+  color,
+  source,
+  onPress,
+  isActive
+}) => (
+  <TouchableOpacity
+    key={id}
+    style={{
+      borderWidth: 1,
+      borderRadius: 6,
+      borderColor: '#F0F0F0',
+      width: 106,
+      height: 106,
+      backgroundColor: isActive ? color : 'transparent',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}
+    onPress={onPress}>
+    <Image source={source} />
+  </TouchableOpacity>
+)
+
 export const AddPhoto: React.FC = (props: any) => {
-  const dispatch = useAppDispatch();
-  const { filteredRooms } = useAppSelector(state => state.roomSlice);
-  const [disabled, setDisabled] = useState(true);
-  const photos = useMemo(() => filteredRooms, [filteredRooms]);
-
-  const handleSwitch = useCallback(
-    (id: string | number) => {
-      dispatch(switchRoom(id));
-    },
-    [dispatch]
-  );
-
-  const RecommendedPhoto = ({
-    id,
-    setSelected,
-    selected,
-    image,
-    color
-  }: {
-    id: string;
-    setSelected: () => void;
-    selected: boolean;
-    image: any;
-    color: string;
-  }) => {
-    const handleMode = useCallback(() => {
-      setSelected();
-      setDisabled(false);
-    }, [selected, setSelected]);
-
-    return (
-      <TouchableOpacity
-        key={id}
-        style={{
-          borderWidth: 1,
-          borderRadius: 6,
-          borderColor: '#F0F0F0',
-          width: 106,
-          height: 106,
-          backgroundColor: selected ? color : 'transparent',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-        onPress={handleMode}>
-        <Image source={image} />
-      </TouchableOpacity>
-    );
+  const [identify, setIdentify] = useState('')
+  const [photos] = useState(PHOTOS_DATA)
+  const selectPhoto = (value: string) => {
+    setIdentify(value);
   };
+  const dispatch = useAppDispatch();
 
   return (
     <KeyboardAvoidingView
@@ -105,17 +118,17 @@ export const AddPhoto: React.FC = (props: any) => {
             gap: 10
           }}>
           {photos.map(item => (
-            <RecommendedPhoto
-              setSelected={() => handleSwitch(item.id)}
-              selected={item.enabled}
+            <PhotoItem
+              onPress={() => selectPhoto(item.id)}
+              isActive={item.id === identify}
               id={item.id}
               color={item.color}
-              image={item.image}
+              source={item.source}
             />
           ))}
         </View>
         <Button
-          disabled={disabled}
+          disabled={!identify.length}
           style={{ marginTop: 20 }}
           text='Create Room'
           onPress={props.closeSheet}

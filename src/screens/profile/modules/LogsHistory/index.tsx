@@ -1,13 +1,21 @@
-import React, { useCallback, useState } from 'react';
-import { Text, View, FlatList, TouchableOpacity } from 'react-native';
+import React, { useCallback, useRef, useState } from 'react';
+import {
+  Text,
+  View,
+  FlatList,
+  TouchableOpacity,
+  useWindowDimensions
+} from 'react-native';
+import RBSheet from 'react-native-raw-bottom-sheet';
 
 import { useNavigation } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-import styles from './styles';
-import { SearchInput } from '../../../../components/SearchBox';
 import FilterIcon from '../../../../components/Icons/FilterIcon';
+import { SearchInput } from '../../../../components/SearchBox';
+import { FilterBy } from './components/FilterBy';
 import { LogsList } from './components/LogsList';
+import styles from './styles';
 
 AntDesign.loadFont();
 
@@ -51,36 +59,43 @@ const LOG_LIST = [
 export const LogsHistory = () => {
   const navigate = useNavigation();
   const goBack = useCallback(() => navigate.goBack(), [navigate]);
+  // Sheets
+  const refRBSheet = useRef<RBSheet>(null);
+  const targetOpen = () => {
+    refRBSheet.current?.open();
+  };
+  const targetClose = () => refRBSheet.current?.close();
+  const sheetHeight = useWindowDimensions().height * 0.87;
 
   const Item = ({ date, collapsed }: { date: string; collapsed: boolean }) => {
-    const [ closed, setClosed ] = useState(collapsed);
+    const [closed, setClosed] = useState(collapsed);
     return (
-    <View>
-      <TouchableOpacity
-        onPress={() => setClosed(!closed)}
-        style={[
-          styles.list,
-          {
-            borderBottomStartRadius: closed ? 6 : 0,
-            borderBottomEndRadius: closed ? 6 : 0
-          }
-        ]}>
-        <View style={styles.row}>
-          <View style={styles.text}>
-            <Text style={styles.date}>{date}</Text>
+      <View>
+        <TouchableOpacity
+          onPress={() => setClosed(!closed)}
+          style={[
+            styles.list,
+            {
+              borderBottomStartRadius: closed ? 6 : 0,
+              borderBottomEndRadius: closed ? 6 : 0
+            }
+          ]}>
+          <View style={styles.row}>
+            <View style={styles.text}>
+              <Text style={styles.date}>{date}</Text>
+            </View>
           </View>
-        </View>
-        <View style={styles.forward}>
-          <AntDesign
-            name={closed ? 'right' : 'down'}
-            color={'#8D8D8D'}
-            size={20}
-          />
-        </View>
-      </TouchableOpacity>
-      {!closed ? <LogsList logs={LOG_LIST} /> : null}
-    </View>
-    )
+          <View style={styles.forward}>
+            <AntDesign
+              name={closed ? 'right' : 'down'}
+              color={'#8D8D8D'}
+              size={20}
+            />
+          </View>
+        </TouchableOpacity>
+        {!closed ? <LogsList logs={LOG_LIST} /> : null}
+      </View>
+    );
   };
 
   const renderItem = ({ item }: any) => (
@@ -105,7 +120,7 @@ export const LogsHistory = () => {
           value=''
           placeholder='Search'
         />
-        <TouchableOpacity style={styles.filterIcon}>
+        <TouchableOpacity onPress={targetOpen} style={styles.filterIcon}>
           <FilterIcon color={'#FFF'} />
         </TouchableOpacity>
       </View>
@@ -116,8 +131,29 @@ export const LogsHistory = () => {
         scrollEnabled={true}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ gap: 9 }}
-        style={{marginBottom: 20}}
+        style={{ marginBottom: 20 }}
       />
+      <RBSheet
+        ref={refRBSheet}
+        height={sheetHeight}
+        closeOnDragDown={true}
+        openDuration={200}
+        closeDuration={200}
+        customStyles={{
+          wrapper: {
+            backgroundColor: '#20202020'
+          },
+          container: {
+            borderTopLeftRadius: 30,
+            borderTopRightRadius: 30
+          },
+          draggableIcon: {
+            backgroundColor: '#000',
+            width: 100
+          }
+        }}>
+        <FilterBy />
+      </RBSheet>
     </View>
   );
 };
