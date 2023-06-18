@@ -152,7 +152,7 @@ export const LogsHistory = () => {
             width: 100
           }
         }}>
-        <FilterBy />
+        <FilterBy closeSheet={targetClose} />
       </RBSheet>
     </View>
   );

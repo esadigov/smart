@@ -49,7 +49,7 @@ const PHOTOS_DATA = [
     color: '#444756',
     source: require('../../../../components/Images/Bedroom.png')
   }
-]
+];
 
 export const PhotoItem: React.FC<IPhotos> = ({
   id,
@@ -73,11 +73,11 @@ export const PhotoItem: React.FC<IPhotos> = ({
     onPress={onPress}>
     <Image source={source} />
   </TouchableOpacity>
-)
+);
 
 export const AddPhoto: React.FC = (props: any) => {
-  const [identify, setIdentify] = useState('')
-  const [photos] = useState(PHOTOS_DATA)
+  const [identify, setIdentify] = useState('');
+  const [photos] = useState(PHOTOS_DATA);
   const selectPhoto = (value: string) => {
     setIdentify(value);
   };
