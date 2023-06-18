@@ -21,7 +21,7 @@ export const ChooseRoom: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const renderItem = useCallback(
-    ({ item }) => <DeviceCard key={item.id} item={item} />,
+    ({ item }: any) => <DeviceCard key={item.id} item={item} />,
     []
   );
 
@@ -50,7 +50,7 @@ export const ChooseRoom: React.FC = () => {
       {...(Platform.OS === 'ios' ? { behavior: 'padding' } : {})}
       keyboardVerticalOffset={50}
       style={styles.container}>
-      <View style={{ left: -20 }}>
+      <View style={{ left: -20, zIndex: 1 }}>
         <BackButton onPress={() => dispatch(setSheet('CreateRoom'))} />
       </View>
       <FlatList

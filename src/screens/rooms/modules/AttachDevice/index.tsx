@@ -2,11 +2,11 @@ import React, { useCallback, useMemo } from 'react';
 import {
   FlatList,
   KeyboardAvoidingView,
+  TouchableOpacity,
   Platform,
   Text,
   View
 } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
@@ -74,7 +74,7 @@ export const AttachDevice: React.FC = (props: any) => {
   );
 
   const renderSwitchButtons = useCallback(
-    ({ item }) => (
+    ({ item }: any) => (
       <DeviceCheckBox
         title={item.device}
         subtitle={item.room}
@@ -93,7 +93,7 @@ export const AttachDevice: React.FC = (props: any) => {
 
   const renderHeader = () => (
     <View style={styles.headerContainer}>
-      <View style={{ left: -20 }}>
+      <View style={{ left: -20, zIndex: 1 }}>
         <BackButton onPress={() => dispatch(setSheet('ChooseRoom'))} />
       </View>
       <View>
