@@ -27,6 +27,7 @@ export const HomeHeader: React.FC = () => {
   const goToProfile = () => navigate.navigate('Profile');
   const sheetHeight = useWindowDimensions().height * 0.39;
   const refRBSheet = useRef<RBSheet>(null);
+  const targetClose = () => refRBSheet.current?.close();
 
   const { name } = user;
 
@@ -76,7 +77,7 @@ export const HomeHeader: React.FC = () => {
             width: 100
           }
         }}>
-        <HomeBottomSheet />
+        <HomeBottomSheet closeSheet={targetClose} />
       </RBSheet>
     </SafeAreaView>
   );

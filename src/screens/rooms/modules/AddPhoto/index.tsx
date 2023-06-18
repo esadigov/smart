@@ -117,7 +117,7 @@ export const AddPhoto: React.FC = (props: any) => {
         <Button
           disabled={disabled}
           style={{ marginTop: 20 }}
-          text='Create room'
+          text='Create Room'
           onPress={props.closeSheet}
         />
       </ScrollView>
