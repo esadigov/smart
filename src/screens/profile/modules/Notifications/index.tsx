@@ -13,6 +13,8 @@ AntDesign.loadFont();
 interface DataProps {
   id: string;
   title: string;
+  alert: string;
+  state: boolean;
   sender: string;
 }
 
@@ -20,12 +22,16 @@ const HOME_LIST: DataProps[] = [
   {
     id: 'notif1',
     title: 'Kitchen',
-    sender: 'Sənan Məmmədov'
+    alert: 'Access granted',
+    state: true,
+    sender: 'Sənan (admin)'
   },
   {
     id: 'notif2',
     title: 'Garage',
-    sender: 'Sənan Məmmədov'
+    alert: 'Access denied',
+    state: false,
+    sender: 'System'
   }
 ];
 
@@ -33,7 +39,7 @@ export const Notifications = () => {
   const navigate = useNavigation();
   const goBack = useCallback(() => navigate.goBack(), [navigate]);
 
-  const Item = ({ title, sender }: DataProps) => (
+  const Item = ({ title, alert, state, sender }: DataProps) => (
     <TouchableOpacity style={styles.list}>
       <View style={styles.row}>
         <View style={styles.icon}>
@@ -41,14 +47,25 @@ export const Notifications = () => {
         </View>
         <View style={styles.text}>
           <Text style={styles.title}>{title}</Text>
-          <Text style={styles.subtitle}>by {sender}</Text>
+          <Text style={styles.subtitle}>
+            <Text style={{ color: state ? '#2DA095' : '#B03232' }}>
+              {alert}
+            </Text>{' '}
+            by {sender}
+          </Text>
         </View>
       </View>
     </TouchableOpacity>
   );
 
   const renderItem = ({ item }: { item: DataProps }) => (
-    <Item id={item.id} title={item.title} sender={item.sender} />
+    <Item
+      id={item.id}
+      title={item.title}
+      alert={item.alert}
+      state={item.state}
+      sender={item.sender}
+    />
   );
 
   return (

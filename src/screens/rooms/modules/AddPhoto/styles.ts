@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 20
   },
   headline: {
     flex: 1,
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 25,
     color: '#000',
-    marginLeft: 36,
+    marginLeft: 36
   },
   skip: {
     fontFamily: 'Inter',
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#3A6598',
     textDecorationLine: 'underline',
-    marginRight: 4,
+    marginRight: 4
   }
 });
 

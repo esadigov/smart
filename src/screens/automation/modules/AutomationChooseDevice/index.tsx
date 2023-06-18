@@ -11,6 +11,9 @@ import {
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import { Button } from '../../../../components/Button';
+import LightbulbIcon from '../../../../components/Icons/LightbulbIcon';
+import SpeakerIcon from '../../../../components/Icons/SpeakerIcon';
+import TVSetIcon from '../../../../components/Icons/TVSetIcon';
 import { SearchInput } from '../../../../components/SearchBox';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
 import {
@@ -24,9 +27,11 @@ import { DeviceCheckBox } from './components/DeviceCheckBox';
 import styles from './styles';
 
 const SelectedComponent = ({
+  icon,
   name,
   onPress
 }: {
+  icon: string;
   name: string;
   onPress: () => void;
 }) => (
@@ -41,6 +46,15 @@ const SelectedComponent = ({
       borderRadius: 6,
       paddingHorizontal: 10
     }}>
+    <View style={{ marginRight: 10 }}>
+      {icon === 'lightbulb' ? (
+        <LightbulbIcon color={'#fff'} />
+      ) : icon === 'tvset' ? (
+        <TVSetIcon color={'#fff'} />
+      ) : (
+        <SpeakerIcon color={'#fff'} />
+      )}
+    </View>
     <Text
       style={{
         color: '#fff',
@@ -111,6 +125,7 @@ export const AutomationChooseDevice: React.FC = () => {
         {chosen.map(item => (
           <SelectedComponent
             key={item.id}
+            icon={item.icon}
             name={item.room}
             onPress={() => disable(item.id)}
           />
