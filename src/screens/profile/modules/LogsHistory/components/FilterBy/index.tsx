@@ -1,11 +1,17 @@
-import React, {useState} from 'react';
-import { SafeAreaView, TouchableOpacity, Text, ScrollView, View } from 'react-native';
+import React, { useState } from 'react';
+import {
+  SafeAreaView,
+  TouchableOpacity,
+  Text,
+  ScrollView,
+  View
+} from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-import styles from './styles';
 import { BackButton } from '../../../../../../components/BackButton';
-import { Button } from '../../../../../../components/Button';
+
+import styles from './styles';
 
 AntDesign.loadFont();
 
@@ -15,11 +21,7 @@ interface IFilters {
   isActive: boolean;
 }
 
-const processData = [
-  'All',
-  'Executed Successfully',
-  'Exectuion Failed'
-];
+const processData = ['All', 'Executed Successfully', 'Exectuion Failed'];
 
 const dateData = [
   'All',
@@ -27,13 +29,9 @@ const dateData = [
   'Last 7 days',
   'Last 14 days',
   'Last 30 days'
-]
+];
 
-export const FilterTag: React.FC<IFilters> = ({
-  name,
-  onPress,
-  isActive
-}) => (
+export const FilterTag: React.FC<IFilters> = ({ name, onPress, isActive }) => (
   <TouchableOpacity
     style={{
       paddingHorizontal: 24,
@@ -58,17 +56,17 @@ export const FilterTag: React.FC<IFilters> = ({
 
 export const FilterBy: React.FC = (props: any) => {
   const [filteredProcessTo, setFilteredProcessTo] = useState('All');
-  const [filteredDateTo, setFilteredDateTo] = useState('All')
+  const [filteredDateTo, setFilteredDateTo] = useState('All');
   const [filteredProcesses] = useState(processData);
   const [filteredDates] = useState(dateData);
 
   const selectProcess = (value: string) => {
     setFilteredProcessTo(value);
-  }
+  };
 
   const selectDate = (value: string) => {
     setFilteredDateTo(value);
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -88,7 +86,7 @@ export const FilterBy: React.FC = (props: any) => {
         scrollEnabled={false}
         contentContainerStyle={{
           paddingHorizontal: 20,
-          marginTop: 21,
+          marginTop: 21
         }}>
         <Text
           style={{

@@ -19,39 +19,43 @@ interface DataProps {
   id: string;
   title: string;
   icon: string;
+  onPress: () => void;
 }
-
-const PROFILE_SETTINGS: DataProps[] = [
-  {
-    id: 'Notifications',
-    title: 'Notifications',
-    icon: 'ringbell'
-  },
-  {
-    id: 'ThirdParty',
-    title: 'Third party authorization',
-    icon: 'shield'
-  },
-  {
-    id: 'HelpFeedback',
-    title: 'Help & Feedback',
-    icon: 'message'
-  },
-  {
-    id: 'LogOut',
-    title: 'Log out',
-    icon: 'logout'
-  }
-];
 
 export const ProfileList = () => {
   const navigate = useNavigation();
   const goToNotifications = () => navigate.navigate('Notifications');
+  const goToThirdParty = () => navigate.navigate('ThirdPartyAuth');
 
-  const Item = ({ id, title, icon }: DataProps) => (
-    <TouchableOpacity
-      onPress={id === 'Notifications' ? goToNotifications : undefined}
-      style={styles.list}>
+  const PROFILE_SETTINGS: DataProps[] = [
+    {
+      id: 'Notifications',
+      title: 'Notifications',
+      icon: 'ringbell',
+      onPress: goToNotifications
+    },
+    {
+      id: 'ThirdParty',
+      title: 'Third party authorization',
+      icon: 'shield',
+      onPress: goToThirdParty
+    },
+    {
+      id: 'HelpFeedback',
+      title: 'Help & Feedback',
+      icon: 'message',
+      onPress: () => console.log('HelpFeedback')
+    },
+    {
+      id: 'LogOut',
+      title: 'Log out',
+      icon: 'logout',
+      onPress: () => console.log('LogOut')
+    }
+  ];
+
+  const Item = ({ title, icon, onPress }: DataProps) => (
+    <TouchableOpacity onPress={onPress} style={styles.list}>
       <View style={styles.row}>
         <View style={styles.icon}>
           {icon === 'ringbell' ? (
@@ -77,7 +81,12 @@ export const ProfileList = () => {
   );
 
   const renderItem = ({ item }: { item: DataProps }) => (
-    <Item id={item.id} icon={item.icon} title={item.title} />
+    <Item
+      id={item.id}
+      onPress={item.onPress}
+      icon={item.icon}
+      title={item.title}
+    />
   );
 
   return (

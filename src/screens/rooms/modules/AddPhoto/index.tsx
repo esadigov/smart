@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import {
   Image,
   KeyboardAvoidingView,
@@ -13,8 +13,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import { BackButton } from '../../../../components/BackButton';
 import { Button } from '../../../../components/Button';
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
-import { setSheet, switchRoom } from '../../../../store/slices/roomSlice';
+import { useAppDispatch } from '../../../../store/hooks';
+import { setSheet } from '../../../../store/slices/roomSlice';
 
 import styles from './styles';
 

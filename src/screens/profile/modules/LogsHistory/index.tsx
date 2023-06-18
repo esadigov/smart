@@ -13,6 +13,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import FilterIcon from '../../../../components/Icons/FilterIcon';
 import { SearchInput } from '../../../../components/SearchBox';
+
 import { FilterBy } from './components/FilterBy';
 import { LogsList } from './components/LogsList';
 import styles from './styles';

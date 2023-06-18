@@ -24,6 +24,7 @@ import { DeletionModal } from '../screens/profile/components/DeletionModal'; // 
 import { HomeManagements } from '../screens/profile/modules/HomeManagements';
 import { LogsHistory } from '../screens/profile/modules/LogsHistory';
 import { Notifications } from '../screens/profile/modules/Notifications';
+import { ThirdPartyAuth } from '../screens/profile/modules/ThirdPartyAuth';
 import { RoomsScreen } from '../screens/rooms';
 import { SignIn } from '../screens/signIn';
 import { OTP } from '../screens/signIn/modules/OTP';
@@ -113,6 +114,7 @@ const StackNavigation = () => {
         <Stack.Screen name='HomeManagements' component={HomeManagements} />
         <Stack.Screen name='LogsHistory' component={LogsHistory} />
         <Stack.Screen name='Notifications' component={Notifications} />
+        <Stack.Screen name='ThirdPartyAuth' component={ThirdPartyAuth} />
         <Stack.Screen name='SignIn' component={SignIn} />
         <Stack.Screen name='Password' component={Password} />
         <Stack.Screen name='OTP' component={OTP} />
