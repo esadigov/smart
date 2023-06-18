@@ -1,6 +1,6 @@
 {
   "name": "BHouse",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -9,6 +9,7 @@
     "pretty": "prettier --write src/**/*.{js,jsx,ts,tsx}",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --report-unused-disable-directives --fix",
     "format": "yarn pretty && yarn lint",
+    "release": "cd android && ./gradlew assembleRelease",
     "test": "jest",
     "pod-install": "RCT_NEW_ARCH_ENABLED=1 bundle exec pod install"
   },

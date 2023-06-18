@@ -13,7 +13,7 @@ export const FilterBy: React.FC = (props: any) => {
     <SafeAreaView style={styles.container}>
       <SafeAreaView>
         <BackButton onPress={props.closeSheet} />
-        <Text key='automationFirstSheetTitle' style={styles.header}>
+        <Text key='filterBy' style={styles.header}>
           Filter by
         </Text>
         <TouchableOpacity
