@@ -1,55 +1,139 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import {
+  useWindowDimensions,
   SafeAreaView,
-  ScrollView,
   Text,
   TouchableOpacity,
-  View,
+  FlatList
 } from 'react-native';
+import RBSheet from 'react-native-raw-bottom-sheet';
 
-import { useNavigation } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-import { Button } from '../../components/Button';
-import AutomationIcon from '../../components/Icons/AutomationIcon';
 import { SearchInput } from '../../components/SearchBox';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import {
+  searchAutomations,
+  setSearchQuery,
+  setSheet
+} from '../../store/slices/automationSlice';
 
+import { AutomationBlank } from './components/AutomationBlank';
+import { AutomationRegular } from './components/AutomationRegular';
+// COMPONENTS TO NAVIGATE START
+import { AutomationActionSheet } from './modules/AutomationActionSheet';
+import { AutomationChooseDevice } from './modules/AutomationChooseDevice';
+import { AutomationChooseRoom } from './modules/AutomationChooseRoom';
+import { AutomationConditionSheet } from './modules/AutomationConditionSheet';
+import { AutomationFirstSheet } from './modules/AutomationFirstSheet';
+import { AutomationNameSheet } from './modules/AutomationNameSheet';
+// COMPONENTS TO NAVIGATE END
 import styles from './styles';
 
 AntDesign.loadFont();
+// Redux
+
+const blank = true;
+// COMMENT TO SWITCH SCREENS
+// blank = false;
 
 export const AutomationScreen: React.FC = () => {
-  const navigation = useNavigation();
-
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const goToCreateAutomation = useCallback(
-    () => navigation.navigate('Create-automation'),
-    [navigation],
+  // Redux
+  const { searchQuery, selectedSheet } = useAppSelector(
+    state => state.automationSlice
   );
+  const dispatch = useAppDispatch();
+  const handleSearch = useCallback(
+    (value: string) => dispatch(setSearchQuery(value)),
+    [dispatch]
+  );
+  useEffect(() => {
+    dispatch(searchAutomations(searchQuery));
+  }, [dispatch, searchQuery]);
+  // Sheets
+  const refRBSheet = useRef<RBSheet>(null);
+  const targetOpen = () => {
+    refRBSheet.current?.open();
+    dispatch(setSheet('FirstSheet'));
+  };
+  const targetClose = () => refRBSheet.current?.close();
+  const sheetHeight = useWindowDimensions().height * 0.87;
+  let currentSheet: JSX.Element = <></>;
+
+  switch (selectedSheet) {
+    case 'FirstSheet':
+      currentSheet = <AutomationFirstSheet closeSheet={targetClose} />;
+      break;
+    case 'Condition':
+      currentSheet = <AutomationConditionSheet />;
+      break;
+    case 'Action':
+      currentSheet = <AutomationActionSheet />;
+      break;
+    case 'Room':
+      currentSheet = <AutomationChooseRoom />;
+      break;
+    case 'Device':
+      currentSheet = <AutomationChooseDevice />;
+      break;
+    case 'Name':
+      currentSheet = <AutomationNameSheet closeSheet={targetClose} />;
+  }
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.content}>
-        <View style={{ position: 'relative', marginBottom: 27 }}>
-          <Text style={styles.header}>Automation</Text>
-          <TouchableOpacity
-            style={styles.plusButton}
-            onPress={goToCreateAutomation}>
-            <AntDesign name="plus" color={'#9AA4C9'} size={20} />
-          </TouchableOpacity>
-        </View>
+      <Text key='automationTitle' style={styles.header}>
+        Automation
+      </Text>
+      <TouchableOpacity
+        key='createAutomation'
+        onPress={targetOpen}
+        style={styles.plusButton}>
+        <AntDesign name='plus' color={'#3A6598'} size={20} />
+      </TouchableOpacity>
+      <SafeAreaView style={styles.spacing}>
         <SearchInput
+          onChange={handleSearch}
           value={searchQuery}
-          placeholder="Search"
-          onChange={setSearchQuery}
+          placeholder='Search'
         />
-        <View
-          style={{ alignItems: 'center', marginTop: '43', marginBottom: 43 }}>
-          <AutomationIcon />
-        </View>
-        <Button text="Create automation" onPress={goToCreateAutomation} />
-      </ScrollView>
+      </SafeAreaView>
+
+      {!blank ? (
+        <AutomationRegular />
+      ) : (
+        <AutomationBlank onPress={targetOpen} />
+      )}
+
+      <RBSheet
+        ref={refRBSheet}
+        height={sheetHeight}
+        closeOnDragDown={true}
+        openDuration={200}
+        closeDuration={200}
+        customStyles={{
+          wrapper: {
+            backgroundColor: '#20202020'
+          },
+          container: {
+            borderTopLeftRadius: 30,
+            borderTopRightRadius: 30
+          },
+          draggableIcon: {
+            backgroundColor: '#000',
+            width: 100
+          }
+        }}>
+        <FlatList
+          key='bottomSheet'
+          data={null}
+          scrollEnabled={true}
+          renderItem={null}
+          showsVerticalScrollIndicator={false}
+          ListHeaderComponent={null}
+          ListFooterComponent={currentSheet}
+        />
+      </RBSheet>
     </SafeAreaView>
   );
 };

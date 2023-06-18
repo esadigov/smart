@@ -24,22 +24,22 @@ export const DeviceSwitch: React.FC<IDeviceSwitch> = ({ item }) => {
     Animated.timing(filledBox, {
       toValue: item.enabled ? 0 : 1,
       duration: 500,
-      useNativeDriver: false,
+      useNativeDriver: false
     }).start();
   }, [dispatch, filledBox, item.enabled, item.id]);
 
   const widthInterpolate = filledBox.interpolate({
     inputRange: [0, 1],
-    outputRange: ['0%', '120%'],
+    outputRange: ['0%', '120%']
   });
   const textInterpolate = filledBox.interpolate({
     inputRange: [0, 1],
-    outputRange: ['#343434', '#fff'],
+    outputRange: ['#343434', '#fff']
   });
 
   const animatedStyle = {
     height: switchHeight ? switchHeight : 0,
-    width: widthInterpolate,
+    width: widthInterpolate
   };
 
   return (
@@ -59,6 +59,7 @@ export const DeviceSwitch: React.FC<IDeviceSwitch> = ({ item }) => {
         isEnabled={item.enabled}
         setIsEnabled={handleSwitch}
         textInterpolate={textInterpolate}
+        icon={item.icon}
       />
     </View>
   );

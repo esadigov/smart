@@ -15,13 +15,13 @@ export const Button: React.FC<IButton> = memo(
     const { backgroundStyle, colorStyle } = useMemo(
       () => ({
         backgroundStyle: {
-          backgroundColor: disabled ? '#CBCBCB' : '#3A6598',
+          backgroundColor: disabled ? '#CBCBCB' : '#3A6598'
         },
         colorStyle: {
-          color: disabled ? '#7A7A7A' : '#fff',
-        },
+          color: disabled ? '#7A7A7A' : '#fff'
+        }
       }),
-      [disabled],
+      [disabled]
     );
 
     return (
@@ -32,5 +32,5 @@ export const Button: React.FC<IButton> = memo(
         <Text style={[styles.text, colorStyle]}>{text}</Text>
       </TouchableOpacity>
     );
-  },
+  }
 );

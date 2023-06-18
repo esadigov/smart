@@ -3,17 +3,19 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFF'
   },
   header: {
+    fontFamily: 'Inter',
     textAlign: 'center',
     fontWeight: '600',
     fontSize: 20,
     lineHeight: 25,
-    padding: 10,
+    padding: 20,
+    color: '#000'
   },
   searchStyles: {
-    marginRight: 10,
+    marginRight: 10
   },
   plusButton: {
     position: 'absolute',
@@ -24,18 +26,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 8,
+    marginVertical: 12,
+    marginHorizontal: 8
   },
   searchContainer: {
-    marginVertical: 20,
+    marginTop: 10,
+    marginBottom: 15.5,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-around'
   },
   listContainer: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 10
   },
   listItems: {
-    justifyContent: 'space-around',
-  },
+    marginHorizontal: -7.5,
+    justifyContent: 'space-between'
+  }
 });
 
 export default styles;

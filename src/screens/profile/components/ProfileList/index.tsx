@@ -1,68 +1,83 @@
 import React from 'react';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import {
   ProfileMessageIcon,
   ProfileShieldIcon,
   ProfileLogOutIcon,
+  RingbellIcon
 } from '../../../../components/Icons/ProfilePageIcons';
 
 import styles from './styles';
 
 AntDesign.loadFont();
 
-const PROFILE_SETTINGS = [
+interface DataProps {
+  id: string;
+  title: string;
+  icon: string;
+}
+
+const PROFILE_SETTINGS: DataProps[] = [
   {
-    id: 'Locations',
-    title: 'Locations',
-    icon: 'shield',
+    id: 'Notifications',
+    title: 'Notifications',
+    icon: 'ringbell'
   },
   {
     id: 'ThirdParty',
     title: 'Third party authorization',
-    icon: 'shield',
+    icon: 'shield'
   },
   {
     id: 'HelpFeedback',
     title: 'Help & Feedback',
-    icon: 'message',
+    icon: 'message'
   },
   {
     id: 'LogOut',
     title: 'Log out',
-    icon: 'logout',
-  },
+    icon: 'logout'
+  }
 ];
 
-const ProfileOption = ({ title, icon }) => (
-  <TouchableOpacity style={styles.list}>
-    <View style={styles.row}>
-      <View style={styles.icon}>
-        {icon === 'shield' ? (
-          <ProfileShieldIcon />
-        ) : icon === 'message' ? (
-          <ProfileMessageIcon />
-        ) : icon === 'logout' ? (
-          <ProfileLogOutIcon />
+export const ProfileList = () => {
+  const navigate = useNavigation();
+  const goToNotifications = () => navigate.navigate('Notifications');
+
+  const Item = ({ id, title, icon }: DataProps) => (
+    <TouchableOpacity
+      onPress={id === 'Notifications' ? goToNotifications : undefined}
+      style={styles.list}>
+      <View style={styles.row}>
+        <View style={styles.icon}>
+          {icon === 'ringbell' ? (
+            <RingbellIcon />
+          ) : icon === 'shield' ? (
+            <ProfileShieldIcon />
+          ) : icon === 'message' ? (
+            <ProfileMessageIcon />
+          ) : icon === 'logout' ? (
+            <ProfileLogOutIcon />
+          ) : null}
+        </View>
+        <View style={styles.text}>
+          <Text style={styles.title}>{title}</Text>
+        </View>
+      </View>
+      <View style={styles.forward}>
+        {icon !== 'logout' ? (
+          <AntDesign name='right' color={'#3A6598'} size={20} />
         ) : null}
       </View>
-      <View style={styles.text}>
-        <Text style={styles.title}>{title}</Text>
-      </View>
-    </View>
-    <View style={styles.forward}>
-      {icon !== 'logout' ? (
-        <AntDesign name="right" color={'#3A6598'} size={20} />
-      ) : null}
-    </View>
-  </TouchableOpacity>
-);
+    </TouchableOpacity>
+  );
 
-export const ProfileList = () => {
-  const renderItem = ({ item }) => (
-    <ProfileOption icon={item.icon} title={item.title} />
+  const renderItem = ({ item }: { item: DataProps }) => (
+    <Item id={item.id} icon={item.icon} title={item.title} />
   );
 
   return (

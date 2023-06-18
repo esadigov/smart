@@ -14,7 +14,7 @@ const initialState = {
   selectedDeviceSection: [],
   deviceSections: DEVICE_SECTIONS,
   filteredSections: DEVICE_SECTIONS,
-  searchQuery: '',
+  searchQuery: ''
 } as StateType;
 
 export const devicesSlice = createSlice({
@@ -28,27 +28,27 @@ export const devicesSlice = createSlice({
       state.selectedDeviceSection = state.selectedDeviceSection.map(device =>
         device.id === action.payload
           ? { ...device, enabled: !device.enabled }
-          : device,
+          : device
       );
     },
     searchDeviceSections(state, action) {
       state.filteredSections = state.deviceSections.filter(
         section =>
           section.id.includes(action.payload) ||
-          section.title.includes(action.payload),
+          section.title.includes(action.payload)
       );
     },
     setSearchQuery(state, action) {
       state.searchQuery = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const {
   setSelectedDevice,
   switchDevice,
   searchDeviceSections,
-  setSearchQuery,
+  setSearchQuery
 } = devicesSlice.actions;
 
 export default devicesSlice.reducer;

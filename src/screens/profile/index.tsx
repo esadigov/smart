@@ -4,7 +4,7 @@ import {
   FlatList,
   View,
   Text,
-  TouchableOpacity,
+  TouchableOpacity
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
@@ -19,33 +19,32 @@ AntDesign.loadFont();
 
 export const ProfileScreen: React.FC = () => {
   const navigate = useNavigation();
-
   const goBack = useCallback(() => navigate.goBack(), [navigate]);
 
   const renderHeader = useCallback(
     () => (
       <>
-        <Text key="profileTitle" style={styles.header}>
+        <Text key='profileTitle' style={styles.header}>
           Profile
         </Text>
         <TouchableOpacity
-          key="backButton"
+          key='backButton'
           onPress={goBack}
           style={styles.backButton}>
-          <AntDesign key="backIcon" name="left" color={'#3A6598'} size={20} />
+          <AntDesign key='backIcon' name='left' color={'#3A6598'} size={20} />
         </TouchableOpacity>
-        <ProfileHeader key="profileHeader" />
-        <ProfileOptions key="profileOptions" />
-        <View key="separator" style={styles.line} />
+        <ProfileHeader key='profileHeader' />
+        <ProfileOptions key='profileOptions' />
+        <View key='separator' style={styles.line} />
       </>
     ),
-    [goBack],
+    [goBack]
   );
 
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        key="profile-list"
+        key='profileList'
         data={null}
         renderItem={null}
         showsVerticalScrollIndicator={false}

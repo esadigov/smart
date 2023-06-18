@@ -6,12 +6,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 1,
     paddingHorizontal: 20,
-    marginTop: 10,
+    marginTop: 10
   },
   avatar: {
     height: 74,
     width: 74,
-    borderRadius: 48,
+    borderRadius: 48
   },
   editButton: {
     position: 'absolute',
@@ -20,17 +20,17 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     right: -7,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   userName: {
-    textAlign: 'center',
     fontFamily: 'Inter',
+    textAlign: 'center',
     fontWeight: '500',
     fontStyle: 'normal',
     fontSize: 18,
     lineHeight: 36,
     color: '#353535',
-    marginBottom: 8,
+    marginBottom: 8
   },
   profileStatus: {
     backgroundColor: '#AED3FF',
@@ -38,17 +38,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'flex-start',
-    padding: 3,
+    paddingVertical: 5,
+    paddingHorizontal: 14
   },
   statusText: {
-    color: '#255B99',
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    fontSize: 12,
+    color: '#255B99'
   },
   relative: {
-    position: 'relative',
+    position: 'relative'
   },
   spacing: {
-    marginLeft: 20,
-  },
+    marginLeft: 20
+  }
 });
 
 export default styles;

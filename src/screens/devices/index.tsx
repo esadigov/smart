@@ -4,17 +4,19 @@ import {
   SafeAreaView,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
+import { BackButton } from '../../components/BackButton';
 import { SearchInput } from '../../components/SearchBox';
 import SwitchButton, { SwitchOption } from '../../components/SwitchButtons';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
   searchDeviceSections,
   setSearchQuery,
+  setSelectedDevice
 } from '../../store/slices/deviceSlice';
 
 import { DeviceCard } from './components/DeviceCard';
@@ -26,12 +28,12 @@ AntDesign.loadFont();
 export const SWITCH_OPTIONS: SwitchOption[] = [
   {
     label: 'All',
-    value: 'all',
+    value: 'all'
   },
   {
     label: 'Active',
-    value: 'active',
-  },
+    value: 'active'
+  }
 ];
 
 export const DevicesScreen: React.FC = () => {
@@ -42,18 +44,22 @@ export const DevicesScreen: React.FC = () => {
   const [option, setOption] = useState(SWITCH_OPTIONS[0].value);
 
   const renderItem = useCallback(
-    ({ item }) => <DeviceCard key={item.id} item={item} />,
-    [],
+    ({ item }: any) => <DeviceCard key={item.id} item={item} />,
+    []
   );
 
   const renderSwitchButtons = useCallback(
-    ({ item }) => <DeviceSwitch item={item} />,
-    [],
+    ({ item }: any) => <DeviceSwitch item={item} />,
+    []
   );
+
+  const cleanDevice = () => {
+    dispatch(setSelectedDevice([]));
+  };
 
   const handleSearch = useCallback(
     (value: string) => dispatch(setSearchQuery(value)),
-    [dispatch],
+    [dispatch]
   );
 
   useEffect(() => {
@@ -62,17 +68,22 @@ export const DevicesScreen: React.FC = () => {
 
   const renderHeader = () => (
     <View style={styles.headerContainer}>
+      <View style={{ left: -12, zIndex: 1 }}>
+        {selectedDeviceSection.length ? (
+          <BackButton onPress={cleanDevice} />
+        ) : null}
+      </View>
       <View>
         <Text style={styles.headline}>Devices</Text>
         <TouchableOpacity style={styles.plusButton}>
-          <AntDesign name="plus" color={'#9AA4C9'} size={20} />
+          <AntDesign name='plus' color={'#3A6598'} size={20} />
         </TouchableOpacity>
       </View>
       <View style={styles.spacing}>
         <SearchInput
           onChange={handleSearch}
           value={searchQuery}
-          placeholder="Search"
+          placeholder='Search'
         />
       </View>
       <View style={styles.spacing}>
@@ -89,7 +100,7 @@ export const DevicesScreen: React.FC = () => {
     return (
       <SafeAreaView style={styles.container}>
         <FlatList
-          key="device"
+          key='device'
           data={selectedDeviceSection}
           scrollEnabled={true}
           renderItem={renderSwitchButtons}
@@ -104,7 +115,7 @@ export const DevicesScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        key="device-sections"
+        key='device-sections'
         data={filteredSections}
         numColumns={2}
         scrollEnabled={true}
