@@ -19,9 +19,9 @@ interface DataProps {
 }
 
 export const HomeBottomSheet = (props: any) => {
-    const navigate = useNavigation();
-    const goToRooms = () => navigate.navigate('RoomsStack');
-    const goToAutomation = () => navigate.navigate('AutomationStack');
+  const navigate = useNavigation();
+  const goToRooms = () => navigate.navigate('RoomsStack');
+  const goToAutomation = () => navigate.navigate('AutomationStack');
 
   const DATA: DataProps[] = [
     {

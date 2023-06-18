@@ -11,31 +11,10 @@ import {
 
 import styles from './styles';
 
-const OPTIONS = [
-  {
-    id: 'HomeManagements',
-    title: 'Home managements',
-    color: '#3A6598',
-    icon: 'home'
-  },
-  {
-    id: 'LogsHistory',
-    title: 'Logs history',
-    color: '#27A69E',
-    icon: 'logs'
-  }
-  /* { Temporarily Removed
-    id: 'ManageUsers',
-    title: 'Manage users',
-    color: '#169E4D',
-    icon: 'users',
-  }, */
-];
-
-const Item = ({ title, color, icon, goHome }) => (
+const Item = ({ title, color, icon, goTo }) => (
   <View>
     <TouchableOpacity
-      onPress={title === 'Home managements' ? goHome : undefined}
+      onPress={goTo}
       style={[
         styles.profileOptionContainer,
         {
@@ -47,14 +26,12 @@ const Item = ({ title, color, icon, goHome }) => (
       </View>
       <View style={styles.icons}>
         {icon === 'home' ? (
-          <ProfileHomeIcon style={{ left: 70, bottom: 13 }} />
+          <ProfileHomeIcon style={{ left: 70, bottom: 13.2 }} />
         ) : icon === 'logs' ? (
-          <ProfileLogsIcon
-            style={{ left: 65, bottom: 22 }}
-          /> /* : icon === 'users' ? (
+          <ProfileLogsIcon style={{ left: 65, bottom: 22 }} />
+        ) : /* : icon === 'users' ? (
           <ProfileUsersIcon style={{ left: 79, bottom: 7 }} /> Temporarily Removed
-        ) */
-        ) : null}
+        ) */ null}
       </View>
     </TouchableOpacity>
   </View>
@@ -63,10 +40,35 @@ const Item = ({ title, color, icon, goHome }) => (
 export const ProfileOptions = () => {
   const navigate = useNavigation();
   const goToHomeManagements = () => navigate.navigate('HomeManagements');
+  const goToLogsHistory = () => navigate.navigate('LogsHistory');
+
+  const OPTIONS = [
+    {
+      id: 'HomeManagements',
+      title: 'Home managements',
+      color: '#3A6598',
+      icon: 'home',
+      nav: goToHomeManagements
+    },
+    {
+      id: 'LogsHistory',
+      title: 'Logs history',
+      color: '#27A69E',
+      icon: 'logs',
+      nav: goToLogsHistory
+    }
+    /* { Temporarily Removed
+      id: 'ManageUsers',
+      title: 'Manage users',
+      color: '#169E4D',
+      icon: 'users',
+      nav: goToManageUsers
+    }, */
+  ];
 
   const renderOptions = ({ item }) => (
     <Item
-      goHome={goToHomeManagements}
+      goTo={item.nav}
       icon={item.icon}
       color={item.color}
       title={item.title}

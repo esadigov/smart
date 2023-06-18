@@ -22,6 +22,7 @@ import { HomeScreen } from '../screens/home';
 import { ProfileScreen } from '../screens/profile';
 import { DeletionModal } from '../screens/profile/components/DeletionModal'; // Temporary
 import { HomeManagements } from '../screens/profile/modules/HomeManagements';
+import { LogsHistory } from '../screens/profile/modules/LogsHistory';
 import { Notifications } from '../screens/profile/modules/Notifications';
 import { RoomsScreen } from '../screens/rooms';
 import { SignIn } from '../screens/signIn';
@@ -110,6 +111,7 @@ const StackNavigation = () => {
         />
         <Stack.Screen name='Profile' component={ProfileScreen} />
         <Stack.Screen name='HomeManagements' component={HomeManagements} />
+        <Stack.Screen name='LogsHistory' component={LogsHistory} />
         <Stack.Screen name='Notifications' component={Notifications} />
         <Stack.Screen name='SignIn' component={SignIn} />
         <Stack.Screen name='Password' component={Password} />

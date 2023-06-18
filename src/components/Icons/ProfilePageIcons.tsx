@@ -50,7 +50,7 @@ export const ProfileLogsIcon = ({ color = '#0F5450', ...props }) => (
   </Svg>
 );
 
-export const ProfileUsersIcon = ({ color = '#1A5EAF', ...props }) => (
+export const ProfileUsersIcon = ({ color = '#136A36', ...props }) => (
   <Svg
     width={65}
     height={83}
