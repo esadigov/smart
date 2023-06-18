@@ -45,7 +45,7 @@ const Item = ({ title, address }) => (
       </View>
     </View>
     <View style={styles.forward}>
-      <AntDesign name='right' color={'#3A6598'} size={20} />
+      <AntDesign name='right' color={'#1A5EAF'} size={20} />
     </View>
   </TouchableOpacity>
 );
@@ -67,10 +67,10 @@ export const HomeManagements = () => {
         key='backButton'
         onPress={goBack}
         style={styles.backButton}>
-        <AntDesign key='backIcon' name='left' color={'#3A6598'} size={20} />
+        <AntDesign key='backIcon' name='left' color={'#1A5EAF'} size={20} />
       </TouchableOpacity>
       <TouchableOpacity style={styles.plusButton}>
-        <AntDesign name='plus' color={'#3A6598'} size={20} />
+        <AntDesign name='plus' color={'#1A5EAF'} size={20} />
       </TouchableOpacity>
       <FlatList
         keyExtractor={item => item.id}

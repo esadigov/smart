@@ -42,7 +42,7 @@ export const Password = () => {
       setError(false);
       setInput(true);
     }
-  }, [passwordText, repeatText]);
+  }, [repeatText]);
 
   return (
     <SafeAreaView key='signInFirst' style={styles.container}>

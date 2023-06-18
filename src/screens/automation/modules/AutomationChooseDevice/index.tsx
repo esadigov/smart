@@ -2,11 +2,11 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import {
   FlatList,
   KeyboardAvoidingView,
+  TouchableOpacity,
   Platform,
   Text,
   View
 } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 

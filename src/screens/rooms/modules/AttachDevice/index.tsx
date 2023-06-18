@@ -57,7 +57,7 @@ const SelectedComponent = ({
   </View>
 );
 
-export const AttachDevice: React.FC = (props: any) => {
+export const AttachDevice: React.FC = () => {
   const { selectedDevice, searchQuery } = useAppSelector(
     state => state.roomSlice
   );
@@ -134,8 +134,8 @@ export const AttachDevice: React.FC = (props: any) => {
       />
       <View style={{ backgroundColor: '#fff', paddingTop: 20 }}>
         <Button
-          text='Done'
-          onPress={props.closeSheet}
+          text='Next'
+          onPress={() => dispatch(setSheet('AddPhoto'))}
           style={{ marginBottom: 30 }}
           disabled={!chosen.length}
         />

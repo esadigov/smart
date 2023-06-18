@@ -50,7 +50,7 @@ export const ProfileLogsIcon = ({ color = '#0F5450', ...props }) => (
   </Svg>
 );
 
-export const ProfileUsersIcon = ({ color = '#136A36', ...props }) => (
+export const ProfileUsersIcon = ({ color = '#1A5EAF', ...props }) => (
   <Svg
     width={65}
     height={83}
@@ -65,7 +65,7 @@ export const ProfileUsersIcon = ({ color = '#136A36', ...props }) => (
   </Svg>
 );
 
-export const ProfileShieldIcon = ({ color = '#3A6598', ...props }) => (
+export const ProfileShieldIcon = ({ color = '#1A5EAF', ...props }) => (
   <Svg
     width={18}
     height={20}
@@ -80,7 +80,7 @@ export const ProfileShieldIcon = ({ color = '#3A6598', ...props }) => (
   </Svg>
 );
 
-export const ProfileMessageIcon = ({ color = '#3A6598', ...props }) => (
+export const ProfileMessageIcon = ({ color = '#1A5EAF', ...props }) => (
   <Svg
     width={20}
     height={19}
@@ -95,7 +95,7 @@ export const ProfileMessageIcon = ({ color = '#3A6598', ...props }) => (
   </Svg>
 );
 
-export const ProfileLogOutIcon = ({ color = '#3A6598', ...props }) => (
+export const ProfileLogOutIcon = ({ color = '#1A5EAF', ...props }) => (
   <Svg
     width={19}
     height={18}
@@ -110,7 +110,7 @@ export const ProfileLogOutIcon = ({ color = '#3A6598', ...props }) => (
   </Svg>
 );
 
-export const HomeIconMini = ({ color = '#3A6598', ...props }) => (
+export const HomeIconMini = ({ color = '#1A5EAF', ...props }) => (
   <Svg
     width={22}
     height={21}
@@ -125,7 +125,7 @@ export const HomeIconMini = ({ color = '#3A6598', ...props }) => (
   </Svg>
 );
 
-export const RingbellIcon = ({ color = '#3A6598', ...props }) => (
+export const RingbellIcon = ({ color = '#1A5EAF', ...props }) => (
   <Svg
     width={24}
     height={24}

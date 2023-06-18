@@ -24,6 +24,7 @@ import { RoomsViewMode } from './components/RoomsViewMode';
 import { RoomSwitch } from './components/RoomSwitch.tsx';
 import { RoomSwitchRow } from './components/RoomSwitchRow.tsx';
 import { AttachDevice } from './modules/AttachDevice';
+import { AddPhoto } from './modules/AddPhoto';
 import { ChooseRoom } from './modules/ChooseRoom';
 import { CreateRoom } from './modules/CreateRoom';
 import { RoomOptions } from './modules/RoomOptions';
@@ -80,7 +81,10 @@ export const RoomsScreen: React.FC = () => {
       currentSheet = <ChooseRoom />;
       break;
     case 'AttachDevice':
-      currentSheet = <AttachDevice closeSheet={targetClose} />;
+      currentSheet = <AttachDevice />;
+      break;
+    case 'AddPhoto':
+      currentSheet = <AddPhoto closeSheet={targetClose} />;
   }
 
   const renderHeader = () => (
@@ -106,7 +110,7 @@ export const RoomsScreen: React.FC = () => {
     </>
   );
 
-  const renderRowItem = ({ item }) => (
+  const renderRowItem = ({ item }: any) => (
     <RoomSwitchRow
       key={item.id}
       title={item.name}
@@ -123,7 +127,7 @@ export const RoomsScreen: React.FC = () => {
     />
   );
 
-  const renderItem = ({ item }) => (
+  const renderItem = ({ item }: any) => (
     <RoomSwitch
       key={item.id}
       title={item.name}

@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   plusButton: {
     position: 'absolute',
-    right: 10,
+    right: 0,
     top: 2,
     backgroundColor: '#F5FAFF',
     borderRadius: 9,
